@@ -3,11 +3,13 @@
 @section('content')
 
 
-    <!-- ========== MOBILE MENU ========== -->
-    <nav id="mobile-menu"></nav>
+    @include('partials.navMobile')
+    {{-- <!-- ========== MOBILE MENU ========== -->
+    <nav id="mobile-menu"></nav> --}}
     <!-- ========== WRAPPER ========== -->
     <div class="wrapper">
-        <!-- ========== TOP MENU ========== -->
+        @include('partials.topbar')
+        {{-- <!-- ========== TOP MENU ========== -->
         <div class="topbar">
             <div class="container">
                 <div class="welcome-mssg">
@@ -48,7 +50,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- ========== HEADER ========== -->
         <header class="horizontal-header sticky-header" data-menutoggle="991">
             <div class="container">
@@ -3276,7 +3278,8 @@
                 </div>
             </div>
         </main>
-        <!-- ========== FOOTER ========== -->
+        @include('partials.footer')
+        {{-- <!-- ========== FOOTER ========== -->
         <footer>
             <div class="footer-widgets">
                 <div class="container">
@@ -3425,12 +3428,13 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --}}
     </div>
-    <div class="notification"></div>
-    <!-- ========== BACK TO TOP ========== -->
+    @include('partials.notification')
+    {{-- <div class="notification"></div> --}}
+    {{-- <!-- ========== BACK TO TOP ========== -->
     <div class="back-to-top">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
-    </div>
-    
+    </div> --}}
+
     @endsection

@@ -6,7 +6,8 @@
 
     <!-- ========== WRAPPER ========== -->
     <div class="wrapper">
-        <!-- ========== TOP MENU ========== -->
+        @include('partials.topbar')
+        {{-- <!-- ========== TOP MENU ========== -->
         <div class="topbar">
             <div class="container">
                 <div class="welcome-mssg">
@@ -47,7 +48,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- ========== HEADER ========== -->
         <header class="horizontal-header sticky-header" data-menutoggle="991">
             <div class="container">
@@ -108,7 +109,7 @@
         </header>
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op5" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
-        background-size: cover;">
+             background-size: cover;">
             <div class="container">
                 <div class="inner">
                     <h1>ISTANBUL</h1>
@@ -722,7 +723,8 @@
                 </div>
             </div>
         </main>
-        <!-- ========== FOOTER ========== -->
+        @include('partials.footer')
+        {{-- <!-- ========== FOOTER ========== -->
         <footer>
             <div class="footer-widgets">
                 <div class="container">
@@ -869,7 +871,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --}}
     </div>
     @include('partials.notification')
 
