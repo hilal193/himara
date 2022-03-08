@@ -19,19 +19,19 @@
         <nav id="main-menu" class="main-menu">
             <ul class="menu">
                 <li class="menu-item dropdown active">
-                    <a href={{ route("home") }}>HOME</a>
+                    <a href={{ route('home') }}>HOME</a>
                 </li>
                 <li class="menu-item dropdown">
-                    <a href={{ route("roomslist") }}>ROOMS</a>
+                    <a href={{ route('roomslist') }}>ROOMS</a>
                 </li>
                 <li class="menu-item dropdown">
-                    <a href={{ route("staff") }}>TEAM</a>
+                    <a href={{ route('staff') }}>TEAM</a>
                 </li>
                 <li class="menu-item dropdown">
-                    <a href={{ route("gallery") }}>GALLERY</a>
+                    <a href={{ route('gallery') }}>GALLERY</a>
                 </li>
                 <li class="menu-item">
-                    <a href={{ route("contact") }}>CONTACT US</a>
+                    <a href={{ route('contact') }}>CONTACT US</a>
                 </li>
                 {{-- <li class="menu-item dropdown">
                     <a href="#">ELEMENTS</a>
@@ -47,13 +47,53 @@
                         </li>
                     </ul>
                 </li> --}}
-                <li class="menu-item menu-btn">
+
+
+                {{-- <li class="menu-item menu-btn">
                     <a href="booking-form.html" class="btn">
                         <i class="fa fa-user"></i>
                         LOG IN</a>
+                </li> --}}
+
+                <li class="menu-item menu-btn">
+                    @if (Route::has('login'))
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="btn">
+                                <i class="fa fa-user"></i>
+                                DASHBOARD</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn">
+                                <i class="fa fa-user"></i>
+                                LOG IN</a>
+                        @endauth
+                    @endif
                 </li>
+
+                {{-- <p>
+                    @if (Route::has('login'))
+                        @auth
+                            <li>
+
+                                <a href="{{ url('/dashboard') }}"
+                                    class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                            </li>
+                        @else
+                            <li>
+
+                                <a href="{{ route('login') }}"
+                                    class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                            </li>
+
+                            @if (Route::has('register'))
+                                <li>
+                                    <a href="{{ route('register') }}"
+                                        class=" text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                </li>
+                            @endif
+                        @endauth
+                    @endif
+                </p> --}}
             </ul>
         </nav>
     </div>
 </header>
-
