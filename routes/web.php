@@ -14,13 +14,18 @@ use App\Http\Controllers\FrontController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name("home");
+// Route::get('/', function () {
+//     return view('home');
+// })->name("home");
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/', [FrontController::class,"home"])->name('home');
+
+
+// Route::get('/admin/dashboard', function () {
+//     return view('admin.dashboard');
+// })->middleware(['auth'])->name('dashboard');
+Route::get('/admin/dashboard', [FrontController::class,"admin"])->middleware(["auth"])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
 
@@ -34,3 +39,5 @@ Route::get('/pages/EventDetails', [FrontController::class,"eventdetails"])->name
 Route::get('/pages/Staff', [FrontController::class,"staff"])->name('staff');
 Route::get('/pages/Loading', [FrontController::class,"loading"])->name('loading');
 Route::get('/pages/Contact', [FrontController::class,"contact"])->name('contact');
+
+

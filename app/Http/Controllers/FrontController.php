@@ -56,4 +56,14 @@ class FrontController extends Controller
     {
         return view("pages.contact");
     }
+
+    public function admin()
+    {
+        return view("admin.dashboard");
+    }
+
+    public function home()
+    {
+       return view("home");
+    }
 }

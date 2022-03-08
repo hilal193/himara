@@ -58,7 +58,7 @@
                 <li class="menu-item menu-btn">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="btn">
+                            <a href="{{ url('/admin/dashboard') }}" class="btn">
                                 <i class="fa fa-user"></i>
                                 DASHBOARD</a>
                         @else
