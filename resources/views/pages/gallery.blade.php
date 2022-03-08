@@ -7,106 +7,10 @@
     <!-- ========== WRAPPER ========== -->
     <div class="wrapper">
         @include('partials.topbar')
-        {{-- <!-- ========== TOP MENU ========== -->
-        <div class="topbar">
-            <div class="container">
-                <div class="welcome-mssg">
-                    Welcome to Hotel Himara.
-                </div>
-                <div class="top-right-menu">
-                    <ul class="top-menu">
-                        <li class="d-none d-md-inline">
-                            <a href="tel:+18881234567">
-                                <i class="fa fa-phone"></i>+1 888 123 4567
-                            </a>
-                        </li>
-                        <li class="d-none d-md-inline">
-                            <a href="mailto:contact@hotelhimara.com">
-                                <i class="fa fa-envelope-o "></i>contact@hotelhimara.com</a>
-                        </li>
-                        <li class="language-menu">
-                            <a href="#" class="active-language"><img src="images/icons/flags/gb.png"
-                                    alt="Image">English</a>
-                            <ul class="languages">
-                                <li class="language">
-                                    <a href="#"><img src="images/icons/flags/it.png" alt="Image">Italiano</a>
-                                </li>
-                                <li class="language">
-                                    <a href="#"><img src="images/icons/flags/gr.png" alt="Image">Ελληνικα</a>
-                                </li>
-                                <li class="language">
-                                    <a href="#"><img src="images/icons/flags/al.png" alt="Image">Shqip</a>
-                                </li>
-                                <li class="language">
-                                    <a href="#"><img src="images/icons/flags/fr.png" alt="Image">Français</a>
-                                </li>
-                                <li class="language">
-                                    <a href="#"><img src="images/icons/flags/es.png" alt="Image">Español</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div> --}}
-        <!-- ========== HEADER ========== -->
-        <header class="horizontal-header sticky-header" data-menutoggle="991">
-            <div class="container">
-                <!-- BRAND -->
-                <div class="brand">
-                    <div class="logo">
-                        <a href="index.html">
-                            <img src="images/logo.svg" alt="Hotel Himara">
-                        </a>
-                    </div>
-                </div>
-                <!-- MOBILE MENU BUTTON -->
-                <div id="toggle-menu-button" class="toggle-menu-button">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </div>
-                <!-- MAIN MENU -->
-                <nav id="main-menu" class="main-menu">
-                    <ul class="menu">
-                        <li class="menu-item dropdown active">
-                            <a href="index.html">HOME</a>
-                        </li>
-                        <li class="menu-item dropdown">
-                            <a href="rooms-list.html">ROOMS</a>
-                        </li>
-                        <li class="menu-item dropdown">
-                            <a href="staff.html">TEAM</a>
-                        </li>
-                        <li class="menu-item dropdown">
-                            <a href="gallery.html">GALLERY</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="contact.html">CONTACT US</a>
-                        </li>
-                        <li class="menu-item dropdown">
-                            <a href="#">ELEMENTS</a>
-                            <ul class="submenu">
-                                <li class="menu-item">
-                                    <a href="style-guide.html">Style Guide</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="icons.html">Icons</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item menu-btn">
-                            <a href="booking-form.html" class="btn">
-                                <i class="fa fa-user"></i>
-                                LOG IN</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+
+        @include('partials.navbar')
+
+
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op6" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
             background-size: cover;">
@@ -140,7 +44,7 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-swimmingpool col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery1.jpg">
+                            <a href={{ asset("images/gallery/gallery1.jpg") }}>
                                 <img src="images/gallery/gallery1.jpg" class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Swimming Pool</figcaption>
@@ -149,8 +53,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-roomview col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery2.jpg">
-                                <img src="images/gallery/gallery2.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery2.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery2.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Room View</figcaption>
                         </figure>
@@ -158,8 +62,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery3.jpg">
-                                <img src="images/gallery/gallery3.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery3.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery3.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Cocktail</figcaption>
                         </figure>
@@ -167,8 +71,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-restaurnat col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery4.jpg">
-                                <img src="images/gallery/gallery4.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery4.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery4.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Breakfast</figcaption>
                         </figure>
@@ -176,8 +80,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery5.jpg">
-                                <img src="images/gallery/gallery5.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery5.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery5.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Playground</figcaption>
                         </figure>
@@ -185,8 +89,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-restaurnat col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery6.jpg">
-                                <img src="images/gallery/gallery6.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery6.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery6.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Restaurant</figcaption>
                         </figure>
@@ -194,8 +98,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery7.jpg">
-                                <img src="images/gallery/gallery7.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery7.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery7.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Wedding Ceremony</figcaption>
                         </figure>
@@ -203,8 +107,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-roomview col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery8.jpg">
-                                <img src="images/gallery/gallery8.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery8.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery8.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Beach</figcaption>
                         </figure>
@@ -212,8 +116,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery9.jpg">
-                                <img src="images/gallery/gallery9.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery9.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery9.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Honeymoon Room</figcaption>
                         </figure>
@@ -221,8 +125,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-roomview col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery10.jpg">
-                                <img src="images/gallery/gallery10.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery10.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery10.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Sea</figcaption>
                         </figure>
@@ -230,8 +134,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-spa col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery11.jpg">
-                                <img src="images/gallery/gallery11.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery11.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery11.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Spa Therapy</figcaption>
                         </figure>
@@ -239,8 +143,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-restaurnat col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery12.jpg">
-                                <img src="images/gallery/gallery12.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery12.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery12.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Restaurant</figcaption>
                         </figure>
@@ -248,8 +152,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-roomview filter-restaurnat col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery13.jpg">
-                                <img src="images/gallery/gallery13.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery13.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery13.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Restaurant</figcaption>
                         </figure>
@@ -257,8 +161,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery14.jpg">
-                                <img src="images/gallery/gallery14.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery14.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery14.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Sea</figcaption>
                         </figure>
@@ -266,8 +170,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-restaurnat col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery15.jpg">
-                                <img src="images/gallery/gallery15.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery15.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery15.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Restaurant</figcaption>
                         </figure>
@@ -275,8 +179,8 @@
                     <!-- ITEM -->
                     <div class="gallery-item filter-roomview col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="images/gallery/gallery16.jpg">
-                                <img src="images/gallery/gallery16.jpg" class="img-fluid" alt="Image">
+                            <a href={{ asset("images/gallery/gallery16.jpg") }}>
+                                <img src={{ asset("images/gallery/gallery16.jpg") }} class="img-fluid" alt="Image">
                             </a>
                             <figcaption>Room View</figcaption>
                         </figure>

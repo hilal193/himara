@@ -1142,7 +1142,7 @@ Version:       1.1.0
         } else {
           revapi9 = tpj("#rev-slider-event").show().revolution({
             sliderType: "hero",
-            jsFileLocation: "revolution/js/", 
+            jsFileLocation: "revolution/js/",
             dottedOverlay: "twoxtwo",
             delay: 9000,
             navigation: {},
@@ -2103,8 +2103,10 @@ Version:       1.1.0
     function initialize() {
       var map;
       var panorama;
-      var var_latitude = 39.7715865; // Google Map Latitude
-      var var_longitude = 19.997841; // Google Map Longitude
+    //   var var_latitude = 39.7715865; // Google Map Latitude
+    //   var var_longitude = 19.997841; // Google Map Longitude
+      var var_latitude = 50.855545520427604; // Google Map Latitude
+      var var_longitude = 4.341250284033105; // Google Map Longitude
       var pin = 'images/icons/pin.svg';
 
       //Map pin-window details

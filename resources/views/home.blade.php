@@ -16,7 +16,8 @@
 <nav id="mobile-menu"></nav> --}}
 <!-- ========== WRAPPER ========== -->
 <div class="wrapper">
-    <!-- ========== TOP MENU ========== -->
+    @include('partials.topbar')
+    {{-- <!-- ========== TOP MENU ========== -->
     <div class="topbar">
         <div class="container">
             <div class="welcome-mssg">
@@ -62,8 +63,9 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <!-- ========== HEADER ========== -->
+    </div> --}}
+    @include('partials.navbar')
+    {{-- <!-- ========== HEADER ========== -->
     <header class="horizontal-header sticky-header" data-menutoggle="991">
         <div class="container">
             <!-- BRAND -->
@@ -120,7 +122,7 @@
                 </ul>
             </nav>
         </div>
-    </header>
+    </header> --}}
     <!-- ========== REVOLUTION SLIDER ========== -->
     <div class="slider">
         <div id="rev-slider-1" class="rev_slider gradient-slider" style="display:none" data-version="5.4.5">
@@ -1179,7 +1181,8 @@
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    @include('partials.footer')
+    {{-- <!-- ========== FOOTER ========== -->
     <footer>
         <div class="footer-widgets">
             <div class="container">
@@ -1327,7 +1330,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 </div>
 @include('partials.contactNotif')
 

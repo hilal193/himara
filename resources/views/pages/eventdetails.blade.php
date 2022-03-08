@@ -7,7 +7,8 @@
     <nav id="mobile-menu"></nav> --}}
     <!-- ========== WRAPPER ========== -->
     <div class="wrapper">
-        <!-- ========== HEADER ========== -->
+        @include('partials.navbar')
+        {{-- <!-- ========== HEADER ========== -->
         <header class="horizontal-header sticky-header" data-menutoggle="991">
             <div class="container">
                 <!-- BRAND -->
@@ -64,7 +65,8 @@
                     </ul>
                 </nav>
             </div>
-        </header>
+        </header> --}}
+        
         <!-- ========== REVOLUTION SLIDER ========== -->
         <div id="rev-slider-event" class="rev_slider gradient-slider" data-version="5.4.5">
             <ul>
