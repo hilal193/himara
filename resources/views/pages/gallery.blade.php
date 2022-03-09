@@ -41,17 +41,23 @@
             <!-- GALLERY -->
             <div class="container">
                 <div class="grid image-gallery row">
+                    @foreach ($imageAll as $item)
                     <!-- ITEM -->
-                    <div class="gallery-item filter-swimmingpool col-md-3">
+                    {{-- @dump($item->categorie_image->filter) --}}
+                    <div class="gallery-item {{ $item->categorie_image->filter }} col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href={{ asset("images/gallery/gallery1.jpg") }}>
-                                <img src="images/gallery/gallery1.jpg" class="img-fluid" alt="Image">
+                            <a href="{{ asset('/images/gallery/'. $item->url) }}">
+                                {{-- <a href={{ asset("images/gallery/gallery1.jpg") }}> --}}
+                                {{-- <img src="images/gallery/gallery1.jpg" class="img-fluid" alt="Image"> --}}
+                        <img src="{{ asset('/images/gallery/'. $item->url) }}" class="img-fluid" alt="Image">
                             </a>
-                            <figcaption>Swimming Pool</figcaption>
+                            <figcaption>{{ $item->nom }}</figcaption>
                         </figure>
                     </div>
+
+                    @endforeach
                     <!-- ITEM -->
-                    <div class="gallery-item filter-roomview col-md-3">
+                    {{-- <div class="gallery-item filter-roomview col-md-3">
                         <figure class="gradient-overlay image-icon">
                             <a href={{ asset("images/gallery/gallery2.jpg") }}>
                                 <img src={{ asset("images/gallery/gallery2.jpg") }} class="img-fluid" alt="Image">
@@ -184,7 +190,7 @@
                             </a>
                             <figcaption>Room View</figcaption>
                         </figure>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </main>

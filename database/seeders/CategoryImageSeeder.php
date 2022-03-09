@@ -15,25 +15,25 @@ class CategoryImageSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('categories')->insert([
+        DB::table('categorie_images')->insert([
             [
                 "nom"=>"restaurant",
-                "filter"=>".filter-restaurnat",
+                "filter"=>"filter-restaurnat",
                 "created_at"=>now(),
             ],
             [
                 "nom"=>"swimmingpool",
-                "filter"=>".filter-swimmingpool",
+                "filter"=>"filter-swimmingpool",
                 "created_at"=>now(),
             ],
             [
                 "nom"=>"spa",
-                "filter"=>".filter-spa",
+                "filter"=>"filter-spa",
                 "created_at"=>now(),
             ],
             [
                 "nom"=>"roomview",
-                "filter"=>".filter-roomview",
+                "filter"=>"filter-roomview",
                 "created_at"=>now(),
             ],
         ]);

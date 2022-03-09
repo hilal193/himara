@@ -17,6 +17,9 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string("nom");
             $table->string("url");
+            // fk
+            $table->unsignedBigInteger('categorie_image_id');
+            $table->foreign('categorie_image_id')->references('id')->on("categorie_images");
             $table->timestamps();
         });
     }

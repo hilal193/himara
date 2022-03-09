@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -28,7 +29,8 @@ class FrontController extends Controller
 
     public function gallery()
     {
-        return view("pages.gallery");
+        $imageAll = Image::all();
+        return view("pages.gallery",compact("imageAll"));
     }
 
 
