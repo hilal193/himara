@@ -9,7 +9,7 @@
         @include('partials.topbar')
 
         @include('partials.navbar')
-     
+
 
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op6" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
@@ -19,7 +19,7 @@
                     <h1>Blog</h1>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href={{ route("home") }}>Home</a>
                         </li>
                         <li>Blog</li>
                     </ol>
@@ -40,7 +40,7 @@
                                         <div class="post-thumbnail">
                                             <figure class="gradient-overlay-hover link-icon">
                                                 <a href="blog-post.html">
-                                                    <img src="images/blog/blog-post1.jpg" class="img-fluid"
+                                                    <img src={{ asset("images/blog/blog-post1.jpg") }} class="img-fluid"
                                                         alt="Image">
                                                 </a>
                                             </figure>
@@ -53,7 +53,7 @@
                                             </h2>
                                             <div class="post-meta">
                                                 <span class="author">
-                                                    <a href="#"><img src="images/users/admin.jpg" width="16"
+                                                    <a href="#"><img src={{ asset("images/users/admin.jpg") }} width="16"
                                                             alt="Image">JANE Doe</a>
                                                 </span>
                                                 <span class="date">
@@ -85,7 +85,7 @@
                                         <div class="post-thumbnail">
                                             <figure class="gradient-overlay-hover link-icon">
                                                 <a href="blog-post.html">
-                                                    <img src="images/blog/blog-post2.jpg" class="img-fluid"
+                                                    <img src={{ asset("images/blog/blog-post2.jpg") }} class="img-fluid"
                                                         alt="Image">
                                                 </a>
                                             </figure>
@@ -98,7 +98,7 @@
                                             </h2>
                                             <div class="post-meta">
                                                 <span class="author">
-                                                    <a href="#"><img src="images/users/admin.jpg" width="16"
+                                                    <a href="#"><img src={{ asset("images/users/admin.jpg") }} width="16"
                                                             alt="Image">JANE Doe</a>
                                                 </span>
                                                 <span class="date">
@@ -129,7 +129,7 @@
                                         <div class="post-thumbnail">
                                             <figure class="gradient-overlay-hover link-icon">
                                                 <a href="blog-post.html">
-                                                    <img src="images/blog/blog-post3.jpg" class="img-fluid"
+                                                    <img src={{ asset("images/blog/blog-post3.jpg") }} class="img-fluid"
                                                         alt="Image">
                                                 </a>
                                             </figure>
@@ -142,7 +142,7 @@
                                             </h2>
                                             <div class="post-meta">
                                                 <span class="author">
-                                                    <a href="#"><img src="images/users/admin.jpg" width="16"
+                                                    <a href="#"><img src={{ asset("images/users/admin.jpg") }} width="16"
                                                             alt="Image">JANE Doe</a>
                                                 </span>
                                                 <span class="date">
@@ -174,7 +174,7 @@
                                         <div class="post-thumbnail">
                                             <figure class="gradient-overlay-hover link-icon">
                                                 <a href="blog-post.html">
-                                                    <img src="images/blog/blog-post4.jpg" class="img-fluid"
+                                                    <img src={{ asset("images/blog/blog-post4.jpg") }} class="img-fluid"
                                                         alt="Image">
                                                 </a>
                                             </figure>
@@ -188,7 +188,7 @@
                                             </h2>
                                             <div class="post-meta">
                                                 <span class="author">
-                                                    <a href="#"><img src="images/users/admin.jpg" width="16"
+                                                    <a href="#"><img src={{ asset("images/users/admin.jpg") }} width="16"
                                                             alt="Image">JANE Doe</a>
                                                 </span>
                                                 <span class="date">
@@ -220,7 +220,7 @@
                                         <div class="post-thumbnail">
                                             <figure class="gradient-overlay-hover link-icon">
                                                 <a href="blog-post.html">
-                                                    <img src="images/blog/blog-post5.jpg" class="img-fluid"
+                                                    <img src={{ asset("images/blog/blog-post5.jpg") }} class="img-fluid"
                                                         alt="Image">
                                                 </a>
                                             </figure>
@@ -233,7 +233,7 @@
                                             </h2>
                                             <div class="post-meta">
                                                 <span class="author">
-                                                    <a href="#"><img src="images/users/admin.jpg" width="16"
+                                                    <a href="#"><img src={{ asset("images/users/admin.jpg") }} width="16"
                                                             alt="Image">JANE Doe</a>
                                                 </span>
                                                 <span class="date">
@@ -265,7 +265,7 @@
                                         <div class="post-thumbnail">
                                             <figure class="gradient-overlay-hover link-icon">
                                                 <a href="blog-post.html">
-                                                    <img src="images/blog/blog-post6.jpg" class="img-fluid"
+                                                    <img src={{ asset("images/blog/blog-post6.jpg") }} class="img-fluid"
                                                         alt="Image">
                                                 </a>
                                             </figure>
@@ -278,7 +278,7 @@
                                             </h2>
                                             <div class="post-meta">
                                                 <span class="author">
-                                                    <a href="#"><img src="images/users/admin.jpg" width="16"
+                                                    <a href="#"><img src={{ asset("images/users/admin.jpg") }} width="16"
                                                             alt="Image">JANE Doe</a>
                                                 </span>
                                                 <span class="date">
@@ -392,7 +392,7 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src="images/blog/blog-post1.jpg" class="img-fluid"
+                                                        <img src={{ asset("images/blog/blog-post1.jpg") }} class="img-fluid"
                                                             alt="Image">
                                                     </a>
                                                 </figure>
@@ -412,7 +412,7 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src="images/blog/blog-post2.jpg" class="img-fluid"
+                                                        <img src={{ asset("images/blog/blog-post2.jpg") }} class="img-fluid"
                                                             alt="Image">
                                                     </a>
                                                 </figure>
@@ -433,7 +433,7 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src="images/blog/blog-post3.jpg" class="img-fluid"
+                                                        <img src={{ asset("images/blog/blog-post3.jpg") }} class="img-fluid"
                                                             alt="Image">
                                                     </a>
                                                 </figure>
@@ -453,7 +453,7 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src="images/blog/blog-post4.jpg" class="img-fluid"
+                                                        <img src={{ asset("images/blog/blog-post4.jpg") }} class="img-fluid"
                                                             alt="Image">
                                                     </a>
                                                 </figure>
@@ -474,7 +474,7 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src="images/blog/blog-post5.jpg" class="img-fluid"
+                                                        <img src={{ asset("images/blog/blog-post5.jpg") }} class="img-fluid"
                                                             alt="Image">
                                                     </a>
                                                 </figure>

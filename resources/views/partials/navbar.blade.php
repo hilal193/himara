@@ -28,6 +28,9 @@
                     <a href={{ route('staff') }}>TEAM</a>
                 </li>
                 <li class="menu-item dropdown">
+                    <a href={{ route('blog') }}>BLOG</a>
+                </li>
+                <li class="menu-item dropdown">
                     <a href={{ route('gallery') }}>GALLERY</a>
                 </li>
                 <li class="menu-item">

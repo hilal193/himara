@@ -41,3 +41,23 @@ Route::get('/pages/Loading', [FrontController::class,"loading"])->name('loading'
 Route::get('/pages/Contact', [FrontController::class,"contact"])->name('contact');
 
 
+// route par page admin
+Route::get('/dashboard/room', function () {
+    return view('admin.room.index');
+})->middleware(['auth'])->name('room.index');
+
+Route::get('/dashboard/staff', function () {
+    return view('admin.staff.index');
+})->middleware(['auth'])->name('staff.index');
+
+Route::get('/dashboard/blog', function () {
+    return view('admin.blog.index');
+})->middleware(['auth'])->name('blog.index');
+
+Route::get('/dashboard/gallery', function () {
+    return view('admin.gallery.index');
+})->middleware(['auth'])->name('gallery.index');
+
+Route::get('/dashboard/contact', function () {
+    return view('admin.contact.index');
+})->middleware(['auth'])->name('contact.index');
