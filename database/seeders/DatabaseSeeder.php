@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\CategorieImage;
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
+            CategorieImage::class,
+            Image::class,
         ]);
     }
 }
