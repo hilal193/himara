@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,10 +55,15 @@ Route::get('/dashboard/blog', function () {
     return view('admin.blog.index');
 })->middleware(['auth'])->name('blog.index');
 
-Route::get('/dashboard/gallery', function () {
-    return view('admin.gallery.index');
-})->middleware(['auth'])->name('gallery.index');
+// Route::get('/dashboard/gallery', function () {
+//     return view('admin.gallery.index');
+// })->middleware(['auth'])->name('gallery.index');
+Route::get('/dashboard/gallery', [GalleryController::class,"affichage"])->middleware(["auth"])->name('gallery.index');
+
 
 Route::get('/dashboard/contact', function () {
     return view('admin.contact.index');
 })->middleware(['auth'])->name('contact.index');
+
+// affichage par page admin
+
