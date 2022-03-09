@@ -43,6 +43,27 @@ class ImageSeeder extends Seeder
                 "created_at"=>now(),
 
             ],
+            [
+                "nom"=>"breakfast",
+                "url"=>"gallery4.jpg",
+                "categorie_image_id"=>1,
+                "created_at"=>now(),
+
+            ],
+            [
+                "nom"=>"lit",
+                "url"=>"gallery9.jpg",
+                "categorie_image_id"=>4,
+                "created_at"=>now(),
+
+            ],
+            [
+                "nom"=>"mer",
+                "url"=>"gallery10.jpg",
+                "categorie_image_id"=>3,
+                "created_at"=>now(),
+
+            ],
         ]);
 
     }
