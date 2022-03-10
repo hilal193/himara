@@ -60,7 +60,8 @@
 <body>
 
 
-    <div id="main">
+    <div id="app">
+    {{-- <div id="main"> --}}
         @include('partials.navbarBackoffice')
         <div id="main">
             @include('partials.hamburgerBackoffice')
