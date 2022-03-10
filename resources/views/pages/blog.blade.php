@@ -51,7 +51,7 @@
                                         <div class="col-sm-8">
                                             <div class="post-details">
                                                 <h2 class="post-title">
-                                                    <a href="blog-post.html">{{ $item->titre }}</a>
+                                                    <a href="blog-post.html">{{ $item->title }}</a>
                                                 </h2>
                                                 <div class="post-meta">
                                                     <span class="author">
@@ -354,17 +354,23 @@
                     </div>
                     <!-- SIDEBAR -->
                     <div class="col-lg-3 col-12">
+
                         <div class="sidebar">
+                            {{-- research --}}
+
                             <aside class="widget noborder">
                                 <div class="search">
-                                    <form class="widget-search">
-                                        <input type="search" placeholder="Search">
+                                    <form class="widget-search" action="{{ route('search') }}" method="POST">
+                                    @csrf
+                                        <input type="search" placeholder="Search" onfocus="this.placeholder ='' " onblur="this.placeholder='Search' " name="data">
+
                                         <button class="btn-search" id="searchsubmit" type="submit">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </form>
                                 </div>
                             </aside>
+
                             <!-- WIDGET -->
                             <aside class="widget">
                                 <h4 class="widget-title">CATEGORIES</h4>

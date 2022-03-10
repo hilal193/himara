@@ -82,10 +82,10 @@ class FrontController extends Controller
         //  return view('blog', compact('blogs', 'data'));
 
          $data = $request->data;
-         $articles= Article::where('title', 'like', "%$data%")
+         $blog= Article::where('title', 'like', "%$data%")
                  ->get();
 
-         return view('article', compact('articles', 'data'));
+         return view('pages.blog', compact('blog', 'data'));
 
      }
 }
