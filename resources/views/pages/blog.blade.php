@@ -506,9 +506,12 @@
                             <aside class="widget">
                                 <h4 class="widget-title">Tags</h4>
                                 <div class="tagcloud">
+                                    @foreach ($tag as $item)
                                     <a href="#">
-                                        <span class="tag">Party</span></a>
-                                    <a href="#">
+                                        <span class="tag">{{ $item->nom }}</span></a>
+
+                                    @endforeach
+                                    {{-- <a href="#">
                                         <span class="tag">Travel</span></a>
                                     <a href="#">
                                         <span class="tag">Wedding</span></a>
@@ -521,7 +524,7 @@
                                     <a href="#">
                                         <span class="tag">Image</span></a>
                                     <a href="#">
-                                        <span class="tag">Hotel</span></a>
+                                        <span class="tag">Hotel</span></a> --}}
                                 </div>
                             </aside>
                         </div>

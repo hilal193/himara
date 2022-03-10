@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Blog;
 use App\Models\Image;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -22,7 +23,8 @@ class FrontController extends Controller
     public function blog()
     {
         $blog = Article::all();
-        return view("pages.blog",compact("blog"));
+        $tag = Tag::all();
+        return view("pages.blog",compact("blog","tag"));
     }
 
     public function page()
@@ -75,11 +77,6 @@ class FrontController extends Controller
      // LOGIQUE pour la barre de recherche
      public function search(Request $request)
      {
-        //  $data = $request->data;
-        //  $blogs= Blog::where('title', 'like', "%$data%")
-        //          ->get();
-
-        //  return view('blog', compact('blogs', 'data'));
 
          $data = $request->data;
          $blog= Article::where('title', 'like', "%$data%")
