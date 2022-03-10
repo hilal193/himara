@@ -1,7 +1,6 @@
 @extends('layouts.index')
 
 @section('content')
-
     @include('partials.navMobile')
 
     <!-- ========== WRAPPER ========== -->
@@ -13,13 +12,13 @@
 
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op6" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
-            background-size: cover;">
+                background-size: cover;">
             <div class="container">
                 <div class="inner">
                     <h1>Blog</h1>
                     <ol class="breadcrumb">
                         <li>
-                            <a href={{ route("home") }}>Home</a>
+                            <a href={{ route('home') }}>Home</a>
                         </li>
                         <li>Blog</li>
                     </ol>
@@ -33,52 +32,58 @@
                     <div class="col-lg-9 col-12">
                         <!-- POSTS -->
                         <div class="blog-posts">
-                            <!-- POST -->
-                            <article class="post">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="post-thumbnail">
-                                            <figure class="gradient-overlay-hover link-icon">
-                                                <a href="blog-post.html">
-                                                    <img src={{ asset("images/blog/blog-post1.jpg") }} class="img-fluid"
-                                                        alt="Image">
-                                                </a>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="post-details">
-                                            <h2 class="post-title">
-                                                <a href="blog-post.html">10 Tips for Holiday Travel</a>
-                                            </h2>
-                                            <div class="post-meta">
-                                                <span class="author">
-                                                    <a href="#"><img src={{ asset("images/users/admin.jpg") }} width="16"
-                                                            alt="Image">JANE Doe</a>
-                                                </span>
-                                                <span class="date">
-                                                    <a href="#">
-                                                        <i class="fa fa-clock-o"></i>August 13, 2017</a>
-                                                </span>
-                                                <span class="comments">
-                                                    <a href="#">
-                                                        <i class="fa fa-commenting-o"></i>1 Comment</a>
-                                                </span>
-                                                <span class="category">
-                                                    <i class="fa fa-folder-open-o"></i>IN
-                                                    <a href="#">News</a>,
-                                                    <a href="#">Events</a>
-                                                </span>
+                            @foreach ($blog as $item)
+                                <!-- POST -->
+                                <article class="post">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="post-thumbnail">
+                                                <figure class="gradient-overlay-hover link-icon">
+                                                    <a href="blog-post.html">
+                                                        <img src="{{ asset('/images/blog/'. $item->img) }}"
+                                                            class="img-fluid" alt="Image">
+                                                        {{-- <img src={{ asset('images/blog/blog-post1.jpg') }} --}}
+                                                        {{-- class="img-fluid" alt="Image"> --}}
+                                                    </a>
+                                                </figure>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet
-                                                reiciendis ducimus deserunt non dolorum, distinctio repellendus eaque,
-                                                officiis dicta! Sit numquam qui tenetur tempore officia minus, a
-                                                dignissimos ...</p>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="post-details">
+                                                <h2 class="post-title">
+                                                    <a href="blog-post.html">{{ $item->titre }}</a>
+                                                </h2>
+                                                <div class="post-meta">
+                                                    <span class="author">
+                                                <a href="#"><img src={{ asset('images/users/admin.jpg') }} width="16" alt="Image">{{ $item->auteur }}</a>
+                                                {{-- <a href="#"><img src={{ asset('images/users/admin.jpg') }} width="16" alt="Image">{{ $item->auteur }}</a> --}}
+
+
+                                                    {{-- <a href="#"><img src={{ asset('images/users/admin.jpg') }} width="16" alt="Image">{{ $item->auteur }}</a> --}}
+                                                    </span>
+                                                    <span class="date">
+                                                        <a href="#">
+                                                            <i class="fa fa-clock-o"></i>{{ $item->creation }}</a>
+                                                    </span>
+                                                    <span class="comments">
+                                                        <a href="#">
+                                                            <i class="fa fa-commenting-o"></i>1 Comment</a>
+                                                    </span>
+                                                    <span class="category">
+                                                        <i class="fa fa-folder-open-o"></i>IN
+                                                        <a href="#">News</a>,
+                                                        <a href="#">Events</a>
+                                                    </span>
+                                                </div>
+                                                <p>{{ $item->description }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </article>
-                            <!-- POST -->
+                                </article>
+                            @endforeach
+
+
+                            {{-- <!-- POST -->
                             <article class="post">
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -302,7 +307,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </article>
+                            </article> --}}
                         </div>
                         <!-- ========== PAGINATION ========== -->
                         <nav class="pagination">
@@ -392,8 +397,8 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src={{ asset("images/blog/blog-post1.jpg") }} class="img-fluid"
-                                                            alt="Image">
+                                                        <img src={{ asset('images/blog/blog-post1.jpg') }}
+                                                            class="img-fluid" alt="Image">
                                                     </a>
                                                 </figure>
                                             </div>
@@ -412,8 +417,8 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src={{ asset("images/blog/blog-post2.jpg") }} class="img-fluid"
-                                                            alt="Image">
+                                                        <img src={{ asset('images/blog/blog-post2.jpg') }}
+                                                            class="img-fluid" alt="Image">
                                                     </a>
                                                 </figure>
                                             </div>
@@ -433,8 +438,8 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src={{ asset("images/blog/blog-post3.jpg") }} class="img-fluid"
-                                                            alt="Image">
+                                                        <img src={{ asset('images/blog/blog-post3.jpg') }}
+                                                            class="img-fluid" alt="Image">
                                                     </a>
                                                 </figure>
                                             </div>
@@ -453,8 +458,8 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src={{ asset("images/blog/blog-post4.jpg") }} class="img-fluid"
-                                                            alt="Image">
+                                                        <img src={{ asset('images/blog/blog-post4.jpg') }}
+                                                            class="img-fluid" alt="Image">
                                                     </a>
                                                 </figure>
                                             </div>
@@ -474,8 +479,8 @@
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src={{ asset("images/blog/blog-post5.jpg") }} class="img-fluid"
-                                                            alt="Image">
+                                                        <img src={{ asset('images/blog/blog-post5.jpg') }}
+                                                            class="img-fluid" alt="Image">
                                                     </a>
                                                 </figure>
                                             </div>
@@ -674,7 +679,4 @@
     {{-- <div class="back-to-top">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
     </div> --}}
-
-
-
 @endsection

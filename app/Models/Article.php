@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+    public function categorie_article()
+    {
+        return $this->belongsTo(categorieArticle::class, 'categorie_article_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, "articles_tags");
+    }
 }

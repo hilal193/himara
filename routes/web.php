@@ -40,6 +40,8 @@ Route::get('/pages/EventDetails', [FrontController::class,"eventdetails"])->name
 Route::get('/pages/Staff', [FrontController::class,"staff"])->name('staff');
 Route::get('/pages/Loading', [FrontController::class,"loading"])->name('loading');
 Route::get('/pages/Contact', [FrontController::class,"contact"])->name('contact');
+// fonction recherche
+Route::post('/search', [FrontController::class, "search"])->name('search');
 
 
 // route par page admin
@@ -66,4 +68,5 @@ Route::get('/dashboard/contact', function () {
 })->middleware(['auth'])->name('contact.index');
 
 // affichage par page admin
+
 
