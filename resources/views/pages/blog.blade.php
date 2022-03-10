@@ -403,13 +403,14 @@
                             <aside class="widget">
                                 <h4 class="widget-title">Latest Posts</h4>
                                 <div class="latest-posts">
+                                    @foreach ($blogLast as $item)
                                     <!-- ITEM -->
                                     <div class="latest-post-item">
                                         <div class="row">
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
                                                     <a href="blog-post.html">
-                                                        <img src={{ asset('images/blog/blog-post1.jpg') }}
+                                                        <img src="{{ asset('/images/blog/'. $item->img) }}"
                                                             class="img-fluid" alt="Image">
                                                     </a>
                                                 </figure>
@@ -417,13 +418,15 @@
                                             <div class="col-7">
                                                 <div class="post-details">
                                                     <h6 class="post-title">
-                                                        <a href="blog-post.html">10 Tips for Holiday Travel</a>
+                                                        <a href="blog-post.html">{{ $item->title }}</a>
                                                     </h6>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- ITEM -->
+
+                                    @endforeach
+                                    {{-- <!-- ITEM -->
                                     <div class="latest-post-item">
                                         <div class="row">
                                             <div class="col-5">
@@ -505,7 +508,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </aside>
                             <!-- WIDGET -->

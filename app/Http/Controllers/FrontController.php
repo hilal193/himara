@@ -26,16 +26,19 @@ class FrontController extends Controller
         $blog = Article::all();
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
-        return view("pages.blog",compact("blog","tag","categoryArticle"));
+        $blogLast = Article::latest()->take(3)->get();
+        return view("pages.blog",compact("blog","tag","categoryArticle","blogLast"));
     }
     public function searchCategorie($id)
     {
         $blog = Article::where("categorie_article_id",$id)->get();
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
+        $blogLast = Article::latest()->take(3)->get();
+
 
         // dd($projetTout);
-        return view("pages.blog",compact("categoryArticle","blog","tag"));
+        return view("pages.blog",compact("categoryArticle","blog","tag","blogLast"));
     }
 
     public function page()
@@ -96,7 +99,9 @@ class FrontController extends Controller
         // $blog = Article::all();
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
-        return view("pages.blog",compact("blog","tag","categoryArticle"));
+        $blogLast = Article::latest()->take(3)->get();
+
+        return view("pages.blog",compact("blog","tag","categoryArticle","blogLast"));
 
      }
 
