@@ -375,10 +375,16 @@
                             <aside class="widget">
                                 <h4 class="widget-title">CATEGORIES</h4>
                                 <ul class="categories">
+                                    @foreach ($categoryArticle as $item)
+                                    {{-- @foreach ($item->categorie_article as $items) --}}
                                     <li>
-                                        <a href="#">Travel<span class="posts-num">51</span></a>
+                                        {{-- <a href="#">Travel<span class="posts-num">51</span></a> --}}
+                                        <a href={{ route("blogCategorie",$item->id)  }}> {{ $item->nom }}<span class="posts-num">{{ count($item->articles) }}</span></a>
                                     </li>
-                                    <li>
+                                    {{-- @endforeach --}}
+
+                                    @endforeach
+                                    {{-- <li>
                                         <a href="#">Rooms<span class="posts-num">24</span></a>
                                     </li>
                                     <li>
@@ -390,7 +396,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Events<span class="posts-num">28</span></a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </aside>
                             <!-- WIDGET -->

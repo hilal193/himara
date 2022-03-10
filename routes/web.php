@@ -42,6 +42,9 @@ Route::get('/pages/Loading', [FrontController::class,"loading"])->name('loading'
 Route::get('/pages/Contact', [FrontController::class,"contact"])->name('contact');
 // fonction recherche
 Route::post('/search', [FrontController::class, "search"])->name('search');
+// categorie id
+Route::get('/pages/{id}/CategorieId', [FrontController::class,"searchCategorie"])->name('blogCategorie');
+
 
 
 // route par page admin

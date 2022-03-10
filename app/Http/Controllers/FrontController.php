@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Blog;
+use App\Models\categorieArticle;
 use App\Models\Image;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -24,7 +25,17 @@ class FrontController extends Controller
     {
         $blog = Article::all();
         $tag = Tag::all();
-        return view("pages.blog",compact("blog","tag"));
+        $categoryArticle = categorieArticle::all();
+        return view("pages.blog",compact("blog","tag","categoryArticle"));
+    }
+    public function searchCategorie($id)
+    {
+        $blog = Article::where("categorie_article_id",$id)->get();
+        $tag = Tag::all();
+        $categoryArticle = categorieArticle::all();
+
+        // dd($projetTout);
+        return view("pages.blog",compact("categoryArticle","blog","tag"));
     }
 
     public function page()
@@ -82,7 +93,12 @@ class FrontController extends Controller
          $blog= Article::where('title', 'like', "%$data%")
                  ->get();
 
-         return view('pages.blog', compact('blog', 'data'));
+        // $blog = Article::all();
+        $tag = Tag::all();
+        $categoryArticle = categorieArticle::all();
+        return view("pages.blog",compact("blog","tag","categoryArticle"));
 
      }
+
+
 }

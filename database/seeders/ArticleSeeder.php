@@ -34,7 +34,7 @@ class ArticleSeeder extends Seeder
                 "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam impedit
                 nihil est modi amet, sapiente sed hic quaerat suscipit sunt labore, ea
                 quas ut cumque, cum nam accusantium molestiae ipsum ",
-                "categorie_article_id"=>1,
+                "categorie_article_id"=>2,
                 "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
@@ -74,7 +74,7 @@ class ArticleSeeder extends Seeder
                 assumenda eius amet obcaecati hic soluta nisi fugiat minima, molestias
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
                 vitae doloribus",
-                "categorie_article_id"=>1,
+                "categorie_article_id"=>4,
                 "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
@@ -87,7 +87,7 @@ class ArticleSeeder extends Seeder
                 assumenda eius amet obcaecati hic soluta nisi fugiat minima, molestias
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
                 vitae doloribus",
-                "categorie_article_id"=>1,
+                "categorie_article_id"=>3,
                 "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
