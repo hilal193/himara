@@ -516,7 +516,7 @@
                                 <h4 class="widget-title">Tags</h4>
                                 <div class="tagcloud">
                                     @foreach ($tag as $item)
-                                    <a href="#">
+                                    <a href={{ route("tagCategorie",$item->id)  }}>
                                         <span class="tag">{{ $item->nom }}</span></a>
 
                                     @endforeach

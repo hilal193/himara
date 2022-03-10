@@ -24,9 +24,9 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('categorie_article_id');
             $table->foreign('categorie_article_id')->references('id')->on("categorie_articles");
 
-            // FK
-            $table->unsignedBigInteger('tag_id');
-            $table->foreign('tag_id')->references('id')->on("tags");
+            // // FK
+            // $table->unsignedBigInteger('tag_id');
+            // $table->foreign('tag_id')->references('id')->on("tags");
 
             $table->timestamps();
         });

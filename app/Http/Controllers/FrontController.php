@@ -41,6 +41,20 @@ class FrontController extends Controller
         return view("pages.blog",compact("categoryArticle","blog","tag","blogLast"));
     }
 
+    public function tagCategorie($id)
+    {
+
+        $tagiD = Tag::find($id);
+        $blog = $tagiD->articles;
+        $tag = Tag::all();
+        $categoryArticle = categorieArticle::all();
+        $blogLast = Article::latest()->take(3)->get();
+
+
+        // dd($projetTout);
+        return view("pages.blog",compact("categoryArticle","blog","tag","blogLast"));
+    }
+
     public function page()
     {
         return view("pages.page");

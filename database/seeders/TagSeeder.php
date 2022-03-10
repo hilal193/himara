@@ -53,12 +53,6 @@ class TagSeeder extends Seeder
             ],
         ]);
 
-        $articles = Article::all();
-
-        tagArticle::all()->each(function ($tags) use ($articles) {
-            $tags->articles()->attach(
-            $articles->random(rand(1, 3))->pluck('id')->toArray()
-            );
-        });
+      
     }
 }

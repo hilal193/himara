@@ -44,6 +44,8 @@ Route::get('/pages/Contact', [FrontController::class,"contact"])->name('contact'
 Route::post('/search', [FrontController::class, "search"])->name('search');
 // categorie id
 Route::get('/pages/{id}/CategorieId', [FrontController::class,"searchCategorie"])->name('blogCategorie');
+//tag id
+Route::get('/pages/{id}/TAGId', [FrontController::class,"tagCategorie"])->name('tagCategorie');
 
 
 

@@ -15,7 +15,14 @@ class CreateTagArticlesTable extends Migration
     {
         Schema::create('tag_articles', function (Blueprint $table) {
             $table->id();
-            $table->string("nom");
+            // $table->string("nom");
+            // // FK
+            $table->unsignedBigInteger('tag_id');
+            $table->foreign('tag_id')->references('id')->on("tags");
+
+            // // FK
+            $table->unsignedBigInteger('article_id');
+            $table->foreign('article_id')->references('id')->on("articles");
             $table->timestamps();
         });
     }

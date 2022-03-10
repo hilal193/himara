@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +25,7 @@ class ArticleSeeder extends Seeder
                 officiis dicta! Sit numquam qui tenetur tempore officia minus, a
                 dignissimos",
                 "categorie_article_id"=>1,
-                "tag_id"=>1,
+                // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
                 "created_at" => now()
@@ -35,7 +37,7 @@ class ArticleSeeder extends Seeder
                 nihil est modi amet, sapiente sed hic quaerat suscipit sunt labore, ea
                 quas ut cumque, cum nam accusantium molestiae ipsum ",
                 "categorie_article_id"=>2,
-                "tag_id"=>1,
+                // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
                 "created_at" => now()
@@ -48,7 +50,7 @@ class ArticleSeeder extends Seeder
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
                 vitae doloribus",
                 "categorie_article_id"=>1,
-                "tag_id"=>1,
+                // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
                 "created_at" => now()
@@ -62,7 +64,7 @@ class ArticleSeeder extends Seeder
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
                 vitae doloribus",
                 "categorie_article_id"=>1,
-                "tag_id"=>1,
+                // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
                 "created_at" => now()
@@ -75,7 +77,7 @@ class ArticleSeeder extends Seeder
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
                 vitae doloribus",
                 "categorie_article_id"=>4,
-                "tag_id"=>1,
+                // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
                 "created_at" => now()
@@ -88,11 +90,36 @@ class ArticleSeeder extends Seeder
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
                 vitae doloribus",
                 "categorie_article_id"=>3,
-                "tag_id"=>1,
+                // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
                 "creation"=>"2015-11-11",
                 "created_at" => now()
             ],
         ]);
+        $articles = Article::all();
+
+        // rajout simple par article id
+        // DB::table('tag_articles')->insert([
+        //     [
+        //         "tag_id"=>2,
+        //         "article_id"=>1,
+        //     ],
+        //     [
+        //         "tag_id"=>3,
+        //         "article_id"=>1,
+        //     ],
+        //     [
+        //         "tag_id"=>1,
+        //         "article_id"=>1,
+        //     ],
+        // ]);
+
+
+        // me rajoute mes tag id en random
+        Tag::all()->each(function ($tags) use ($articles) {
+            $tags->articles()->attach(
+            $articles->random(rand(1, 3))->pluck('id')->toArray()
+            );
+        });
     }
 }
