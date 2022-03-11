@@ -39,7 +39,7 @@
                                         <div class="col-sm-4">
                                             <div class="post-thumbnail">
                                                 <figure class="gradient-overlay-hover link-icon">
-                                                    <a href="blog-post.html">
+                                                    <a href={{ route("blogLast",$item->id)  }}>
                                                         <img src="{{ asset('/images/blog/'. $item->img) }}"
                                                             class="img-fluid" alt="Image">
                                                         {{-- <img src={{ asset('images/blog/blog-post1.jpg') }} --}}
@@ -51,7 +51,7 @@
                                         <div class="col-sm-8">
                                             <div class="post-details">
                                                 <h2 class="post-title">
-                                                    <a href="blog-post.html">{{ $item->title }}</a>
+                                                    <a href={{ route("blogLast",$item->id)  }}>{{ $item->title }}</a>
                                                 </h2>
                                                 <div class="post-meta">
                                                     <span class="author">
@@ -409,7 +409,7 @@
                                         <div class="row">
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
-                                                    @dump( route("blogLast",$item->id)  )
+                                                    {{-- @dump( route("blogLast",$item->id)  ) --}}
                                                     <a href={{ route("blogLast",$item->id)  }}>
                                                         <img src="{{ asset('/images/blog/'. $item->img) }}"
                                                             class="img-fluid" alt="Image">
@@ -419,7 +419,7 @@
                                             <div class="col-7">
                                                 <div class="post-details">
                                                     <h6 class="post-title">
-                                                        <a href={{ route("blogPost2") }}>{{ $item->title }}</a>
+                                                        <a href={{ route("blogLast",$item->id)  }}>{{ $item->title }}</a>
                                                     </h6>
                                                 </div>
                                             </div>

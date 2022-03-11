@@ -15,7 +15,7 @@
 
         {{-- @foreach ($blog as $item) --}}
 
-        <div class="blog-post-cover gradient-overlay op5" data-src={{ asset("images/blog/post/blog-full.jpg") }}
+        <div class="blog-post-cover gradient-overlay op5" data-src="{{ asset('/images/blog/'. $blog->img) }}"
             data-parallax="scroll" data-speed="0.3" data-mirror-selector=".wrapper" data-z-index="0"
             style="margin-top: 0px;">
             <div class="container inner">
