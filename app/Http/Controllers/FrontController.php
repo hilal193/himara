@@ -119,5 +119,17 @@ class FrontController extends Controller
 
      }
 
+     public function blogPost($id)
+     {
+        $blog = Article::find($id);
+        // dd($projetTout);
+        return view("pages.blogpost",compact("blog"));
+     }
+
+     public function blogPost2()
+     {
+         $blog = Article::all();
+        return view("pages.blogpost",compact("blog"));
+     }
 
 }

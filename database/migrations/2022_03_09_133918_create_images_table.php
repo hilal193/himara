@@ -19,7 +19,7 @@ class CreateImagesTable extends Migration
             $table->string("url");
             // fk
             $table->unsignedBigInteger('categorie_image_id');
-            $table->foreign('categorie_image_id')->references('id')->on("categorie_images");
+            $table->foreign('categorie_image_id')->references('id')->on("categorie_images")->onDelete("cascade");
             $table->timestamps();
         });
     }

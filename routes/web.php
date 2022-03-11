@@ -40,10 +40,18 @@ Route::get('/pages/EventDetails', [FrontController::class,"eventdetails"])->name
 Route::get('/pages/Staff', [FrontController::class,"staff"])->name('staff');
 Route::get('/pages/Loading', [FrontController::class,"loading"])->name('loading');
 Route::get('/pages/Contact', [FrontController::class,"contact"])->name('contact');
+// Route::get('/pages/BlogPost', [FrontController::class,"blogPost"])->name('blogPost');
+Route::get('/pages/{id}/BlogPost', [FrontController::class,"blogPost"])->name('blogLast');
+Route::get('/pages/BlogPost2', [FrontController::class,"blogPost2"])->name('blogPost2');
+
+
+
 // fonction recherche
 Route::post('/search', [FrontController::class, "search"])->name('search');
 // categorie id
 Route::get('/pages/{id}/CategorieId', [FrontController::class,"searchCategorie"])->name('blogCategorie');
+// //last par id
+// Route::get('/pages/{id}/LastId', [FrontController::class,"tagCategorie"])->name('blogLast');
 //tag id
 Route::get('/pages/{id}/TAGId', [FrontController::class,"tagCategorie"])->name('tagCategorie');
 

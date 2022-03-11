@@ -371,7 +371,7 @@
                                 </div>
                             </aside>
 
-                            <!-- WIDGET -->
+                            <!-- WIDGlateET -->
                             <aside class="widget">
                                 <h4 class="widget-title">CATEGORIES</h4>
                                 <ul class="categories">
@@ -401,7 +401,7 @@
                             </aside>
                             <!-- WIDGET -->
                             <aside class="widget">
-                                <h4 class="widget-title">Latest Posts</h4>
+                                <htag4 class="widget-title">Latest Posts</h4>
                                 <div class="latest-posts">
                                     @foreach ($blogLast as $item)
                                     <!-- ITEM -->
@@ -409,7 +409,8 @@
                                         <div class="row">
                                             <div class="col-5">
                                                 <figure class="gradient-overlay-hover link-icon sm">
-                                                    <a href="blog-post.html">
+                                                    @dump( route("blogLast",$item->id)  )
+                                                    <a href={{ route("blogLast",$item->id)  }}>
                                                         <img src="{{ asset('/images/blog/'. $item->img) }}"
                                                             class="img-fluid" alt="Image">
                                                     </a>
@@ -418,7 +419,7 @@
                                             <div class="col-7">
                                                 <div class="post-details">
                                                     <h6 class="post-title">
-                                                        <a href="blog-post.html">{{ $item->title }}</a>
+                                                        <a href={{ route("blogPost2") }}>{{ $item->title }}</a>
                                                     </h6>
                                                 </div>
                                             </div>
