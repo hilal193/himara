@@ -42,7 +42,8 @@ Route::get('/pages/Loading', [FrontController::class,"loading"])->name('loading'
 Route::get('/pages/Contact', [FrontController::class,"contact"])->name('contact');
 // Route::get('/pages/BlogPost', [FrontController::class,"blogPost"])->name('blogPost');
 Route::get('/pages/{id}/BlogPost', [FrontController::class,"blogPost"])->name('blogLast');
-Route::get('/pages/BlogPost2', [FrontController::class,"blogPost2"])->name('blogPost2');
+// Route::get('/pages/BlogPost2', [FrontController::class,"blogPost2"])->name('blogPost2');
+// Route::get('/pages/Comment', [FrontController::class,"comment"])->name('comment');
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Blog;
 use App\Models\categorieArticle;
+use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -123,13 +124,24 @@ class FrontController extends Controller
      {
         $blog = Article::find($id);
         // dd($projetTout);
-        return view("pages.blogpost",compact("blog"));
+        $comment = Comment::all();
+
+        return view("pages.blogpost",compact("blog","comment"));
      }
 
-     public function blogPost2()
-     {
-         $blog = Article::all();
-        return view("pages.blogpost",compact("blog"));
-     }
+    //  public function blogPost2()
+    //  {
+    //      $blog = Article::all();
+    //      $comment = Comment::all();
+
+    //     return view("pages.blogpost",compact("blog","comment"));
+    //  }
+
+    //  public function comment()
+    //  {
+    //      $blog = Article::all();
+    //      $comment = Comment::all();
+    //      return view("pages.blogpost",compact("comment","blog"));
+    //  }
 
 }

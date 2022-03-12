@@ -75,7 +75,8 @@
                                                         <a href="#">Events</a>
                                                     </span>
                                                 </div>
-                                                <p>{{ $item->description }}</p>
+                                                <p>{{ Str::limit($item->description, 250) }}</p>
+
                                             </div>
                                         </div>
                                     </div>

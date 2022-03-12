@@ -23,7 +23,14 @@ class ArticleSeeder extends Seeder
                 "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet
                 reiciendis ducimus deserunt non dolorum, distinctio repellendus eaque,
                 officiis dicta! Sit numquam qui tenetur tempore officia minus, a
-                dignissimos",
+                dignissimosHorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
+                wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                nisl ut aliquip ex ea
+                <u>commodo consequat.</u>
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
+                iusto odio dignissim qui blandit praesent luptatum zzril delenit...",
                 "categorie_article_id"=>1,
                 // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
@@ -35,7 +42,14 @@ class ArticleSeeder extends Seeder
                 "img" => "blog-post2.jpg",
                 "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam impedit
                 nihil est modi amet, sapiente sed hic quaerat suscipit sunt labore, ea
-                quas ut cumque, cum nam accusantium molestiae ipsum ",
+                quas ut cumque, cum nam accusantium molestiae ipsum Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
+                wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                nisl ut aliquip ex ea
+                <u>commodo consequat.</u>
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
+                iusto odio dignissim qui blandit praesent luptatum zzril delenit...",
                 "categorie_article_id"=>2,
                 // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
@@ -48,7 +62,14 @@ class ArticleSeeder extends Seeder
                 "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
                 assumenda eius amet obcaecati hic soluta nisi fugiat minima, molestias
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
-                vitae doloribus",
+                vitae doloribusHorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
+                wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                nisl ut aliquip ex ea
+                <u>commodo consequat.</u>
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
+                iusto odio dignissim qui blandit praesent luptatum zzril delenit...",
                 "categorie_article_id"=>1,
                 // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
@@ -62,7 +83,14 @@ class ArticleSeeder extends Seeder
                 "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
                 assumenda eius amet obcaecati hic soluta nisi fugiat minima, molestias
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
-                vitae doloribus",
+                vitae doloribusHorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
+                wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                nisl ut aliquip ex ea
+                <u>commodo consequat.</u>
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
+                iusto odio dignissim qui blandit praesent luptatum zzril delenit...",
                 "categorie_article_id"=>1,
                 // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
@@ -75,7 +103,14 @@ class ArticleSeeder extends Seeder
                 "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
                 assumenda eius amet obcaecati hic soluta nisi fugiat minima, molestias
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
-                vitae doloribus",
+                vitae doloribusHorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
+                wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                nisl ut aliquip ex ea
+                <u>commodo consequat.</u>
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
+                iusto odio dignissim qui blandit praesent luptatum zzril delenit...",
                 "categorie_article_id"=>4,
                 // "tag_id"=>1,
                 "auteur"=>"Mark wiens",
@@ -88,7 +123,14 @@ class ArticleSeeder extends Seeder
                 "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
                 assumenda eius amet obcaecati hic soluta nisi fugiat minima, molestias
                 nam consequatur rem cupiditate, consequuntur laborum harum enim, ratione
-                vitae doloribus",
+                vitae doloribusHorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
+                wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                nisl ut aliquip ex ea
+                <u>commodo consequat.</u>
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
+                iusto odio dignissim qui blandit praesent luptatum zzril delenit...",
                 "categorie_article_id"=>3,
                 // "tag_id"=>1,
                 "auteur"=>"Mark wiens",

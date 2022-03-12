@@ -37,45 +37,23 @@
         <main class="post-page">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-9 col-12">
+                    <div class="col-lg-12 col-12">
                         <article class="entry">
                             <div class="details">
-                                <p class="dropcap">Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                    nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
-                                    wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                                    nisl ut aliquip ex ea
-                                    <u>commodo consequat.</u>
-                                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-                                    consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
-                                    iusto odio dignissim qui blandit praesent luptatum zzril delenit...
+                                <p class="dropcap">{{$blog->description}}
                                 </p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna
-                                    <a href="#">aliquam</a>
-                                    erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-                                    suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-                                    dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore
-                                    eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
-                                    blandit praesent luptatum zzril delenit...
+                                <p>{{ Str::limit($blog->description, 250) }}
+                                    <a href="#">{{ Str::limit($blog->description, 15) }}</a>
+                                    {{ Str::limit($blog->description, 450) }}
                                 </p>
                                 <blockquote>
-                                    <p class="quote-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                    <p class="quote-text">{{ Str::limit($blog->description, 25) }}
                                         <a href="#" data-toggle="tooltip" data-placement="top" data-trigger="hover"
                                             data-original-title="Marius Doe">Mauris
-                                        </a>non laoreet dui, Morbi lacus massa, euismod ut turpis molestie, tristique
-                                        sodales est There are many variations of passages of Lorem Ipsum available, but
-                                        the majority have suffered alteration.
+                                        </a>{{ Str::limit($blog->description, 250) }}
                                     </p>
                                 </blockquote>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-                                    minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                                    aliquip
-                                    ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-                                    eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
-                                    dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim
-                                    qui blandit praesent luptatum zzril delenit...</p>
+                                <p>{{ $blog->description }}</p>
                                 <figure>
                                     <img src={{ asset("images/blog/post/blog-post1.jpg") }} class="img-fluid">
                                     <figcaption>Image Caption
@@ -85,28 +63,12 @@
                                                 pexeles.com</a></span>
                                     </figcaption>
                                 </figure>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-                                    minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                                    aliquip
-                                    ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-                                    eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
-                                    augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis
-                                    eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
-                                    assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum
-                                    claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt
-                                    saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem
-                                    consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus
-                                    parum claram,
-                                    anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta
-                                    decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in
-                                    futurum.</p>
+                                <p>{{ $blog->description }}</p>
                                 <div class="row image-gallery">
                                     <div class="col-md-3">
                                         <figure>
                                             <div class="gradient-overlay-hover image-icon sm">
-                                                <a href="images/blog/post/blog-post2.jpg">
+                                                <a href={{ asset("images/blog/post/blog-post2.jpg") }}>
                                                     <img src={{ asset("images/blog/post/blog-post2.jpg") }} class="img-fluid">
                                                 </a>
                                             </div>
@@ -116,7 +78,7 @@
                                     <div class="col-md-3">
                                         <figure>
                                             <div class="gradient-overlay-hover image-icon sm">
-                                                <a href="images/blog/post/blog-post3.jpg">
+                                                <a href={{ asset("images/blog/post/blog-post3.jpg") }}>
                                                     <img src={{ asset("images/blog/post/blog-post3.jpg") }} class="img-fluid">
                                                 </a>
                                             </div>
@@ -126,7 +88,7 @@
                                     <div class="col-md-3">
                                         <figure>
                                             <div class="gradient-overlay-hover image-icon sm">
-                                                <a href="images/blog/post/blog-post4.jpg">
+                                                <a href={{ asset("images/blog/post/blog-post4.jpg") }}>
                                                     <img src={{ asset("images/blog/post/blog-post4.jpg") }} class="img-fluid">
                                                 </a>
                                             </div>
@@ -136,7 +98,7 @@
                                     <div class="col-md-3">
                                         <figure>
                                             <div class="gradient-overlay-hover image-icon sm">
-                                                <a href="images/blog/post/blog-post5.jpg">
+                                                <a href={{ asset("images/blog/post/blog-post5.jpg") }}>
                                                     <img src={{ asset("images/blog/post/blog-post5.jpg") }} class="img-fluid">
                                                 </a>
                                             </div>
@@ -144,15 +106,8 @@
                                         </figure>
                                     </div>
                                 </div>
-                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id
-                                    quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus
-                                    legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt
-                                    lectores legere me lius quod ii legunt saepius. Claritas est etiam processus
-                                    dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam
-                                    littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas
-                                    humanitatis
-                                    per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur
-                                    parum clari, fiant sollemnes in futurum.</p>
+                                <p>{{ $blog->description }}
+                                    </p>
                                 <div class="meta-post">
                                     <div class="tags">
                                         <span>
@@ -194,31 +149,30 @@
                                 <p class="section-subtitle">Leave your comment</p>
                             </div>
                             <ul id="comments-list" class="comments-list">
+                                @dump($comment)
+                                @foreach ($comment as $item)
                                 <li>
                                     <div class="comment-main-level">
-                                        <div class="comment-avatar"><img src={{ asset("images/blog/users/user1.jpg") }} alt=""></div>
+                                        <div class="comment-avatar"><img src="{{ asset('/images/blog/'. $item->photoProfil) }}" alt=""></div>
                                         <div class="comment-box">
                                             <div class="comment_content">
                                                 <h4 class="author-name">
-                                                    <a href="#">JANE Doe</a>
+                                                    <a href="#">{{ $item->name }}</a>
                                                 </h4>
-                                                <a href="#comment-form" class="reply_link">Reply</a>
+                                                {{-- <a href="#comment-form" class="reply_link">Reply</a> --}}
                                                 <span class="comment_info">
                                                     <i class="fa fa-clock-o"></i>
                                                     <a href="#">
-                                                        <time datetime="2017-10-01T19:56:36+00:00">October 1, 2017 at
-                                                            7:56 pm</time>
+                                                        <time datetime="2017-10-01T19:56:36+00:00">{{ $item->created_at }}</time>
                                                     </a>
                                                 </span>
                                                 <div class="comment_said_text">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                                                        diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                                                        aliquam erat volutpat.</p>
+                                                    <p>{{$item->commentaire}}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <ul class="comments-list reply-list">
+                                    {{-- <ul class="comments-list reply-list">
                                         <li>
                                             <div class="comment-avatar"><img src={{ asset("images/blog/users/user2.jpg") }} alt="">
                                             </div>
@@ -270,9 +224,11 @@
                                                 </div>
                                             </div>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
-                                <li>
+
+                                @endforeach
+                                {{-- <li>
                                     <div class="comment-main-level">
                                         <div class="comment-avatar">
                                             <img src={{ asset("images/blog/users/user4.jpg") }} alt="">
@@ -298,7 +254,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </li>
+                                </li> --}}
                             </ul>
                             <div class="section-title mt100">
                                 <h4>LEAVE YOUR COMMENT</h4>
@@ -329,7 +285,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-12">
+                    {{-- <div class="col-lg-3 col-12">
                         <div class="sidebar">
                             <aside class="widget noborder">
                                 <div class="search">
@@ -493,7 +449,7 @@
                                 </div>
                             </aside>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </main>
