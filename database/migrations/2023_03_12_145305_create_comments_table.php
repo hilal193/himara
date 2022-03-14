@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->string("email")->unique();
             $table->string("website")->nullable();
             $table->longText("commentaire");
-            $table->string("photoProfil");
+            $table->string("photoProfil")->nullable();
              // fk
              $table->unsignedBigInteger('article_id');
              $table->foreign('article_id')->references('id')->on("articles")->onDelete("cascade");

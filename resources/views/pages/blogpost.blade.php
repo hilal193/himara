@@ -160,6 +160,19 @@
                                                     <a href="#">{{ $item->name }}</a>
                                                 </h4>
                                                 {{-- <a href="#comment-form" class="reply_link">Reply</a> --}}
+
+                                                {{-- <a href="#comment-form" class="reply_link">Delete</a> --}}
+
+                                                <td>
+                                                    <form action="/comments/{{$item->id}}/delete" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button style="" type="submit" class="reply_link btn text-danger">Delete</button>
+                                                        {{-- <button class="btn btn-xs btn-dark btn-rounded" type="submit">DELETE</button> --}}
+                                                    </form>
+                                                </td>
+
+
                                                 <span class="comment_info">
                                                     <i class="fa fa-clock-o"></i>
                                                     <a href="#">
@@ -260,22 +273,25 @@
                                 <h4>LEAVE YOUR COMMENT</h4>
                                 <p class="section-subtitle">Write your comment</p>
                             </div>
-                            <form id="comment-form" class="comment-form">
+
+                            <form id="comment-form" class="comment-form" action="/{{ $blog->id }}/commentaires" method="POST">
+                                @csrf
+
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Name*">
+                                        <input type="text" class="form-control" placeholder="Name*" name="name" value="">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" class="form-control" placeholder="Email*">
+                                        <input type="email" class="form-control" placeholder="Email*" name="email" value="">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Website">
+                                        <input type="text" class="form-control" placeholder="Website" name="website" value="">
                                     </div>
                                     <div class="col-md-12">
-                                        <textarea class="form-control" placeholder="Write Your Comment"></textarea>
+                                        <textarea class="form-control"  placeholder="Write Your Comment" name="commentaire" value="" ></textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="btn float-right">
+                                        <button class="btn float-right" type="submit">
                                             POST YOUR COMMENT
                                         </button>
                                         <div class="align-left">*Your email address will not be published.</div>

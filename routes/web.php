@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GalleryController;
 
 /*
@@ -80,6 +81,13 @@ Route::get('/dashboard/gallery', [GalleryController::class,"affichage"])->middle
 Route::get('/dashboard/contact', function () {
     return view('admin.contact.index');
 })->middleware(['auth'])->name('contact.index');
+
+// store pour le formulaire commentaire
+Route::post("/{id}/commentaires", [CommentController::class,"store"]);
+Route::delete("/comments/{id}/delete", [CommentController::class, "destroy"]);
+Route::get("/comments/{id}/edit", [CommentController::class, "edit"]);
+Route::put("/comments/{id}/update", [CommentController::class, "update"]);
+
 
 // affichage par page admin
 
