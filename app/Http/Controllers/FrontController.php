@@ -8,6 +8,7 @@ use App\Models\categorieArticle;
 use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Tag;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -80,7 +81,8 @@ class FrontController extends Controller
 
     public function staff()
     {
-        return view("pages.staff");
+        $team = Team::all();
+        return view("pages.staff",compact("team"));
     }
 
     public function loading()
@@ -119,6 +121,8 @@ class FrontController extends Controller
         return view("pages.blog",compact("blog","tag","categoryArticle","blogLast"));
 
      }
+
+
 
      public function blogPost($id)
      {

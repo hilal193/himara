@@ -32,33 +32,43 @@
         <main class="location-page">
             <div class="container">
                 <div class="row">
+
+                    @foreach ($team as $item)
+                    @if ($loop->iteration != 1)
                     <!-- ITEM -->
                     <div class="col-lg-3 col-md-6">
                         <div class="staff-item">
                             <figure>
-                                <img src={{ asset("images/staff/staff1.jpg") }} class="img-fluid" alt="Image">
-                                <div class="position">Housekeeper</div>
+                                <img src={{ asset("images/". $item->img) }} class="img-fluid" alt="Image">
+                                <div class="position">{{ $item->fonction->fonction }}</div>
                             </figure>
                             <div class="details">
-                                <h5>Jeanette Owens</h5>
-                                <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                                <h5>{{ $item->fullname }}</h5>
+                                <p>{{ $item->description }}</p>
                             </div>
                         </div>
                     </div>
+
+                    @elseif ($loop->iteration == 1)
                     <!-- ITEM -->
                     <div class="col-lg-3 col-md-6">
                         <div class="staff-item">
                             <figure>
-                                <img src={{ asset("images/staff/staff2.jpg") }} class="img-fluid" alt="Image">
-                                <div class="position">Receptionist</div>
+                                <img src={{ asset("images/". $item->img) }} class="img-fluid" alt="Image">
+                                <div class="position">{{ $item->fonction->fonction }}</div>
                             </figure>
                             <div class="details">
-                                <h5>Henry Garrett</h5>
-                                <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                                <h5>{{ $item->fullname }}</h5>
+                                <p>{{ $item->description }}]</p>
                             </div>
                         </div>
                     </div>
-                    <!-- ITEM -->
+
+                    @endif
+                    @endforeach
+
+
+                    {{-- <!-- ITEM -->
                     <div class="col-lg-3 col-md-6">
                         <div class="staff-item">
                             <figure>
@@ -83,8 +93,9 @@
                                 <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
                             </div>
                         </div>
-                    </div>
-                    <!-- ITEM <-->
+                    </div> --}}
+
+                    {{-- <!-- ITEM <-->
                     <div class="col-lg-3 col-md-6">
                         <div class="staff-item">
                             <figure>
@@ -135,7 +146,7 @@
                                 <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </main>
