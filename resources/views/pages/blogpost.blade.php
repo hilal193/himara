@@ -276,8 +276,8 @@
 
                             <form id="comment-form" class="comment-form" action="/{{ $blog->id }}/commentaires" method="POST">
                                 @csrf
-
                                 <div class="row">
+                                    @guest
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" placeholder="Name*" name="name" value="">
                                     </div>
@@ -287,6 +287,7 @@
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" placeholder="Website" name="website" value="">
                                     </div>
+                                    @endguest
                                     <div class="col-md-12">
                                         <textarea class="form-control"  placeholder="Write Your Comment" name="commentaire" value="" ></textarea>
                                     </div>
