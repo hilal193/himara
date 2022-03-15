@@ -49,17 +49,18 @@
                         </div>
                     </div>
 
-                    @elseif ($loop->iteration == 1)
+                    @else
+
                     <!-- ITEM -->
                     <div class="col-lg-3 col-md-6">
                         <div class="staff-item">
                             <figure>
-                                <img src={{ asset("images/". $item->img) }} class="img-fluid" alt="Image">
-                                <div class="position">{{ $item->fonction->fonction }}</div>
+                                <img src={{ asset("images/". $houseKeeper->img) }} class="img-fluid" alt="Image">
+                                <div class="position">{{ $houseKeeper->fonction->fonction }}</div>
                             </figure>
                             <div class="details">
-                                <h5>{{ $item->fullname }}</h5>
-                                <p>{{ $item->description }}]</p>
+                                <h5>{{ $houseKeeper->fullname }}</h5>
+                                <p>{{ $houseKeeper->description }}</p>
                             </div>
                         </div>
                     </div>

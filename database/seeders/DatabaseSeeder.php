@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
             FonctionSeeder::class,
             TeamSeeder::class,
+            ServiceSeeder::class,
         ]);
     }
 }

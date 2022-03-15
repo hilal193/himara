@@ -7,9 +7,12 @@ use App\Models\Blog;
 use App\Models\categorieArticle;
 use App\Models\Comment;
 use App\Models\Image;
+use App\Models\Service;
 use App\Models\Tag;
 use App\Models\Team;
 use Illuminate\Http\Request;
+
+use function GuzzleHttp\Promise\all;
 
 class FrontController extends Controller
 {
@@ -82,7 +85,9 @@ class FrontController extends Controller
     public function staff()
     {
         $team = Team::all();
-        return view("pages.staff",compact("team"));
+        $houseKeeper = Team::where("fonction_id",1)->first();
+
+        return view("pages.staff",compact("team","houseKeeper"));
     }
 
     public function loading()
@@ -102,7 +107,9 @@ class FrontController extends Controller
 
     public function home()
     {
-       return view("home");
+        $serviceAll = Service::all();
+
+       return view("home" ,compact("serviceAll"));
     }
 
      // LOGIQUE pour la barre de recherche
@@ -133,19 +140,10 @@ class FrontController extends Controller
         return view("pages.blogpost",compact("blog","comment"));
      }
 
-    //  public function blogPost2()
-    //  {
-    //      $blog = Article::all();
-    //      $comment = Comment::all();
-
-    //     return view("pages.blogpost",compact("blog","comment"));
-    //  }
-
-    //  public function comment()
-    //  {
-    //      $blog = Article::all();
-    //      $comment = Comment::all();
-    //      return view("pages.blogpost",compact("comment","blog"));
-    //  }
+    // public function service()
+    // {
+    //     $serviceAll = Service::all();
+    //     return view("home" ,compact("serviceAll"));
+    // }
 
 }
