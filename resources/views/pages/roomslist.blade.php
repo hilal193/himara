@@ -32,19 +32,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 col-12">
+                        @foreach ($roomListAll as $item)
                         <!-- ITEM -->
                         <div class="room-list-item">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <figure class="gradient-overlay-hover link-icon">
-                                        <a href="room.html"><img src={{ asset("images/rooms/single/single1.jpg") }}
+                                        <a href="room.html"><img src="{{ asset('/images/rooms/'. $item->img) }}"
                                                 class="img-fluid" alt="Image"></a>
                                     </figure>
+                                    {{-- {{ asset("images/rooms/single/single1.jpg") }} --}}
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="room-info">
                                         <h3 class="room-title">
-                                            <a href="room.html">ISTANBUL</a>
+                                            <a href="room.html">{{ $item->titre }}</a>
                                         </h3>
                                         <span class="room-rates">
                                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -54,7 +56,7 @@
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <a href="room.html#room-reviews">5.00 Based on 3 Ratings</a>
                                         </span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing ..</p>
+                                        <p>{{ $item->description }}</p>
                                         <div class="room-services">
                                             <i class="fa fa-coffee" data-toggle="popover" data-placement="top"
                                                 data-trigger="hover" data-content="Breakfast Included"
@@ -72,13 +74,17 @@
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="room-price">
-                                        <span class="price">€89 / night</span>
+                                        <span class="price">{{ $item->prix }}</span>
                                         <a href="room.html" class="btn btn-sm">view <br> details</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- ITEM -->
+
+                        @endforeach
+
+
+                        {{-- <!-- ITEM -->
                         <div class="room-list-item">
                             <div class="favorite-item">
                                 <i class="fa fa-star-o"></i>
@@ -451,7 +457,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+
+
                         <!-- PAGINATION -->
                         <nav class="pagination">
                             <ul>

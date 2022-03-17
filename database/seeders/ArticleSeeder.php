@@ -138,6 +138,7 @@ class ArticleSeeder extends Seeder
                 "created_at" => now()
             ],
         ]);
+        
         $articles = Article::all();
 
         // rajout simple par article id

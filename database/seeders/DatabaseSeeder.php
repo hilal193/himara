@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
             FonctionSeeder::class,
             TeamSeeder::class,
             ServiceSeeder::class,
+            CategoryRoomSeeder::class,
+            RoomSeeder::class,
         ]);
     }
 }

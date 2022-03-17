@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\categorieArticle;
 use App\Models\Comment;
 use App\Models\Image;
+use App\Models\Room;
 use App\Models\Service;
 use App\Models\Tag;
 use App\Models\Team;
@@ -23,7 +24,8 @@ class FrontController extends Controller
 
     public function roomslist()
     {
-        return view("pages.roomslist");
+        $roomListAll = Room::all();
+        return view("pages.roomslist", compact("roomListAll"));
     }
 
     public function blog()

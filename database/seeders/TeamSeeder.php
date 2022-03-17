@@ -20,6 +20,7 @@ class TeamSeeder extends Seeder
                 "img"=>"employé_0.jpg",
                 "fullname"=>"Jeanette Owens",
                 "description"=>"Lorem Ipsum which looks many web sites pass websites is therefore always.",
+                
             ],
             [
                 "fonction_id"=>2,
