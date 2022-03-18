@@ -66,7 +66,8 @@ Route::get('/pages/{id}/TAGId', [FrontController::class,"tagCategorie"])->name('
 Route::get('/pages/{id}/tagRoomsID', [FrontController::class,"tagRooms"])->name('tagRooms');
 //category room
 Route::get('/pages/Room/{id}/CategorieId', [FrontController::class,"searchRoomCategorie"])->name('roomCategorie');
-
+// fonction recherche pour chambre
+Route::post('/room/search', [FrontController::class, "RoomSearch"])->name('RoomSearch');
 
 
 // route par page admin

@@ -184,4 +184,19 @@ class FrontController extends Controller
         return view("pages.roomslist", compact("roomListAll","categoryRoom","tagRoom"));
     }
 
+    // LOGIQUE pour la barre de recherche
+    public function RoomSearch(Request $request)
+    {
+
+        $data = $request->data;
+        $roomListAll= Room::where('titre', 'like', "%$data%")
+                ->get();
+        $categoryRoom = categorieRoom::all();
+        $tagRoom = tagRoom::all();
+
+
+       return view("pages.roomslist",compact("roomListAll","categoryRoom","tagRoom"));
+
+    }
+
 }

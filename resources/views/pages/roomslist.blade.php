@@ -501,10 +501,14 @@
                         <div class="sidebar">
                             <aside class="widget noborder">
                                 <div class="search">
-                                    <form class="widget-search">
-                                        <input type="search" placeholder="Search">
+                                    <form action="{{ route("RoomSearch") }}" class="widget-search"  method="POST">
+                                        @csrf
+                                        <input type="search" placeholder="Search" onfocus="this.placeholder='' " onblur="this.placeholder='Search'" name="data">
                                         <button class="btn-search" id="searchsubmit" type="submit">
-                                            <i class="fa fa-search"></i>
+                                           <button class="btn-search" id="searchsubmit" type="submit">
+
+                                               <i class="fa fa-search"></i>
+                                           </button>
                                         </button>
                                     </form>
                                 </div>
