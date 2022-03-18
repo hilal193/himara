@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Room;
+use App\Models\tagRoom;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -88,6 +90,15 @@ class RoomSeeder extends Seeder
                 "created_at"=>now(),
             ],
         ]);
+
+        $rooms = Room::all();
+
+        // me rajoute mes tag id en random
+        tagRoom::all()->each(function ($tagRooms) use ($rooms) {
+            $tagRooms->rooms()->attach(
+            $rooms->random(rand(1, 3))->pluck('id')->toArray()
+            );
+        });
 
     }
 }

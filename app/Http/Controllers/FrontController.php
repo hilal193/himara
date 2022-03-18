@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Blog;
 use App\Models\categorieArticle;
+use App\Models\categorieRoom;
 use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Room;
 use App\Models\Service;
 use App\Models\Tag;
+use App\Models\tagRoom;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -22,11 +24,7 @@ class FrontController extends Controller
         return view("pages.room");
     }
 
-    public function roomslist()
-    {
-        $roomListAll = Room::all();
-        return view("pages.roomslist", compact("roomListAll"));
-    }
+
 
     public function blog()
     {
@@ -147,5 +145,28 @@ class FrontController extends Controller
     //     $serviceAll = Service::all();
     //     return view("home" ,compact("serviceAll"));
     // }
+
+    public function roomslist()
+    {
+        $roomListAll = Room::all();
+        $tagRoom = tagRoom::all();
+
+        return view("pages.roomslist", compact("roomListAll","tagRoom"));
+    }
+    public function tagRooms($id)
+    {
+        $roomListAll = Room::all();
+
+        $tagRoomsiD = tagRoom::find($id);
+        $roomListAll = $tagRoomsiD->rooms;
+        // dd(count($room));
+        $tagRoom = tagRoom::all();
+        // $categoryRoom = categorieRoom::all();
+        // $roomsLast = Room::latest()->take(3)->get();
+
+
+        // dd($projetTout);
+        return view("pages.roomslist",compact("tagRoom","roomListAll"));
+    }
 
 }

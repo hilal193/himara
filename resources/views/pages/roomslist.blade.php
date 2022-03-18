@@ -532,9 +532,14 @@
                             <aside class="widget">
                                 <h4 class="widget-title">Tags</h4>
                                 <div class="tagcloud">
-                                    <a href="#">
-                                        <span class="tag">Red</span></a>
-                                    <a href="#">
+                                    {{-- @dd($tagRoom) --}}
+                                    @foreach ($tagRoom as $item)
+
+                                    <a href={{ route("tagRooms", $item->id) }}>
+                                        <span class="tag">{{ $item->nom }}</span>
+                                    </a>
+                                    @endforeach
+                                    {{-- <a href="#">
                                         <span class="tag">Dark</span></a>
                                     <a href="#">
                                         <span class="tag">Yellow</span></a>
@@ -547,7 +552,7 @@
                                     <a href="#">
                                         <span class="tag">Gray</span></a>
                                     <a href="#">
-                                        <span class="tag">Brown</span></a>
+                                        <span class="tag">Brown</span></a> --}}
                                 </div>
                             </aside>
                         </div>

@@ -58,8 +58,12 @@ Route::post('/search', [FrontController::class, "search"])->name('search');
 Route::get('/pages/{id}/CategorieId', [FrontController::class,"searchCategorie"])->name('blogCategorie');
 // //last par id
 // Route::get('/pages/{id}/LastId', [FrontController::class,"tagCategorie"])->name('blogLast');
+
 //tag id
 Route::get('/pages/{id}/TAGId', [FrontController::class,"tagCategorie"])->name('tagCategorie');
+
+// tag rooms id
+Route::get('/pages/{id}/tagRoomsID', [FrontController::class,"tagRooms"])->name('tagRooms');
 
 
 

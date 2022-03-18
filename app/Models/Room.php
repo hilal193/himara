@@ -12,4 +12,9 @@ class Room extends Model
     {
         return $this->belongsTo(CategorieRoom::class, 'category_room_id');
     }
+
+    public function tag_Rooms()
+    {
+        return $this->belongsToMany(tagRoom::class, "tag_rooms", "room_id");
+    }
 }
