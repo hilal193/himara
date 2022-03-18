@@ -45,7 +45,8 @@
                                         <button class="btn btn-primary">Deconnexion</button>
 
                                         </form>
-                                </div> --}}</p>
+                                    {{-- </div> --}}
+                                    </p>
                                 </div>
                             </div>
                         </div>

@@ -150,8 +150,10 @@ class FrontController extends Controller
     {
         $roomListAll = Room::all();
         $tagRoom = tagRoom::all();
+        $categoryRoom = categorieRoom::all();
 
-        return view("pages.roomslist", compact("roomListAll","tagRoom"));
+
+        return view("pages.roomslist", compact("roomListAll","tagRoom","categoryRoom"));
     }
     public function tagRooms($id)
     {
@@ -164,9 +166,22 @@ class FrontController extends Controller
         // $categoryRoom = categorieRoom::all();
         // $roomsLast = Room::latest()->take(3)->get();
 
+        $categoryRoom = categorieRoom::all();
 
         // dd($projetTout);
-        return view("pages.roomslist",compact("tagRoom","roomListAll"));
+        return view("pages.roomslist",compact("tagRoom","roomListAll","categoryRoom"));
+    }
+
+    public function searchRoomCategorie($id)
+    {
+
+        $roomListAll = Room::where("category_room_id",$id)->get();
+        $categoryRoom = categorieRoom::all();
+        // dd($categoryRoomArticle);
+
+        $tagRoom = tagRoom::all();
+
+        return view("pages.roomslist", compact("roomListAll","categoryRoom","tagRoom"));
     }
 
 }

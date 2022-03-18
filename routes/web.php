@@ -64,6 +64,8 @@ Route::get('/pages/{id}/TAGId', [FrontController::class,"tagCategorie"])->name('
 
 // tag rooms id
 Route::get('/pages/{id}/tagRoomsID', [FrontController::class,"tagRooms"])->name('tagRooms');
+//category room
+Route::get('/pages/Room/{id}/CategorieId', [FrontController::class,"searchRoomCategorie"])->name('roomCategorie');
 
 
 
