@@ -46,10 +46,12 @@
                     {{-- @dump($item->categorie_image->filter) --}}
                     <div class="gallery-item {{ $item->categorie_image->filter }} col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="{{ asset('/images/gallery/'. $item->url) }}">
-                                {{-- <a href={{ asset("images/gallery/gallery1.jpg") }}> --}}
-                                {{-- <img src="images/gallery/gallery1.jpg" class="img-fluid" alt="Image"> --}}
-                        <img src="{{ asset('/images/gallery/'. $item->url) }}" class="img-fluid" alt="Image">
+                            {{-- <a href="{{ asset('/images/gallery/'. $item->url) }}"> --}}
+                                <a href="{{ asset('/storage/images/'. $item->url) }}">
+
+
+                        {{-- <img src="{{ asset('/images/gallery/'. $item->url) }}" class="img-fluid" alt="Image"> --}}
+                        <img src="{{ asset('/storage/images/'. $item->url) }}" class="img-fluid" alt="Image">
                             </a>
                             <figcaption>{{ $item->nom }}</figcaption>
                         </figure>

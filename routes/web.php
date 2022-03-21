@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GalleryController;
+use App\Models\Gallery;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,4 +103,11 @@ Route::put("/comments/{id}/update", [CommentController::class, "update"]);
 
 // affichage par page admin
 
+// Gallery crud
+// create
+route::get("/admin/Gallery/images/createImages",[GalleryController::class,"create"])->name("images.create");
+// store
+route::post("/admin/Gallery/images/storeImages",[GalleryController::class,"store"])->name("images.store");
+// del
+Route::delete('admin/Gallery/images/{image}/deleteimages', [GalleryController::class,"destroy"])->name("images.destroy");
 
