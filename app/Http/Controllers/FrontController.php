@@ -87,8 +87,11 @@ class FrontController extends Controller
 
     public function staff()
     {
-        $team = Team::all();
+
+        $team = Team::where("fonction_id","!=",1)->latest()->take(8)->get();
         $houseKeeper = Team::where("fonction_id",1)->first();
+
+
 
         return view("pages.staff",compact("team","houseKeeper"));
     }

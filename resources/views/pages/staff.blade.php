@@ -34,12 +34,13 @@
                 <div class="row">
 
                     @foreach ($team as $item)
-                    @if ($loop->iteration != 1 && $loop->iteration < 9 && $loop->iteration > 1)
+                    {{-- @if ($loop->iteration != 1 && $loop->iteration < 9 && $loop->iteration > 1) --}}
+                    @if ($loop->iteration != 1 )
                     <!-- ITEM -->
                     <div class="col-lg-3 col-md-6">
                         <div class="staff-item">
                             <figure>
-                                <img src={{ asset("images/". $item->img) }} class="img-fluid" alt="Image">
+                                <img src={{ asset("/storage/images/". $item->img) }} class="img-fluid" alt="Image">
                                 <div class="position">{{ $item->fonction->fonction }}</div>
                             </figure>
                             <div class="details">
@@ -49,8 +50,8 @@
                         </div>
                     </div>
 
-                    {{-- @else --}}
-                    @elseif ($loop->iteration == 1)
+                    @else
+                    {{-- @elseif ($loop->iteration == 1) --}}
 
                     <!-- ITEM -->
                     <div class="col-lg-3 col-md-6">
