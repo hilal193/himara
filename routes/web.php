@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Gallery;
+use App\Models\CategorieImage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GalleryController;
-use App\Models\Gallery;
+use App\Http\Controllers\CategorieImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +89,11 @@ Route::get('/dashboard/blog', function () {
 // Route::get('/dashboard/gallery', function () {
 //     return view('admin.gallery.index');
 // })->middleware(['auth'])->name('gallery.index');
+
+// image
 Route::get('/dashboard/gallery', [GalleryController::class,"affichage"])->middleware(["auth"])->name('gallery.index');
+// categoryImage
+Route::get('/dashboard/categoryImage/gallery', [CategorieImageController::class,"affichageCategoryImage"])->middleware(["auth"])->name('categoryImage.index');
 
 
 Route::get('/dashboard/contact', function () {
@@ -110,4 +116,17 @@ route::get("/admin/Gallery/images/createImages",[GalleryController::class,"creat
 route::post("/admin/Gallery/images/storeImages",[GalleryController::class,"store"])->name("images.store");
 // del
 Route::delete('admin/Gallery/images/{image}/deleteimages', [GalleryController::class,"destroy"])->name("images.destroy");
+
+// CategorieImage crud
+// create
+route::get("/admin/image/categoryImage/create",[CategorieImageController::class,"create"])->name("categoryImage.create");
+// store
+route::post("/admin/images/categoryImage/store",[CategorieImageController::class,"store"])->name("categoryImage.store");
+// destroy
+Route::delete('/admin/image/categoryImage/{categories}/deletecategoryImage', [CategorieImageController::class,"destroy"])->name("categoryImage.destroy");
+// edit
+route::get("/admin/image/categoryImage/{categories}/editindex",[CategorieImageController::class,"edit"])->name("categories.edit");
+// update
+route::put("/admin/image/categoryImage/{categories}/updateindex",[CategorieImageController::class,"update"])->name("categories.update");
+
 

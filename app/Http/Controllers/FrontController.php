@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Blog;
 use App\Models\categorieArticle;
+use App\Models\CategorieImage;
 use App\Models\categorieRoom;
 use App\Models\Comment;
 use App\Models\Image;
@@ -13,6 +14,7 @@ use App\Models\Service;
 use App\Models\Tag;
 use App\Models\tagRoom;
 use App\Models\Team;
+use Database\Seeders\CategoryImageSeeder;
 use Illuminate\Http\Request;
 
 use function GuzzleHttp\Promise\all;
@@ -68,7 +70,8 @@ class FrontController extends Controller
     public function gallery()
     {
         $imageAll = Image::all();
-        return view("pages.gallery",compact("imageAll"));
+        $categoryImage = CategorieImage::all();
+        return view("pages.gallery",compact("imageAll","categoryImage"));
     }
 
 

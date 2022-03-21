@@ -14,6 +14,11 @@ class GalleryController extends Controller
         $imageAll = Image::all();
         return view("admin.gallery.index",compact("imageAll"));
     }
+    // public function affichageCategoryImage()
+    // {
+    //     $categoryImageAll = CategorieImage::all();
+    //     return view("admin.categoryImage.index",compact("categoryImageAll"));
+    // }
     public function create()
     {
         $categorieImage = CategorieImage::all();

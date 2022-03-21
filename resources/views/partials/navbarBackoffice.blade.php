@@ -54,6 +54,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ Request::is('dashboard/categoryImage/gallery') ? 'active' : ''; }}">
+                    <a href={{ route("categoryImage.index") }} class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Category Image</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item {{ Request::is('dashboard/contact') ? 'active' : ''; }}">
                     <a href={{ route("contact.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
