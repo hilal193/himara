@@ -27,9 +27,6 @@ class GalleryController extends Controller
     }
     public  function  store(Request  $request){
 
-
-
-
         request()->validate([
             "nom" => ["required"],
         ]);

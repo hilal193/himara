@@ -7,6 +7,8 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CategorieImageController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,9 +80,9 @@ Route::get('/dashboard/room', function () {
     return view('admin.room.index');
 })->middleware(['auth'])->name('room.index');
 
-Route::get('/dashboard/staff', function () {
-    return view('admin.staff.index');
-})->middleware(['auth'])->name('staff.index');
+// Route::get('/dashboard/staff', function () {
+//     return view('admin.staff.index');
+// })->middleware(['auth'])->name('staff.index');
 
 Route::get('/dashboard/blog', function () {
     return view('admin.blog.index');
@@ -128,5 +130,22 @@ Route::delete('/admin/image/categoryImage/{categories}/deletecategoryImage', [Ca
 route::get("/admin/image/categoryImage/{categories}/editindex",[CategorieImageController::class,"edit"])->name("categories.edit");
 // update
 route::put("/admin/image/categoryImage/{categories}/updateindex",[CategorieImageController::class,"update"])->name("categories.update");
+
+
+
+// Team
+Route::get('/dashboard/staff', [StaffController::class,"affichage"])->middleware(["auth"])->name('team.index');
+
+// team crud
+// create
+route::get("/admin/staff/teams/createss",[StaffController::class,"create"])->name("teams.create");
+// store
+route::post("/admin/staff/teams/storess",[StaffController::class,"store"])->name("teams.store");
+// destroy
+Route::delete('/admin/staff/teams/{teams}/deleteTeams', [StaffController::class,"destroy"])->name("teams.destroy");
+// edit
+route::get("/admin/staf/teams/{teams}/editindex",[StaffController::class,"edit"])->name("teams.edit");
+// update
+route::put("/admin/staf/teams/{teams}/updateindex",[StaffController::class,"update"])->name("teams.update");
 
 

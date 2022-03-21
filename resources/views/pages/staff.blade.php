@@ -34,7 +34,7 @@
                 <div class="row">
 
                     @foreach ($team as $item)
-                    @if ($loop->iteration != 1)
+                    @if ($loop->iteration != 1 && $loop->iteration < 9 && $loop->iteration > 1)
                     <!-- ITEM -->
                     <div class="col-lg-3 col-md-6">
                         <div class="staff-item">
@@ -49,7 +49,8 @@
                         </div>
                     </div>
 
-                    @else
+                    {{-- @else --}}
+                    @elseif ($loop->iteration == 1)
 
                     <!-- ITEM -->
                     <div class="col-lg-3 col-md-6">
