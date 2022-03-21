@@ -56,7 +56,7 @@ class CategorieImageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'nom' => 'required',
             'filter' => 'required',
         ]);
 

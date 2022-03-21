@@ -119,9 +119,9 @@ Route::delete('admin/Gallery/images/{image}/deleteimages', [GalleryController::c
 
 // CategorieImage crud
 // create
-route::get("/admin/image/categoryImage/create",[CategorieImageController::class,"create"])->name("categoryImage.create");
+route::get("/admin/image/categoryImage/createss",[CategorieImageController::class,"create"])->name("categoryImage.create");
 // store
-route::post("/admin/images/categoryImage/store",[CategorieImageController::class,"store"])->name("categoryImage.store");
+route::post("/admin/images/categoryImage/storess",[CategorieImageController::class,"store"])->name("categoryImage.store");
 // destroy
 Route::delete('/admin/image/categoryImage/{categories}/deletecategoryImage', [CategorieImageController::class,"destroy"])->name("categoryImage.destroy");
 // edit

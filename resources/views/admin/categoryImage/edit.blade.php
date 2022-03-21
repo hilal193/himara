@@ -23,12 +23,12 @@
                                 </div>
 
                                 <div class="col-md-12 col-12">
-                                    {{-- <div class="form-group">
+                                    <div class="form-group">
                                         <label for="first-name-column">{{ $categories->filter }}</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="filter" value="{{ old('filter') }}">
-                                    </div> --}}
-                                    <div class="input-group mb-3">
+                                    </div>
+                                    {{-- <div class="input-group mb-3">
                                         <select class="form-select" id="inputGroupSelect01" name="categorie_image_id">
                                             <option selected="">Choose category...</option>
                                             @foreach ($filters as $item)
@@ -37,7 +37,7 @@
 
                                         </select>
 
-                                    </div>
+                                    </div> --}}
                                 </div>
 
 

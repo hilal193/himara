@@ -6,6 +6,8 @@
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Category Image</h4>
+            <a class="btn btn-primary m-auto" href="{{ route("categoryImage.create") }}">create</a>
+
         </div>
         <div class="card-content">
 
