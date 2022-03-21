@@ -31,9 +31,17 @@
                         </p>
 
                         <small class="text-muted">{{ $item->fonction->fonction }}</small>
+
+                        <form action="{{ route('teams.destroy', $item->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger block m-1">Delete</button>
+                        </form>
+
                     </div>
-                    <img class="card-img-bottom img-fluid" src="{{ asset('/storage/images/' . $item->img) }}" alt="Card image cap"
-                        style="height: 20rem; object-fit: cover;">
+                    <img class="card-img-bottom img-fluid" src="{{ asset('/storage/images/' . $item->img) }}"
+                        alt="Card image cap" style="height: 20rem; object-fit: cover;">
+
                 </div>
 
             </div>

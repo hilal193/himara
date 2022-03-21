@@ -55,4 +55,19 @@ class StaffController extends Controller
             $store->save();
             return  redirect()->back()->with('success', $request->fullname . ' bien ajouté !');
         }
+
+        public function destroy(Team $image, $id)
+    {
+        $image = Team::find($id);
+
+        // $this->authorize("isAdmin");
+
+        // Storage
+        $destination = "images/". $image->img;
+        // dd($destination);
+        Storage::disk("public")->delete($destination);
+        // dd($destination);
+        $image->delete();
+        return redirect()->back()->with('warning', 'Image bien supprimé');
+    }
 }
