@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
 
 <div class="col-12">
     <div class="card">
@@ -9,6 +10,7 @@
             <a class="btn btn-primary m-auto" href="{{ route("categoryImage.create") }}">create</a>
 
         </div>
+
         <div class="card-content">
 
             <!-- table hover -->

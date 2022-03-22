@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             CategoryRoomSeeder::class,
             RoomTagSeeder::class,
             RoomSeeder::class,
+            InfoSeeder::class,
         ]);
     }
 }

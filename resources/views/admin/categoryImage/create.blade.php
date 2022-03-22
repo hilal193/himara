@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
+
 <section id="multiple-column-form">
     <div class="row match-height">
         <div class="col-12">
@@ -8,6 +10,7 @@
                 <div class="card-header">
                     <h4 class="card-title">Gallery</h4>
                 </div>
+
                 <div class="card-content">
                     <div class="card-body">
                         <form class="form" action="{{ route('categoryImage.store') }}" method="POST" enctype="multipart/form-data">

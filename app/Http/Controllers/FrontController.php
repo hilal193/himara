@@ -9,6 +9,7 @@ use App\Models\CategorieImage;
 use App\Models\categorieRoom;
 use App\Models\Comment;
 use App\Models\Image;
+use App\Models\Info;
 use App\Models\Room;
 use App\Models\Service;
 use App\Models\Tag;
@@ -103,7 +104,8 @@ class FrontController extends Controller
 
     public function contact()
     {
-        return view("pages.contact");
+        $infos = Info::all();
+        return view("pages.contact",compact("infos"));
     }
 
     public function admin()

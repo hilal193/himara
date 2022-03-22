@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
 
 <div class="d-flex p-2 m-2">
 <h1>Partie Admin Gallery</h1>
@@ -8,6 +9,7 @@
     <a class="btn btn-primary m-auto" href="{{ route("images.create") }}">create</a>
 
 </div>
+
 
 {{-- <section class="section">
     <div class="row">

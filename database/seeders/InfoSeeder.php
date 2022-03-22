@@ -16,13 +16,13 @@ class InfoSeeder extends Seeder
     {
         DB::table('infos')->insert([
             [
-                "adresse"=>"",
-                "mail"=>"",
-                "telephone"=>"",
-                "fax"=>"",
-                "site"=>"",
+                "adresse"=>" Place de la Minoterie 10",
+                "mail"=>"molengeek@gmail.com",
+                "telephone"=>"0487263999",
+                "fax"=>"0238384784",
+                "site"=>"MOLENGEEK.com",
             ],
-        ])
+        ]);
 
     }
 }

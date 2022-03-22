@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
+    
 
     public function store(Request $request)
     {

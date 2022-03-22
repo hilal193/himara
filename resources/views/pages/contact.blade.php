@@ -63,35 +63,43 @@
                     </div>
                     <div class="col-md-4">
                         <div class="sidebar">
+
                             <div class="google-map">
                                 <div class="toggle-streetview" id="openStreetView">
                                     <i class="fa fa-street-view" aria-hidden="true"></i>
                                 </div>
-                                <div id="map-canvas"></div>
+                                {{-- <div id="map-canvas"></div> --}}
+                                <iframe width='425' height='350' frameborder='0'
+        scrolling='no' marginheight='0' marginwidth='0'
+        src='https://maps.google.com/maps?&amp;q="avenuerogier"&amp;output=embed'></iframe>
                             </div>
+
                             <div class="contact-details mt75">
                                 <div class="contact-info">
                                     <ul>
+                                        @foreach ($infos as $item)
+
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-map-marker"></i>Lorem ipsum dolor, 25, Himara</a>
+                                                <i class="fa fa-map-marker"></i>{{ $item->adresse }}</a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-envelope"></i>contact@hotelhimara.com</a>
+                                                <i class="fa fa-envelope"></i>{{ $item->mail }}</a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-phone"></i>+1 888 123 4567</a>
+                                                <i class="fa fa-phone"></i>{{ $item->telephone }}</a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-fax"></i>+1 888 123 4567</a>
+                                                <i class="fa fa-fax"></i>{{ $item->fax }}</a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-globe"></i>www.hotelhimara.com</a>
+                                                <i class="fa fa-globe"></i>{{ $item->site }}</a>
                                         </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="social-media mt50">
