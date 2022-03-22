@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Models\Contact;
 use App\Models\Gallery;
 use App\Mail\ContactSender;
@@ -88,9 +89,9 @@ Route::get('/dashboard/room', function () {
 //     return view('admin.staff.index');
 // })->middleware(['auth'])->name('staff.index');
 
-Route::get('/dashboard/blog', function () {
-    return view('admin.blog.index');
-})->middleware(['auth'])->name('blog.index');
+// Route::get('/dashboard/blog', function () {
+//     return view('admin.blog.index');
+// })->middleware(['auth'])->name('blog.index');
 
 // Route::get('/dashboard/gallery', function () {
 //     return view('admin.gallery.index');
@@ -164,6 +165,16 @@ route::get("/admin/contacts/info/{info}/editindex",[ContactController::class,"ed
 route::put("/admin/contacts/info/{info}/updateindex",[ContactController::class,"update"])->name("contacts.update");
 //affichage
 Route::get('/dashboard/contact', [ContactController::class,"affichage"])->middleware(["auth"])->name('contact.index');
-// Route::get('/dashboard/contact', function () {
-//     return view('admin.contact.index');
-// })->middleware(['auth'])->name('contact.index');
+
+
+// blog crud
+// edit
+route::get("/admin/blog/article/{blog}/editindex",[ArticleController::class,"edit"])->name("blogs.edit");
+// update
+route::put("/admin/article/blog/{blog}/updateindex",[ArticleController::class,"update"])->name("blogs.update");
+//affichage
+Route::get('/dashboard/blog', [ArticleController::class,"affichage"])->middleware(["auth"])->name('blog.index');
+
+// Route::get('/dashboard/blog', function () {
+//     return view('admin.blog.index');
+// })->middleware(['auth'])->name('blog.index');
