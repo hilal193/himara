@@ -30,13 +30,19 @@
                             {{ $item->description }}
                         </p>
 
-                        <small class="text-muted">{{ $item->fonction->fonction }}</small>
+                        <small class="text-muted">{{ $item->fonction->fonction }}</small> <br>
+                        <div class="d-flex">
+                            <a href="{{ route('teams.edit', $item->id) }}" class="btn btn-warning m-1 block">Edit</a>
 
-                        <form action="{{ route('teams.destroy', $item->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger block m-1">Delete</button>
-                        </form>
+
+                            <form action="{{ route('teams.destroy', $item->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger block m-1">Delete</button>
+                            </form>
+
+                        </div>
+
 
                     </div>
                     <img class="card-img-bottom img-fluid" src="{{ asset('/storage/images/' . $item->img) }}"

@@ -16,17 +16,19 @@
                             <div class="row">
                                 <div class="col-md-12 col-12">
                                     <div class="form-group">
-                                        <label for="first-name-column">{{ $categories->nom }}</label>
+                                        {{-- <label for="first-name-column">{{ $categories->nom }}</label> --}}
+                                        <label for="first-name-column">Nom</label>
                                         <input type="text" id="first-name-column" class="form-control"
-                                            placeholder="Nom de l'image" name="nom" value="{{ old('nom') }}">
+                                            placeholder="Nom de l'image" name="nom" value="{{ old('nom',$categories->nom) }}">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 col-12">
                                     <div class="form-group">
-                                        <label for="first-name-column">{{ $categories->filter }}</label>
+                                        {{-- <label for="first-name-column">{{ $categories->filter }}</label> --}}
+                                        <label for="first-name-column">filter</label>
                                         <input type="text" id="first-name-column" class="form-control"
-                                            placeholder="Nom de l'image" name="filter" value="{{ old('filter') }}">
+                                            placeholder="Nom de l'image" name="filter" value="{{ old('filter',$categories->filter) }}">
                                     </div>
                                     {{-- <div class="input-group mb-3">
                                         <select class="form-select" id="inputGroupSelect01" name="categorie_image_id">

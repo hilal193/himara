@@ -70,4 +70,38 @@ class StaffController extends Controller
         $image->delete();
         return redirect()->back()->with('warning', 'Image bien supprimé');
     }
+
+    public function edit(Team $teams)
+    {
+        // $teams = Team::all();
+        return view("admin.staff.edit",compact("teams"));
+    }
+
+    public function update(Request $request, Team $teams)
+    {
+
+        $request->validate([
+            'img' => 'required',
+            'fullname' => 'required',
+            'description' => 'required',
+        ]);
+
+        // $teams->img = $request->img;
+        
+        if ($request->img) {
+            $request->file('img')->storePublicly('images/','public');
+            $teams->img = $request->file('img')->hashName();
+        }else{
+            $fichierURL = file_get_contents($request->srcURL);
+            $lien = $request->srcURL;
+            $token = substr($lien, strrpos($lien, '/') + 1);
+            Storage::disk('public')->put('images/'.$token , $fichierURL);
+            $teams->img = $token;
+        }
+
+        $teams->fullname = $request->fullname;
+        $teams->description = $request->description;
+        $teams->save();
+        return redirect()->route('team.index')->with('success', 'categorie ' . $request->nom .' modifiée !');
+    }
 }
