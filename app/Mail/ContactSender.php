@@ -11,16 +11,18 @@ class ContactSender extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public $fullname;
+    public $message;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($request)
+    public function __construct($fullname,$message)
     {
         //
-        $this->data = $request;
+        $this->fullname = $fullname;
+        $this->message = $message;
     }
 
     /**
@@ -31,6 +33,7 @@ class ContactSender extends Mailable
     public function build()
     {
         // return $this->markdown('mail.contact');
-        return $this->to($this->data->mail)->markdown('mail.box')->subject($this->data->subject);
+        // return $this->to($this->data->mail)->markdown('mail.box')->subject($this->data->subject);
+        return $this->subject('Mail from Hilal')->from('hilmolengeek@gmail.com', 'hilal koujil')->markdown('pages.mailtest');
     }
 }

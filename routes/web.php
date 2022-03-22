@@ -1,14 +1,18 @@
 <?php
 
+use App\Models\Contact;
 use App\Models\Gallery;
+use App\Mail\ContactSender;
 use App\Models\CategorieImage;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CategorieImageController;
-use App\Http\Controllers\StaffController;
-use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -148,4 +152,6 @@ route::get("/admin/staf/teams/{teams}/editindex",[StaffController::class,"edit"]
 // update
 route::put("/admin/staf/teams/{teams}/updateindex",[StaffController::class,"update"])->name("teams.update");
 
+// Mail::to($contact->email,$contact->first_name)->send(new ContactMail($contact->first_name,$contact->msg));
 
+Route::post('/mail/test/contact', [ContactController::class,"store"])->name('testmail');

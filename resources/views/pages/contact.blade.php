@@ -9,7 +9,7 @@
         @include('partials.topbar')
 
         @include('partials.navbar')
-      
+
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op6" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
             background-size: cover;">
@@ -37,10 +37,12 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus sit, fugiat at in
                             assumenda corrupti autem iste eveniet eaque vitae beatae tenetur, voluptatem eius. Numquam.
                         </p>
+
                         <!-- CONTACT FORM -->
-                        <form id="contact-form" class="contact-form">
+                        <form class="contact-form" action="{{ route("testmail") }}" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <input class="form-control" name="name" placeholder="Name" type="text">
+                                <input class="form-control" name="fullname" placeholder="fullname" type="text">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" name="email" placeholder="Email" type="email">
@@ -55,7 +57,7 @@
                                 <textarea class="form-control" name="message" placeholder="Message"></textarea>
                             </div>
                             <div class="form-group">
-                                <button class="btn mt30">SEND YOUR MESSAGE</button>
+                                <button type="submit" class="btn mt30">SEND YOUR MESSAGE</button>
                             </div>
                         </form>
                     </div>
