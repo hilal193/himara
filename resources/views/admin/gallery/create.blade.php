@@ -20,7 +20,10 @@
                                             <label for="first-name-column">Nom</label>
                                             <input type="text" id="first-name-column" class="form-control"
                                                 placeholder="Nom de l'image" name="nom" value="{{ old('nom') }}">
-                                        </div>
+                                                @error('nom')
+                                                @include('layouts.error')
+                                                @enderror
+                                            </div>
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
@@ -89,6 +92,9 @@
                                                 <option value="3">Three</option> --}}
                                             </select>
                                             <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                            @error('categorie_image_id')
+                                            @include('layouts.error')
+                                            @enderror
                                         </div>
                                     </div>
 
