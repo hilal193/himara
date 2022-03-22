@@ -68,7 +68,7 @@
                                     <i class="fa fa-street-view" aria-hidden="true"></i>
                                 </div>
                                 {{-- <div id="map-canvas"></div> --}}
-                                <iframe class="rounded-circle" width='425' height='350' frameborder='0' scrolling='no' marginheight='0'
+                                <iframe class="rounded-circle" width='100%' height='340' frameborder='0' scrolling='no' marginheight='0'
                                     marginwidth='0'
                                     src='https://maps.google.com/maps?&amp;q="{{ $infos->adresse }}"&amp;output=embed'></iframe>
                             </div>

@@ -102,9 +102,9 @@ Route::get('/dashboard/gallery', [GalleryController::class,"affichage"])->middle
 Route::get('/dashboard/categoryImage/gallery', [CategorieImageController::class,"affichageCategoryImage"])->middleware(["auth"])->name('categoryImage.index');
 
 
-Route::get('/dashboard/contact', function () {
-    return view('admin.contact.index');
-})->middleware(['auth'])->name('contact.index');
+// Route::get('/dashboard/contact', function () {
+//     return view('admin.contact.index');
+// })->middleware(['auth'])->name('contact.index');
 
 // store pour le formulaire commentaire
 Route::post("/{id}/commentaires", [CommentController::class,"store"]);
@@ -155,3 +155,15 @@ route::put("/admin/staf/teams/{teams}/updateindex",[StaffController::class,"upda
 // Mail::to($contact->email,$contact->first_name)->send(new ContactMail($contact->first_name,$contact->msg));
 
 Route::post('/mail/test/contact', [ContactController::class,"store"])->name('testmail');
+
+
+// contact crud
+// edit
+route::get("/admin/contacts/info/{info}/editindex",[ContactController::class,"edit"])->name("contacts.edit");
+// update
+route::put("/admin/contacts/info/{info}/updateindex",[ContactController::class,"update"])->name("contacts.update");
+//affichage
+Route::get('/dashboard/contact', [ContactController::class,"affichage"])->middleware(["auth"])->name('contact.index');
+// Route::get('/dashboard/contact', function () {
+//     return view('admin.contact.index');
+// })->middleware(['auth'])->name('contact.index');
