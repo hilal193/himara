@@ -168,6 +168,10 @@ Route::get('/dashboard/contact', [ContactController::class,"affichage"])->middle
 
 
 // blog crud
+// store
+route::post("/admin/blog/article/stores",[ArticleController::class,"store"])->name("blogs.store");
+// create
+route::get("/admin/blog/article/creates",[ArticleController::class,"create"])->name("blogs.create");
 // edit
 route::get("/admin/blog/article/{blog}/editindex",[ArticleController::class,"edit"])->name("blogs.edit");
 // update

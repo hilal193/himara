@@ -1,17 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Partie Admin Blog</h1>
+<div class="d-flex m-2">
+
+    <h1>Partie Admin Blog</h1>
+        <a class="btn btn-primary m-auto" href="{{ route("blogs.create") }}">create</a>
+</div>
+
+
 @foreach ($blog as $item)
+
 
 <div class="col-md-6 col-sm-12">
     <div class="card">
+
         <div class="card-content">
-            <img class="card-img-top img-fluid" src="{{ asset('/images/blog/'. $item->img) }}" alt="Card image cap" style="height: 20rem">
+            <img class="card-img-top img-fluid" src="{{ asset('/storage/images/'. $item->img) }}" alt="Card image cap" style="height: 20rem">
             <div class="card-body">
                 <h4 class="card-title">titre : {{ $item->title }}</h4>
                 <p class="card-text">
-                   description : {{$item->description}}
+                   {{-- description : {{$item->description}} --}}
+                   <p>description : {{ Str::limit($item->description, 150) }}</p>
+
                 </p>
                 <p class="card-text">
                    auteur : {{$item->auteur}}
