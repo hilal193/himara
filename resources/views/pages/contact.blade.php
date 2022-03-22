@@ -1,8 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-
-@include('partials.navMobile')
+    @include('partials.navMobile')
 
     <!-- ========== WRAPPER ========== -->
     <div class="wrapper">
@@ -12,7 +11,7 @@
 
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op6" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
-            background-size: cover;">
+                background-size: cover;">
             <div class="container">
                 <div class="inner">
                     <h1>CONTACT</h1>
@@ -39,7 +38,7 @@
                         </p>
 
                         <!-- CONTACT FORM -->
-                        <form class="contact-form" action="{{ route("testmail") }}" method="POST">
+                        <form class="contact-form" action="{{ route('testmail') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input class="form-control" name="fullname" placeholder="fullname" type="text">
@@ -69,46 +68,42 @@
                                     <i class="fa fa-street-view" aria-hidden="true"></i>
                                 </div>
                                 {{-- <div id="map-canvas"></div> --}}
-                                <iframe width='425' height='350' frameborder='0'
-        scrolling='no' marginheight='0' marginwidth='0'
-        src='https://maps.google.com/maps?&amp;q="avenuerogier"&amp;output=embed'></iframe>
+                                <iframe class="rounded-circle" width='425' height='350' frameborder='0' scrolling='no' marginheight='0'
+                                    marginwidth='0'
+                                    src='https://maps.google.com/maps?&amp;q="{{ $infos->adresse }}"&amp;output=embed'></iframe>
                             </div>
 
                             <div class="contact-details mt75">
                                 <div class="contact-info">
                                     <ul>
-                                        @foreach ($infos as $item)
 
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-map-marker"></i>{{ $item->adresse }}</a>
+                                                <i class="fa fa-map-marker"></i>{{ $infos->adresse }}</a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-envelope"></i>{{ $item->mail }}</a>
+                                                <i class="fa fa-envelope"></i>{{ $infos->mail }}</a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-phone"></i>{{ $item->telephone }}</a>
+                                                <i class="fa fa-phone"></i>{{ $infos->telephone }}</a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-fax"></i>{{ $item->fax }}</a>
+                                                <i class="fa fa-fax"></i>{{ $infos->fax }}</a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fa fa-globe"></i>{{ $item->site }}</a>
+                                                <i class="fa fa-globe"></i>{{ $infos->site }}</a>
                                         </li>
-                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="social-media mt50">
-                                    <a class="facebook" data-original-title="Facebook" data-toggle="tooltip"
-                                        href="#">
+                                    <a class="facebook" data-original-title="Facebook" data-toggle="tooltip" href="#">
                                         <i class="fa fa-facebook"></i>
                                     </a>
-                                    <a class="twitter" data-original-title="Twitter" data-toggle="tooltip"
-                                        href="#">
+                                    <a class="twitter" data-original-title="Twitter" data-toggle="tooltip" href="#">
                                         <i class="fa fa-twitter"></i>
                                     </a>
                                     <a class="googleplus" data-original-title="Google Plus" data-toggle="tooltip"
@@ -119,12 +114,10 @@
                                         href="#">
                                         <i class="fa fa-pinterest"></i>
                                     </a>
-                                    <a class="linkedin" data-original-title="Linkedin" data-toggle="tooltip"
-                                        href="#">
+                                    <a class="linkedin" data-original-title="Linkedin" data-toggle="tooltip" href="#">
                                         <i class="fa fa-linkedin"></i>
                                     </a>
-                                    <a class="youtube" data-original-title="Youtube" data-toggle="tooltip"
-                                        href="#">
+                                    <a class="youtube" data-original-title="Youtube" data-toggle="tooltip" href="#">
                                         <i class="fa fa-youtube"></i>
                                     </a>
                                     <a class="tripadvisor" data-original-title="Tripadvisor" data-toggle="tooltip"
@@ -295,5 +288,4 @@
     <div class="back-to-top">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
     </div> --}}
-
 @endsection

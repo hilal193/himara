@@ -104,7 +104,7 @@ class FrontController extends Controller
 
     public function contact()
     {
-        $infos = Info::all();
+        $infos = Info::first();
         return view("pages.contact",compact("infos"));
     }
 
