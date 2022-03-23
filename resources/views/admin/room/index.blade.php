@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Partie Admin Room</h1>
+
+<div class="d-flex m-2">
+    <h1>Partie Admin Room</h1>
+        <a class="btn btn-primary m-auto" href="{{ route("rooms.create") }}">create</a>
+</div>
 
 @foreach ($room as $item)
 
@@ -46,14 +50,14 @@
                     @endforeach
                 </p>
 
-                {{-- <div class="d-flex">
-                    <form action="{{ route('blogs.destroy', $item->id) }}" method="post">
+                <div class="d-flex">
+                    <form action="{{ route('rooms.destroy', $item->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger block m-1">Delete</button>
                     </form>
-                    <a href="{{route('blogs.edit', $item->id)}}" class="btn btn-warning m-1">Edit</a>
-                </div> --}}
+                    <a href="{{route('rooms.edit', $item->id)}}" class="btn btn-warning m-1">Edit</a>
+                </div>
 
 
             </div>

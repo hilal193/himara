@@ -196,6 +196,4 @@ Route::get('/dashboard/roomss', [RoomController::class,"affichage"])->middleware
 // destroy
 Route::delete('/admin/chambre/room/{rooms}/deleteRoom', [RoomController::class,"destroy"])->name("rooms.destroy");
 
-// Route::get('/dashboard/room', function () {
-//     return view('admin.room.index');
-// })->middleware(['auth'])->name('room.index');
+
