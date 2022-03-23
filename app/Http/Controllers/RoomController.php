@@ -107,4 +107,15 @@ class RoomController extends Controller
         $rooms->save();
         return redirect()->route('room.index')->with('success', 'room ' . $request->titre .' modifiée !');
     }
+
+    public function destroy($id)
+    {
+        // dd($image);
+        $image = Room::find($id);
+        // Storage
+        $destination = "images/" . $image->img;
+        Storage::disk("public")->delete($destination);
+        $image->delete();
+        return redirect()->back()->with('warning', 'article bien supprimé');
+    }
 }
