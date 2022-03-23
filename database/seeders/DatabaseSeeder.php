@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CategorieImage;
+use App\Models\Feature;
 use App\Models\Image;
 use Illuminate\Database\Seeder;
 
@@ -30,6 +31,8 @@ class DatabaseSeeder extends Seeder
             TeamSeeder::class,
             ServiceSeeder::class,
             CategoryRoomSeeder::class,
+            StatutSeeder::class,
+            FeatureSeeder::class,
             RoomTagSeeder::class,
             RoomSeeder::class,
             InfoSeeder::class,

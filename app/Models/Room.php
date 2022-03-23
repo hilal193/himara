@@ -18,8 +18,8 @@ class Room extends Model
         return $this->belongsToMany(tagRoom::class, "tag_rooms", "room_id");
     }
 
-    public function statut_room_features()
+    public function features()
     {
-        return $this->belongsToMany(Statut::class, "statut_room_features", "room_id" ,"statut_id");
+        return $this->belongsToMany(Statut::class, "statut_room_features", "room_id" ,"feature_id");
     }
 }

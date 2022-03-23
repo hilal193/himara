@@ -38,7 +38,7 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <figure class="gradient-overlay-hover link-icon">
-                                        <a href="room.html"><img src="{{ asset('storage/images/'. $item->img) }}"
+                                        <a href={{ route("roomLast",$item->id)  }}><img src="{{ asset('storage/images/'. $item->img) }}"
                                                 class="img-fluid" alt="Image"></a>
                                     </figure>
                                     {{-- {{ asset("images/rooms/single/single1.jpg") }} --}}
@@ -46,7 +46,7 @@
                                 <div class="col-lg-5">
                                     <div class="room-info">
                                         <h3 class="room-title">
-                                            <a href="room.html">{{ $item->titre }}</a>
+                                            <a href={{ route("roomLast",$item->id)  }}>{{ $item->titre }}</a>
                                         </h3>
                                         <span class="room-rates">
                                             <i class="fa fa-star" aria-hidden="true"></i>

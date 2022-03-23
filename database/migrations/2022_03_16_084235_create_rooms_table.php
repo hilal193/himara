@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->string("img");
             $table->string("titre");
-            $table->string("description");
+            $table->longText("description");
             $table->string("prix");
             $table->integer("litMax");
             $table->integer("personMax");

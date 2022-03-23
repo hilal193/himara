@@ -14,22 +14,23 @@ class StatutSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('features')->insert(
+        DB::table('statuts')->insert(
             [
-                "statut"=>"true",
-                "created_at"=>now(),
-            ],
-            [
-                "statut"=>"false",
-                "created_at"=>now(),
+                [
+                    "statut" => "true",
+                    "created_at" => now(),
+                ],
+                [
+                    "statut" => "false",
+                    "created_at" => now(),
 
-            ],
-            [
-                "statut"=>"hidden",
-                "created_at"=>now(),
+                ],
+                [
+                    "statut" => "hidden",
+                    "created_at" => now(),
 
-            ],
+                ],
+            ]
         );
-
     }
 }

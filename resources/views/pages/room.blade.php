@@ -1,30 +1,31 @@
 @extends('layouts.index')
 
 @section('content')
-
-@include('partials.navMobile')
+    @include('partials.navMobile')
 
     <!-- ========== WRAPPER ========== -->
     <div class="wrapper">
         @include('partials.topbar')
 
         @include('partials.navbar')
-        
+
 
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op5" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
-             background-size: cover;">
+                     background-size: cover;">
             <div class="container">
                 <div class="inner">
-                    <h1>ISTANBUL</h1>
+                    <h1>{{ $room->titre }}</h1>
                     <div class="room-details-price">
-                        €89 / NIGHT
+                        {{ $room->prix }}
                     </div>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="index.html">Home</a>
+                            {{-- <a href="index.html">Home</a> --}}
+                            <a href={{ 'index.html' }}}}>Home</a>
                         </li>
                         <li>
+                            {{-- <a href="index.html">Rooms</a> --}}
                             <a href="index.html">Rooms</a>
                         </li>
                         <li>Istanbul</li>
@@ -43,8 +44,21 @@
                                 <!-- ITEM -->
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
-                                        <a href="images/rooms/single/single1.jpg">
-                                            <img class="img-fluid" src="images/rooms/single/single1.jpg"
+
+                                        <a href="{{ asset('/storage/images/' . $room->img) }}">
+                                            {{-- <a href={{ asset("images/rooms/single/single1.jpg") }}> --}}
+                                            <img class="img-fluid" src="{{ asset('/storage/images/' . $room->img) }}"
+                                                alt="Image">
+                                            {{-- <img class="img-fluid" src={{ asset("images/rooms/single/single1.jpg") }}
+                                                alt="Image"> --}}
+                                        </a>
+                                    </figure>
+                                </div>
+                                {{-- <!-- ITEM -->
+                                <div class="item">
+                                    <figure class="gradient-overlay-hover image-icon">
+                                        <a href={{ asset("images/rooms/single/single2.jpg") }}>
+                                            <img class="img-fluid" src={{ asset("images/rooms/single/single2.jpg") }}
                                                 alt="Image">
                                         </a>
                                     </figure>
@@ -52,8 +66,8 @@
                                 <!-- ITEM -->
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
-                                        <a href="images/rooms/single/single2.jpg">
-                                            <img class="img-fluid" src="images/rooms/single/single2.jpg"
+                                        <a href={{ asset("images/rooms/single/single3.jpg") }}>
+                                            <img class="img-fluid" src={{ asset("images/rooms/single/single3.jpg") }}
                                                 alt="Image">
                                         </a>
                                     </figure>
@@ -61,8 +75,8 @@
                                 <!-- ITEM -->
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
-                                        <a href="images/rooms/single/single3.jpg">
-                                            <img class="img-fluid" src="images/rooms/single/single3.jpg"
+                                        <a href={{ asset("images/rooms/single/single4.jpg") }}>
+                                            <img class="img-fluid" src={{ asset("images/rooms/single/single4.jpg") }}
                                                 alt="Image">
                                         </a>
                                     </figure>
@@ -70,8 +84,8 @@
                                 <!-- ITEM -->
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
-                                        <a href="images/rooms/single/single4.jpg">
-                                            <img class="img-fluid" src="images/rooms/single/single4.jpg"
+                                        <a href={{ asset("images/rooms/single/single5.jpg") }}>
+                                            <img class="img-fluid" src={{ asset("images/rooms/single/single5.jpg") }}
                                                 alt="Image">
                                         </a>
                                     </figure>
@@ -79,8 +93,8 @@
                                 <!-- ITEM -->
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
-                                        <a href="images/rooms/single/single5.jpg">
-                                            <img class="img-fluid" src="images/rooms/single/single5.jpg"
+                                        <a href={{ asset("images/rooms/single/single6.jpg") }}>
+                                            <img class="img-fluid" src={{ asset("images/rooms/single/single6.jpg") }}
                                                 alt="Image">
                                         </a>
                                     </figure>
@@ -88,8 +102,8 @@
                                 <!-- ITEM -->
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
-                                        <a href="images/rooms/single/single6.jpg">
-                                            <img class="img-fluid" src="images/rooms/single/single6.jpg"
+                                        <a href={{ asset("images/rooms/single/single7.jpg") }}>
+                                            <img class="img-fluid" src={{ asset("images/rooms/single/single7.jpg") }}
                                                 alt="Image">
                                         </a>
                                     </figure>
@@ -97,78 +111,46 @@
                                 <!-- ITEM -->
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
-                                        <a href="images/rooms/single/single7.jpg">
-                                            <img class="img-fluid" src="images/rooms/single/single7.jpg"
+                                        <a href={{ asset("images/rooms/single/single8.jpg") }}>
+                                            <img class="img-fluid" src={{ asset("images/rooms/single/single8.jpg") }}
                                                 alt="Image">
                                         </a>
                                     </figure>
-                                </div>
-                                <!-- ITEM -->
-                                <div class="item">
-                                    <figure class="gradient-overlay-hover image-icon">
-                                        <a href="images/rooms/single/single8.jpg">
-                                            <img class="img-fluid" src="images/rooms/single/single8.jpg"
-                                                alt="Image">
-                                        </a>
-                                    </figure>
-                                </div>
+                                </div> --}}
                             </div>
+
                             <div id="room-thumbs" class="room-thumbs owl-carousel">
                                 <!-- ITEM -->
                                 <div class="item"><img class="img-fluid"
-                                        src="images/rooms/single/single1.jpg" alt="Image"></div>
+                                        src={{ asset('images/rooms/single/single1.jpg') }} alt="Image"></div>
                                 <!-- ITEM -->
                                 <div class="item"><img class="img-fluid"
-                                        src="images/rooms/single/single2.jpg" alt="Image"></div>
+                                        src={{ asset('images/rooms/single/single2.jpg') }} alt="Image"></div>
                                 <!-- ITEM -->
                                 <div class="item"><img class="img-fluid"
-                                        src="images/rooms/single/single3.jpg" alt="Image"></div>
+                                        src={{ asset('images/rooms/single/single3.jpg') }} alt="Image"></div>
                                 <!-- ITEM -->
                                 <div class="item"><img class="img-fluid"
-                                        src="images/rooms/single/single4.jpg" alt="Image"></div>
+                                        src={{ asset('images/rooms/single/single4.jpg') }} alt="Image"></div>
                                 <!-- ITEM -->
                                 <div class="item"><img class="img-fluid"
-                                        src="images/rooms/single/single5.jpg" alt="Image"></div>
+                                        src={{ asset('images/rooms/single/single5.jpg') }} alt="Image"></div>
                                 <!-- ITEM -->
                                 <div class="item"><img class="img-fluid"
-                                        src="images/rooms/single/single6.jpg" alt="Image"></div>
+                                        src={{ asset('images/rooms/single/single6.jpg') }} alt="Image"></div>
                                 <!-- ITEM -->
                                 <div class="item"><img class="img-fluid"
-                                        src="images/rooms/single/single7.jpg" alt="Image"></div>
+                                        src={{ asset('images/rooms/single/single7.jpg') }} alt="Image"></div>
                                 <!-- ITEM -->
                                 <div class="item"><img class="img-fluid"
-                                        src="images/rooms/single/single8.jpg" alt="Image"></div>
+                                        src={{ asset('images/rooms/single/single8.jpg') }} alt="Image"></div>
                             </div>
                         </div>
-                        <p class="dropcap">Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-                            ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                            nisl ut aliquip ex ea
-                            <u>commodo consequat.</u>
-                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
-                            blandit praesent luptatum zzril delenit...
+                        <p class="dropcap">{{ $room->description }}
                         </p>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ut, asperiores
-                            voluptatibus quo rem iusto laborum, laudantium corrupti ea esse officia placeat beatae!
-                            Ducimus quasi nisi odio architecto repudiandae illo sunt nulla quia obcaecati
-                            blanditiis? Doloremque commodi deserunt corporis, maiores, quam ipsam voluptates beatae
-                            necessitatibus, sapiente impedit sunt cupiditate odio, officiis quo debitis distinctio!
-                            Tenetur quibusdam modi adipisci vel ullam cum ratione itaque laborum
-                            molestias nesciunt. Qui itaque saepe obcaecati quo tempora natus laudantium quidem,
-                            inventore totam. Nobis incidunt est doloribus qui vero expedita a fugit necessitatibus minus
-                            sapiente illo, commodi laudantium minima quo deserunt odio repellat
-                            placeat quas, perferendis, voluptates! Omnis corporis nostrum optio reprehenderit aspernatur
-                            consequuntur, nisi rerum. Architecto provident alias voluptatem aliquam tenetur eius eos.
-                            Iure, earum. Asperiores consectetur, dolorem animi pariatur. Magni
-                            necessitatibus non hic odit nesciunt voluptatum distinctio provident, repellendus quae
-                            dolores, assumenda delectus quisquam fuga velit natus cumque. Odio sint deserunt ex dolorem,
-                            culpa, sit accusantium nesciunt. Dicta, nulla aperiam expedita nihil
-                            at laborum! Minima ducimus, nobis quasi minus totam ab quo, quia labore nihil praesentium
-                            doloremque recusandae! Voluptas delectus distinctio architecto aliquid eligendi nostrum odio
-                            a culpa modi cumque mollitia id, consequuntur, labore, ut minima
-                            illum. Repellendus cumque veniam quae odit enim.
+                            {{ $room->description }}
+
                         </p>
                         <div class="section-title sm">
                             <h4>ROOM SERVICES</h4>
@@ -176,73 +158,29 @@
                         </div>
                         <div class="room-services-list">
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <i class="fa fa-check"></i>Double Bed
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-check"></i>80 Sq mt
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-check"></i>3 Persons
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-check"></i>Free Internet
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-4">
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <i class="fa fa-check"></i>Free Wi-Fi
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-check"></i>Breakfast Include
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-check"></i>Private Balcony
-                                        </li>
-                                        <li class="no">
-                                            <i class="fa fa-times"></i>Free Newspaper
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-4">
-                                    <ul class="list-unstyled">
-                                        <li class="no">
-                                            <i class="fa fa-times"></i>Flat Screen Tv
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-check"></i>Full Ac
-                                        </li>
-                                        <li class="no">
-                                            <i class="fa fa-times"></i>Beach View
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-check"></i>Room Service
-                                        </li>
-                                    </ul>
-                                </div>
+                                @foreach ($features->chunk(4) as $chunk)
+                                    <div class="col-sm-4">
+                                        <ul class="list-unstyled">
+                                            @foreach ($chunk as $item)
+                                                <li>
+                                                    @if ($item->statut_id == 1)
+                                                        <i class="fa fa-check"></i>
+                                                    @else
+                                                        <i class="fa fa-times text-danger"></i>
+                                                    @endif
+                                                    {{ $item->feature->nom }}
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
+                                    </div>
+                                @endforeach
+
                             </div>
                         </div>
-                        <p>Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                            nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip
-                            ex ea
-                            <u>commodo consequat.</u>
-                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
-                            blandit praesent luptatum zzril delenit...
+                        <p> {{ $room->description }}
                         </p>
-                        <p>Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                            nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip
-                            ex ea
-                            <u>commodo consequat.</u>
-                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
-                            blandit praesent luptatum zzril delenit...
+                        <p> {{ $room->description }}
                         </p>
                         <!-- ROOM REVIEWS -->
                         <div id="room-reviews" class="room-reviews">
@@ -274,9 +212,8 @@
                                                 </div>
                                                 <div class="col-lg-9 col-sm-9 col-8">
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 91%" aria-valuenow="91" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                        <div class="progress-bar" role="progressbar" style="width: 91%"
+                                                            aria-valuenow="91" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-1 col-sm-1 col-1">
@@ -292,9 +229,8 @@
                                                 </div>
                                                 <div class="col-lg-9 col-sm-9 col-8">
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                        <div class="progress-bar" role="progressbar" style="width: 0%"
+                                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-1 col-sm-1 col-1">
@@ -310,9 +246,8 @@
                                                 </div>
                                                 <div class="col-lg-9 col-sm-2 col-8">
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 8%" aria-valuenow="8" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                        <div class="progress-bar" role="progressbar" style="width: 8%"
+                                                            aria-valuenow="8" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-1 col-sm-1 col-1">
@@ -328,9 +263,8 @@
                                                 </div>
                                                 <div class="col-lg-9 col-sm-9 col-8">
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                        <div class="progress-bar" role="progressbar" style="width: 0%"
+                                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-1 col-sm-1 col-1">
@@ -346,9 +280,8 @@
                                                 </div>
                                                 <div class="col-lg-9 col-sm-9 col-8">
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                        <div class="progress-bar" role="progressbar" style="width: 0%"
+                                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-1 col-sm-1 col-1">
@@ -361,7 +294,7 @@
                             </div>
                             <div class="review-box">
                                 <figure class="review-author">
-                                    <img src="images/users/user1.jpg" alt="Image">
+                                    <img src={{ asset('images/users/user1.jpg') }} alt="Image">
                                 </figure>
                                 <div class="review-contentt">
                                     <div class="rating">
@@ -386,7 +319,7 @@
                             <!-- End review-box -->
                             <div class="review-box clearfix">
                                 <figure class="review-author">
-                                    <img src="images/users/user2.jpg" alt="Image">
+                                    <img src={{ asset('images/users/user2.jpg') }} alt="Image">
                                 </figure>
                                 <div class="review-contentt">
                                     <div class="rating">
@@ -411,7 +344,7 @@
                             <!-- End review-box -->
                             <div class="review-box clearfix">
                                 <figure class="review-author">
-                                    <img src="images/users/user3.jpg" alt="Image">
+                                    <img src={{ asset('images/users/user3.jpg') }} alt="Image">
                                 </figure>
                                 <div class="review-contentt">
                                     <div class="rating">
@@ -445,20 +378,18 @@
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
                                             <a href="room.html">
-                                                <img src="images/rooms/single/single1.jpg" class="img-fluid"
-                                                    alt="Image">
+                                                <img src={{ asset('images/rooms/single/single1.jpg') }}
+                                                    class="img-fluid" alt="Image">
                                             </a>
                                             <div class="room-services">
                                                 <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover"
                                                     data-placement="right" data-trigger="hover"
-                                                    data-content="Breakfast Included"
-                                                    data-original-title="Breakfast"></i>
+                                                    data-content="Breakfast Included" data-original-title="Breakfast"></i>
                                                 <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover"
                                                     data-placement="right" data-trigger="hover" data-content="Free WiFi"
                                                     data-original-title="WiFi"></i>
-                                                <i class="fa fa-television" data-toggle="popover"
-                                                    data-placement="right" data-trigger="hover"
-                                                    data-content="Plasma TV with cable channels"
+                                                <i class="fa fa-television" data-toggle="popover" data-placement="right"
+                                                    data-trigger="hover" data-content="Plasma TV with cable channels"
                                                     data-original-title="TV"></i>
                                             </div>
                                             <div class="room-price">€89 / night</div>
@@ -476,20 +407,18 @@
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
                                             <a href="room.html">
-                                                <img src="images/rooms/double/double.jpg" class="img-fluid"
-                                                    alt="Image">
+                                                <img src={{ asset('images/rooms/double/double.jpg') }}
+                                                    class="img-fluid" alt="Image">
                                             </a>
                                             <div class="room-services">
                                                 <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover"
                                                     data-placement="right" data-trigger="hover"
-                                                    data-content="Breakfast Included"
-                                                    data-original-title="Breakfast"></i>
+                                                    data-content="Breakfast Included" data-original-title="Breakfast"></i>
                                                 <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover"
                                                     data-placement="right" data-trigger="hover" data-content="Free WiFi"
                                                     data-original-title="WiFi"></i>
-                                                <i class="fa fa-television" data-toggle="popover"
-                                                    data-placement="right" data-trigger="hover"
-                                                    data-content="Plasma TV with cable channels"
+                                                <i class="fa fa-television" data-toggle="popover" data-placement="right"
+                                                    data-trigger="hover" data-content="Plasma TV with cable channels"
                                                     data-original-title="TV"></i>
                                             </div>
                                             <div class="room-price">€129 / night</div>
@@ -507,23 +436,21 @@
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
                                             <a href="room.html">
-                                                <img src="images/rooms/deluxe/deluxe.jpg" class="img-fluid"
-                                                    alt="Image">
+                                                <img src={{ asset('images/rooms/deluxe/deluxe.jpg') }}
+                                                    class="img-fluid" alt="Image">
                                             </a>
                                             <div class="room-services">
                                                 <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover"
                                                     data-placement="right" data-trigger="hover"
-                                                    data-content="Breakfast Included"
-                                                    data-original-title="Breakfast"></i>
+                                                    data-content="Breakfast Included" data-original-title="Breakfast"></i>
                                                 <i class="fa fa-bath" data-toggle="popover" data-placement="right"
                                                     data-trigger="hover" data-content="2 Bathrooms"
                                                     data-original-title="Bathroom"></i>
                                                 <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover"
                                                     data-placement="right" data-trigger="hover" data-content="Free WiFi"
                                                     data-original-title="WiFi"></i>
-                                                <i class="fa fa-television" data-toggle="popover"
-                                                    data-placement="right" data-trigger="hover"
-                                                    data-content="Plasma TV with cable channels"
+                                                <i class="fa fa-television" data-toggle="popover" data-placement="right"
+                                                    data-trigger="hover" data-content="Plasma TV with cable channels"
                                                     data-original-title="TV"></i>
                                             </div>
                                             <div class="room-price">€189 / night</div>
@@ -557,8 +484,7 @@
                                             <!-- ROOM TYPE -->
                                             <div class="form-group">
                                                 <select class="form-control" name="booking-roomtype"
-                                                    title="Select Room Type" data-header="Room Type"
-                                                    disabled="disabled">
+                                                    title="Select Room Type" data-header="Room Type" disabled="disabled">
                                                     <option value="Single" selected="selected">Single Room</option>
                                                     <option value="Double">Double Room</option>
                                                     <option value="Deluxe">Deluxe Room</option>
@@ -568,8 +494,7 @@
                                             <div class="form-group">
                                                 <div class="form_date">
                                                     <input type="text" class="datepicker form-control"
-                                                        name="booking-checkin"
-                                                        placeholder="Slect Arrival & Departure Date"
+                                                        name="booking-checkin" placeholder="Slect Arrival & Departure Date"
                                                         readonly="readonly">
                                                 </div>
                                             </div>
@@ -584,8 +509,7 @@
                                                             <label>Adults
                                                                 <a href="#" title="" data-toggle="popover"
                                                                     data-placement="top" data-trigger="hover"
-                                                                    data-content="18+ years"
-                                                                    data-original-title="Adults">
+                                                                    data-content="18+ years" data-original-title="Adults">
                                                                     <i class="fa fa-info-circle"></i>
                                                                 </a>
                                                             </label>
@@ -628,163 +552,7 @@
             </div>
         </main>
         @include('partials.footer')
-        {{-- <!-- ========== FOOTER ========== -->
-        <footer>
-            <div class="footer-widgets">
-                <div class="container">
-                    <div class="row">
-                        <!-- WIDGET -->
-                        <div class="col-md-3">
-                            <div class="footer-widget">
-                                <img src="images/logo.svg" class="footer-logo" alt="Hotel Himara">
-                                <div class="inner">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, velit placeat
-                                        assumenda incidunt dolorem aliquam!</p>
-                                    <a href="https://www.tripadvisor.com/" target="_blank">
-                                        <div class="tripadvisor-banner">
-                                            <span class="review">Recommended</span>
-                                            <img src="images/icons/tripadvisor.png" alt="Image">
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- WIDGET -->
-                        <div class="col-md-3">
-                            <div class="footer-widget">
-                                <h3>LATEST NEWS</h3>
-                                <div class="inner">
-                                    <ul class="latest-posts">
-                                        <li>
-                                            <a href="blog-post.html">10 Tips for holiday travel</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-post.html">Are you ready to enjoy your holidays</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-post.html">Honeymoon at Hotel Himara</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-post.html">Travel gift ideas for every type of traveler</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-post.html">Breakfast with coffee and orange juice</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- WIDGET -->
-                        <div class="col-md-3">
-                            <div class="footer-widget">
-                                <h3>USEFUL LINKS</h3>
-                                <div class="inner">
-                                    <ul class="useful-links">
-                                        <li>
-                                            <a href="about-us.html">About Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop.html">Shop</a>
-                                        </li>
-                                        <li>
-                                            <a href="gallery.html">Himara Gallery</a>
-                                        </li>
-                                        <li>
-                                            <a href="location.html">Our Location</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- WIDGET -->
-                        <div class="col-md-3">
-                            <div class="footer-widget">
-                                <h3>Contact Info</h3>
-                                <div class="inner">
-                                    <ul class="contact-details">
-                                        <li>
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            Lorem ipsum dolor, 25, Himara
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-phone" aria-hidden="true"></i>
-                                            Phone: +1 888 123 4567
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-fax"></i>
-                                            Fax: +1 888 123 4567
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-globe"></i>
-                                            Web: www.hotelhimara.com
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-envelope"></i>
-                                            Email:
-                                            <a href="mailto:info@site.com">contact@hotelhimara.com</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- SUBFOOTER -->
-            <div class="subfooter">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="copyrights">&copy; 2018 Hotel Himara. Designed by
-                                <a href="https://eagle-themes.com/" target="_blank">Eagle-Themes</a>.
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="social-media">
-                                <a class="facebook" data-original-title="Facebook" data-toggle="tooltip"
-                                    href="#">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a class="twitter" data-original-title="Twitter" data-toggle="tooltip" href="#">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a class="googleplus" data-original-title="Google Plus" data-toggle="tooltip"
-                                    href="#">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                                <a class="pinterest" data-original-title="Pinterest" data-toggle="tooltip"
-                                    href="#">
-                                    <i class="fa fa-pinterest"></i>
-                                </a>
-                                <a class="linkedin" data-original-title="Linkedin" data-toggle="tooltip"
-                                    href="#">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a class="youtube" data-original-title="Youtube" data-toggle="tooltip" href="#">
-                                    <i class="fa fa-youtube"></i>
-                                </a>
-                                <a class="instagram" data-original-title="Instagram" data-toggle="tooltip"
-                                    href="#">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer> --}}
+
     </div>
     @include('partials.notification')
-
-
-
-    {{-- <!-- ========== BACK TO TOP ========== -->
-    <div class="back-to-top">
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-    </div> --}}
-
-
-    @endsection
+@endsection

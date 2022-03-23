@@ -37,33 +37,53 @@ class FeatureSeeder extends Seeder
             ],
             [
                 "nom"=>"DOUBLE BED",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"80 SQ MT",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"3 PERSONS",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"FREE INTERNET",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"PRIVATE BALCONY",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"FREE NEWSPAPER",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"FLAT SCREEN TV",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"BEACH VIEW",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"FULL AC",
+                "icon"=>null,
+                "description"=>null,
             ],
             [
                 "nom"=>"ROOM SERVICE",
+                "icon"=>null,
+                "description"=>null,
             ],
 
         ]);

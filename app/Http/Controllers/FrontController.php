@@ -8,6 +8,7 @@ use App\Models\categorieArticle;
 use App\Models\CategorieImage;
 use App\Models\categorieRoom;
 use App\Models\Comment;
+use App\Models\FeatureRoom;
 use App\Models\Image;
 use App\Models\Info;
 use App\Models\Room;
@@ -17,6 +18,7 @@ use App\Models\tagRoom;
 use App\Models\Team;
 use Database\Seeders\CategoryImageSeeder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use function GuzzleHttp\Promise\all;
 
@@ -35,18 +37,18 @@ class FrontController extends Controller
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
         $blogLast = Article::latest()->take(3)->get();
-        return view("pages.blog",compact("blog","tag","categoryArticle","blogLast"));
+        return view("pages.blog", compact("blog", "tag", "categoryArticle", "blogLast"));
     }
     public function searchCategorie($id)
     {
-        $blog = Article::where("categorie_article_id",$id)->get();
+        $blog = Article::where("categorie_article_id", $id)->get();
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
         $blogLast = Article::latest()->take(3)->get();
 
 
         // dd($projetTout);
-        return view("pages.blog",compact("categoryArticle","blog","tag","blogLast"));
+        return view("pages.blog", compact("categoryArticle", "blog", "tag", "blogLast"));
     }
 
     public function tagCategorie($id)
@@ -60,7 +62,7 @@ class FrontController extends Controller
 
 
         // dd($projetTout);
-        return view("pages.blog",compact("categoryArticle","blog","tag","blogLast"));
+        return view("pages.blog", compact("categoryArticle", "blog", "tag", "blogLast"));
     }
 
     public function page()
@@ -72,7 +74,7 @@ class FrontController extends Controller
     {
         $imageAll = Image::all();
         $categoryImage = CategorieImage::all();
-        return view("pages.gallery",compact("imageAll","categoryImage"));
+        return view("pages.gallery", compact("imageAll", "categoryImage"));
     }
 
 
@@ -89,12 +91,12 @@ class FrontController extends Controller
     public function staff()
     {
 
-        $team = Team::where("fonction_id","!=",1)->latest()->take(8)->get();
-        $houseKeeper = Team::where("fonction_id",1)->first();
+        $team = Team::where("fonction_id", "!=", 1)->latest()->take(8)->get();
+        $houseKeeper = Team::where("fonction_id", 1)->first();
 
 
 
-        return view("pages.staff",compact("team","houseKeeper"));
+        return view("pages.staff", compact("team", "houseKeeper"));
     }
 
     public function loading()
@@ -105,7 +107,7 @@ class FrontController extends Controller
     public function contact()
     {
         $infos = Info::first();
-        return view("pages.contact",compact("infos"));
+        return view("pages.contact", compact("infos"));
     }
 
     public function admin()
@@ -117,36 +119,43 @@ class FrontController extends Controller
     {
         $serviceAll = Service::all();
 
-       return view("home" ,compact("serviceAll"));
+        return view("home", compact("serviceAll"));
     }
 
-     // LOGIQUE pour la barre de recherche
-     public function search(Request $request)
-     {
+    // LOGIQUE pour la barre de recherche
+    public function search(Request $request)
+    {
 
-         $data = $request->data;
-         $blog= Article::where('title', 'like', "%$data%")
-                 ->get();
+        $data = $request->data;
+        $blog = Article::where('title', 'like', "%$data%")
+            ->get();
 
         // $blog = Article::all();
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
         $blogLast = Article::latest()->take(3)->get();
 
-        return view("pages.blog",compact("blog","tag","categoryArticle","blogLast"));
-
-     }
-
+        return view("pages.blog", compact("blog", "tag", "categoryArticle", "blogLast"));
+    }
 
 
-     public function blogPost($id)
-     {
+
+    public function blogPost($id)
+    {
         $blog = Article::find($id);
         // dd($projetTout);
         $comment = Comment::all();
 
-        return view("pages.blogpost",compact("blog","comment"));
-     }
+        return view("pages.blogpost", compact("blog", "comment"));
+    }
+
+    public function roomPost($id)
+    {
+        $room = Room::find($id);
+        $features = FeatureRoom::where('room_id', $id)->where('statut_id', '!=', 3)->get();
+
+        return view("pages.room", compact("room", 'features'));
+    }
 
     // public function service()
     // {
@@ -161,7 +170,7 @@ class FrontController extends Controller
         $categoryRoom = categorieRoom::all();
 
 
-        return view("pages.roomslist", compact("roomListAll","tagRoom","categoryRoom"));
+        return view("pages.roomslist", compact("roomListAll", "tagRoom", "categoryRoom"));
     }
     public function tagRooms($id)
     {
@@ -177,19 +186,19 @@ class FrontController extends Controller
         $categoryRoom = categorieRoom::all();
 
         // dd($projetTout);
-        return view("pages.roomslist",compact("tagRoom","roomListAll","categoryRoom"));
+        return view("pages.roomslist", compact("tagRoom", "roomListAll", "categoryRoom"));
     }
 
     public function searchRoomCategorie($id)
     {
 
-        $roomListAll = Room::where("category_room_id",$id)->get();
+        $roomListAll = Room::where("category_room_id", $id)->get();
         $categoryRoom = categorieRoom::all();
         // dd($categoryRoomArticle);
 
         $tagRoom = tagRoom::all();
 
-        return view("pages.roomslist", compact("roomListAll","categoryRoom","tagRoom"));
+        return view("pages.roomslist", compact("roomListAll", "categoryRoom", "tagRoom"));
     }
 
     // LOGIQUE pour la barre de recherche
@@ -197,14 +206,12 @@ class FrontController extends Controller
     {
 
         $data = $request->data;
-        $roomListAll= Room::where('titre', 'like', "%$data%")
-                ->get();
+        $roomListAll = Room::where('titre', 'like', "%$data%")
+            ->get();
         $categoryRoom = categorieRoom::all();
         $tagRoom = tagRoom::all();
 
 
-       return view("pages.roomslist",compact("roomListAll","categoryRoom","tagRoom"));
-
+        return view("pages.roomslist", compact("roomListAll", "categoryRoom", "tagRoom"));
     }
-
 }
