@@ -11,7 +11,7 @@
 @foreach ($blog as $item)
 
 
-<div class="col-md-6 col-sm-12">
+<div class="col-md-7 col-sm-12">
     <div class="card">
 
         <div class="card-content">
@@ -48,14 +48,16 @@
 
                     @endforeach
                 </p>
+                <div class="d-flex">
+                    <form action="{{ route('blogs.destroy', $item->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger block m-1">Delete</button>
+                    </form>
+                    <a href="{{route('blogs.edit', $item->id)}}" class="btn btn-warning m-1">Edit</a>
+                </div>
+                {{-- <button class="btn btn-primary block">Update now</button> --}}
 
-                <button class="btn btn-primary block">Update now</button>
-                <form action="{{ route('blogs.destroy', $item->id) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger block m-1">Delete</button>
-                </form>
-                <a href="{{route('blogs.edit', $item->id)}}" class="btn btn-warning m-1">Edit</a>
 
             </div>
         </div>

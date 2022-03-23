@@ -110,7 +110,6 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
-
         // dd($image);
         $image = Article::find($id);
         // Storage

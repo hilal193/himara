@@ -67,8 +67,10 @@
                                             <i class="fa fa-television" data-toggle="popover" data-placement="top"
                                                 data-trigger="hover" data-content="Plasma TV with cable channels"
                                                 data-original-title="TV"></i>
-                                            <span>Beds: 1 King</span>
-                                            <span>Max Guests: 2</span>
+                                            {{-- <span>Beds: 1 King</span>
+                                            <span>Max Guests: 2</span> --}}
+                                            <span>Beds: {{ $item->litMax }} King</span>
+                                            <span>Max Guests: {{ $item->personMax }}</span>
                                         </div>
                                     </div>
                                 </div>

@@ -19,6 +19,8 @@ class CreateRoomsTable extends Migration
             $table->string("titre");
             $table->string("description");
             $table->string("prix");
+            $table->integer("litMax");
+            $table->integer("personMax");
              // fk
             $table->unsignedBigInteger('category_room_id');
             $table->foreign('category_room_id')->references('id')->on("category_rooms");

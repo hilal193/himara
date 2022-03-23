@@ -14,6 +14,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CategorieImageController;
+use App\Http\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,9 +82,9 @@ Route::post('/room/search', [FrontController::class, "RoomSearch"])->name('RoomS
 
 
 // route par page admin
-Route::get('/dashboard/room', function () {
-    return view('admin.room.index');
-})->middleware(['auth'])->name('room.index');
+// Route::get('/dashboard/room', function () {
+//     return view('admin.room.index');
+// })->middleware(['auth'])->name('room.index');
 
 // Route::get('/dashboard/staff', function () {
 //     return view('admin.staff.index');
@@ -178,10 +179,23 @@ route::get("/admin/blog/article/{blogs}/editindex",[ArticleController::class,"ed
 route::put("/admin/article/blog/{blogs}/updateindex",[ArticleController::class,"update"])->name("blogs.update");
 //affichage
 Route::get('/dashboard/blog', [ArticleController::class,"affichage"])->middleware(["auth"])->name('blog.index');
-
 // destroy
 Route::delete('/admin/blog/article/{blogs}/deleteArticle', [ArticleController::class,"destroy"])->name("blogs.destroy");
 
-// Route::get('/dashboard/blog', function () {
-//     return view('admin.blog.index');
-// })->middleware(['auth'])->name('blog.index');
+// ROOM crud
+// store
+route::post("/admin/chambre/room/stores",[RoomController::class,"store"])->name("rooms.store");
+// create
+route::get("/admin/room/chambre/creates",[RoomController::class,"create"])->name("rooms.create");
+// edit
+route::get("/admin/room/chambre/{rooms}/editindex",[RoomController::class,"edit"])->name("rooms.edit");
+// update
+route::put("/admin/chambre/room/{rooms}/updateindex",[RoomController::class,"update"])->name("rooms.update");
+//affichage
+Route::get('/dashboard/roomss', [RoomController::class,"affichage"])->middleware(["auth"])->name('room.index');
+// destroy
+Route::delete('/admin/chambre/room/{rooms}/deleteRoom', [RoomController::class,"destroy"])->name("rooms.destroy");
+
+// Route::get('/dashboard/room', function () {
+//     return view('admin.room.index');
+// })->middleware(['auth'])->name('room.index');
