@@ -131,7 +131,7 @@
                                                         <li class="d-inline-block me-2 mb-1">
                                                             <div class="form-check">
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" class="form-check-input form-check-success"  name="tag[]"
+                                                                    <input type="checkbox" class="form-check-input form-check-success"  name="tag_Rooms[]"
                                                                     value="{{ $item->id }}" id="customColorCheck1">
                                                                     <label class="form-check-label" for="customColorCheck1">{{ $item->nom }}</label>
                                                                 </div>

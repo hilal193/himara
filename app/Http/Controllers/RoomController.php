@@ -34,6 +34,7 @@ class RoomController extends Controller
             'personMax' => 'required',
         ]);
 
+
          // fk
         $room=new Room();
         $room->titre=$request->titre;
@@ -60,9 +61,50 @@ class RoomController extends Controller
 
         $room->save();
 
-        $room->tag_Rooms()->attach($request->tagRoom);
+        $room->tag_Rooms()->attach($request->tag_Rooms);
 
 
         return redirect()->route('room.index')->with('success', 'Une nouvelle categorie ajoutée !');
+    }
+
+    public function edit(Room $rooms)
+    {
+        $categorieRoom = categorieRoom::all();
+        $tag = tagRoom::all();
+        return view("admin.room.edit",compact("rooms","categorieRoom","tag"));
+    }
+
+    public function update(Request $request, Room $rooms)
+    {
+
+        $request->validate([
+            'titre' => 'required',
+            'img' => 'required',
+            'description' => 'required',
+            'prix' => 'required',
+            'litMax' => 'required',
+            'personMax' => 'required',
+        ]);
+
+        // $teams->img = $request->img;
+
+        if ($request->img) {
+            $request->file('img')->storePublicly('images/','public');
+            $rooms->img = $request->file('img')->hashName();
+        }else{
+            $fichierURL = file_get_contents($request->srcURL);
+            $lien = $request->srcURL;
+            $token = substr($lien, strrpos($lien, '/') + 1);
+            Storage::disk('public')->put('images/'.$token , $fichierURL);
+            $rooms->img = $token;
+        }
+
+        $rooms->titre = $request->titre;
+        $rooms->description = $request->description;
+        $rooms->prix = $request->prix;
+        $rooms->litMax = $request->litMax;
+        $rooms->personMax = $request->personMax;
+        $rooms->save();
+        return redirect()->route('room.index')->with('success', 'room ' . $request->titre .' modifiée !');
     }
 }
