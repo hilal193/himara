@@ -66,4 +66,57 @@ class ArticleController extends Controller
 
         return redirect()->route('blog.index')->with('success', 'Une nouvelle categorie ajoutée !');
     }
+
+
+    public function edit(Article $blogs)
+    {
+        // $teams = Team::all();
+        $categorieArticle = categorieArticle::all();
+        $tag = Tag::all();
+        return view("admin.blog.edit",compact("blogs","categorieArticle","tag"));
+    }
+
+    public function update(Request $request, Article $blogs)
+    {
+
+        $request->validate([
+            'title' => 'required',
+            'img' => 'required',
+            'description' => 'required',
+            'auteur' => 'required',
+            'creation' => 'required',
+        ]);
+
+        // $teams->img = $request->img;
+
+        if ($request->img) {
+            $request->file('img')->storePublicly('images/','public');
+            $blogs->img = $request->file('img')->hashName();
+        }else{
+            $fichierURL = file_get_contents($request->srcURL);
+            $lien = $request->srcURL;
+            $token = substr($lien, strrpos($lien, '/') + 1);
+            Storage::disk('public')->put('images/'.$token , $fichierURL);
+            $blogs->img = $token;
+        }
+
+        $blogs->title = $request->title;
+        $blogs->description = $request->description;
+        $blogs->auteur = $request->auteur;
+        $blogs->creation = $request->creation;
+        $blogs->save();
+        return redirect()->route('team.index')->with('success', 'article ' . $request->title .' modifiée !');
+    }
+
+    public function destroy($id)
+    {
+
+        // dd($image);
+        $image = Article::find($id);
+        // Storage
+        $destination = "images/" . $image->img;
+        Storage::disk("public")->delete($destination);
+        $image->delete();
+        return redirect()->back()->with('warning', 'article bien supprimé');
+    }
 }

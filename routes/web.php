@@ -173,11 +173,14 @@ route::post("/admin/blog/article/stores",[ArticleController::class,"store"])->na
 // create
 route::get("/admin/blog/article/creates",[ArticleController::class,"create"])->name("blogs.create");
 // edit
-route::get("/admin/blog/article/{blog}/editindex",[ArticleController::class,"edit"])->name("blogs.edit");
+route::get("/admin/blog/article/{blogs}/editindex",[ArticleController::class,"edit"])->name("blogs.edit");
 // update
-route::put("/admin/article/blog/{blog}/updateindex",[ArticleController::class,"update"])->name("blogs.update");
+route::put("/admin/article/blog/{blogs}/updateindex",[ArticleController::class,"update"])->name("blogs.update");
 //affichage
 Route::get('/dashboard/blog', [ArticleController::class,"affichage"])->middleware(["auth"])->name('blog.index');
+
+// destroy
+Route::delete('/admin/blog/article/{blogs}/deleteArticle', [ArticleController::class,"destroy"])->name("blogs.destroy");
 
 // Route::get('/dashboard/blog', function () {
 //     return view('admin.blog.index');
