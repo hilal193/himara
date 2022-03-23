@@ -40,10 +40,10 @@
                                             <div class="post-thumbnail">
                                                 <figure class="gradient-overlay-hover link-icon">
                                                     <a href={{ route("blogLast",$item->id)  }}>
-                                                        <img src="{{ asset('/images/blog/'. $item->img) }}"
+                                                        <img src="{{ asset('/storage/images/'. $item->img) }}"
                                                             class="img-fluid" alt="Image">
-                                                        {{-- <img src={{ asset('images/blog/blog-post1.jpg') }} --}}
-                                                        {{-- class="img-fluid" alt="Image"> --}}
+                                                            {{-- <img src="{{ asset('/images/blog/'. $item->img) }}"
+                                                            class="img-fluid" alt="Image"> --}}
                                                     </a>
                                                 </figure>
                                             </div>
