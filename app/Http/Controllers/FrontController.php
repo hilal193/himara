@@ -9,6 +9,7 @@ use App\Models\CategorieImage;
 use App\Models\categorieRoom;
 use App\Models\Comment;
 use App\Models\FeatureRoom;
+use App\Models\Gallery;
 use App\Models\Image;
 use App\Models\Info;
 use App\Models\Room;
@@ -118,8 +119,12 @@ class FrontController extends Controller
     public function home()
     {
         $serviceAll = Service::all();
+        $roomAll = Room::all();
+        // $categoryRoom = categorieRoom::all();
+        $imageAll = Image::all();
 
-        return view("home", compact("serviceAll"));
+
+        return view("home", compact("serviceAll","roomAll","imageAll"));
     }
 
     // LOGIQUE pour la barre de recherche
@@ -213,5 +218,10 @@ class FrontController extends Controller
 
 
         return view("pages.roomslist", compact("roomListAll", "categoryRoom", "tagRoom"));
+    }
+
+    public function reservationAvancer()
+    {
+        return view("pages.bookingform");
     }
 }

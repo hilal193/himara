@@ -3,67 +3,10 @@
 @section('content')
 @include('partials.preloader')
 @include('partials.navMobile')
- {{-- <!-- ========== PRELOADER ========== -->
- <div class="loader loader3">
-    <div class="loader-inner">
-        <div class="spin">
-            <span></span>
-            <img src={{ asset('images/logo.svg') }} alt="Hotel Himara">
-        </div>
-    </div>
-</div>
-<!-- ========== MOBILE MENU ========== -->
-<nav id="mobile-menu"></nav> --}}
-<!-- ========== WRAPPER ========== -->
+
 <div class="wrapper">
     @include('partials.topbar')
-    {{-- <!-- ========== TOP MENU ========== -->
-    <div class="topbar">
-        <div class="container">
-            <div class="welcome-mssg">
-                Welcome to Hotel Himara.
-            </div>
-            <div class="top-right-menu">
-                <ul class="top-menu">
-                    <li class="d-none d-md-inline">
-                        <a href="tel:+18881234567">
-                            <i class="fa fa-phone"></i>+1 888 123 4567
-                        </a>
-                    </li>
-                    <li class="d-none d-md-inline">
-                        <a href="mailto:contact@hotelhimara.com">
-                            <i class="fa fa-envelope-o "></i>contact@hotelhimara.com</a>
-                    </li>
-                    <li class="language-menu">
-                        <a href="#" class="active-language"><img src={{ asset('images/icons/flags/gb.png') }}
-                                alt="Image">English</a>
-                        <ul class="languages">
-                            <li class="language">
-                                <a href="#"><img src={{ asset('images/icons/flags/it.png') }}
-                                        alt="Image">Italiano</a>
-                            </li>
-                            <li class="language">
-                                <a href="#"><img src={{ asset('images/icons/flags/gr.png') }}
-                                        alt="Image">Ελληνικα</a>
-                            </li>
-                            <li class="language">
-                                <a href="#"><img src={{ asset('images/icons/flags/al.png') }}
-                                        alt="Image">Shqip</a>
-                            </li>
-                            <li class="language">
-                                <a href="#"><img src={{ asset('images/icons/flags/fr.png') }}
-                                        alt="Image">Français</a>
-                            </li>
-                            <li class="language">
-                                <a href="#"><img src={{ asset('images/icons/flags/es.png') }}
-                                        alt="Image">Español</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div> --}}
+
     @include('partials.navbar')
     {{-- <!-- ========== HEADER ========== -->
     <header class="horizontal-header sticky-header" data-menutoggle="991">
@@ -437,12 +380,14 @@
                 <a href="rooms-list.html" class="view-all">View all rooms</a>
             </div>
             <div class="row">
+                @foreach ($roomAll->shuffle()->take(3) as $room)
+
                 <!-- ITEM -->
                 <div class="col-md-4">
                     <div class="room-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
-                            <a href="room.html">
-                                <img src={{ asset('images/rooms/single/single1.jpg') }} class="img-fluid"
+                            <a href="{{ asset('/storage/images/' . $room->img) }}">
+                                <img src="{{ asset('/storage/images/' . $room->img) }}" class="img-fluid"
                                     alt="Image">
                             </a>
                             <div class="room-services">
@@ -456,7 +401,7 @@
                                     data-trigger="hover" data-content="Plasma TV with cable channels"
                                     data-original-title="TV"></i>
                             </div>
-                            <div class="room-price">€89 / night</div>
+                            <div class="room-price">{{ $room->prix }}</div>
                         </figure>
                         <div class="room-info">
                             <h2 class="room-title">
@@ -466,7 +411,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- ITEM -->
+                @endforeach
+                {{-- <!-- ITEM -->
                 <div class="col-md-4">
                     <div class="room-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
@@ -526,7 +472,7 @@
                             <p>Enjoy our delux room</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -549,7 +495,7 @@
                                 <h4>{{ $item->titre }}</h4>
                             </figcaption>
                         </figure>
-                        
+
                         {{-- @if ($loop->iteration ==2)
 
                         <figure class="gradient-overlay">
@@ -592,19 +538,30 @@
             <div class="section-title">
                 <h4>HIMARA. <span class="text-himara">GALLERY</span></h4>
                 <p class="section-subtitle">Check out our image gallery</p>
-                <a href="gallery.html" class="view-all">View gallery images</a>
+                <a href={{ route("gallery") }} class="view-all">View gallery images</a>
             </div>
+
             <div class="gallery-owl owl-carousel image-gallery">
+
                 <!-- ITEM -->
+                @foreach ($imageAll->shuffle()->take(5) as $image)
                 <div class="gallery-item">
+
                     <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery1.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery1.jpg') }} alt="Image">
+                        <a href= "{{ asset('/storage/images/'. $image->url) }}">
+                            {{-- <a href={{ asset('images/gallery/gallery1.jpg') }}> --}}
+
+                            <img src="{{ asset('/storage/images/'. $image->url) }}" alt="Image">
+                            {{-- <img src={{ asset('images/gallery/gallery1.jpg') }} alt="Image"> --}}
                         </a>
-                        <figcaption>Swimming Pool</figcaption>
+                        <figcaption>{{ $image->nom }} test</figcaption>
                     </figure>
                 </div>
-                <!-- ITEM -->
+                @endforeach
+
+
+
+                {{-- <!-- ITEM -->
                 <div class="gallery-item">
                     <figure class="gradient-overlay image-icon">
                         <a href={{ asset('images/gallery/gallery2.jpg') }}>
@@ -684,8 +641,9 @@
                         </a>
                         <figcaption>Sea</figcaption>
                     </figure>
-                </div>
+                </div> --}}
             </div>
+
         </div>
     </section>
     <!-- ========== TESTIMONIALS ========== -->

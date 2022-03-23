@@ -44,6 +44,7 @@ require __DIR__.'/auth.php';
 
 // Mon front
 Route::get('/pages/Room', [FrontController::class,"room"])->name('room');
+Route::get('/pages/reaservation/avancer/bookingform', [FrontController::class,"reservationAvancer"])->name('bookingForm');
 Route::get('/pages/RoomsList', [FrontController::class,"roomslist"])->name('roomslist');
 Route::get('/pages/Blog', [FrontController::class,"blog"])->name('blog');
 Route::get('/pages/Gallery', [FrontController::class,"gallery"])->name('gallery');
