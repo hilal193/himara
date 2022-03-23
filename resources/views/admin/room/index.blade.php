@@ -30,8 +30,8 @@
                     {{ $item->category_room->nom  }}
                 </p>
 
-                {{-- <p>
-                    @foreach ($item->tags as $tag)
+                <p>
+                    @foreach ($item->tag_Rooms as $tag)
                     @if ($loop->last)
 
                     <span>
@@ -44,7 +44,7 @@
                     @endif
 
                     @endforeach
-                </p> --}}
+                </p>
 
                 {{-- <div class="d-flex">
                     <form action="{{ route('blogs.destroy', $item->id) }}" method="post">
