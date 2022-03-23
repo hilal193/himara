@@ -122,9 +122,10 @@ class FrontController extends Controller
         $roomAll = Room::all();
         // $categoryRoom = categorieRoom::all();
         $imageAll = Image::all();
+        $blogAll = Article::all();
 
 
-        return view("home", compact("serviceAll","roomAll","imageAll"));
+        return view("home", compact("serviceAll","roomAll","imageAll","blogAll"));
     }
 
     // LOGIQUE pour la barre de recherche

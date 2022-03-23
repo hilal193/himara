@@ -559,89 +559,6 @@
                 </div>
                 @endforeach
 
-
-
-                {{-- <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery2.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery2.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Room View</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery3.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery3.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Cocktail</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery4.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery4.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Breakfast</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery5.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery5.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Playground</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery6.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery6.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Restaurant</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery7.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery7.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Wedding Ceremony</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery8.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery8.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Beach</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery9.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery9.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Honeymoon Room</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href={{ asset('images/gallery/gallery10.jpg') }}>
-                            <img src={{ asset('images/gallery/gallery10.jpg') }} alt="Image">
-                        </a>
-                        <figcaption>Sea</figcaption>
-                    </figure>
-                </div> --}}
             </div>
 
         </div>
@@ -928,31 +845,30 @@
                 <p class="section-subtitle">Check out our latest news</p>
             </div>
             <div class="row">
+                @foreach ($blogAll->shuffle()->take(3) as $item)
                 <!-- ITEM -->
                 <div class="col-md-4">
                     <div class="news-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
-                            <a href="blog-post.html">
-                                <img src={{ asset('images/blog/blog-post1.jpg') }} class="img-fluid"
+                            <a href={{ route("blogLast",$item->id)  }}>
+                                <img src="{{ asset('/storage/images/'. $item->img) }}" class="img-fluid"
                                     alt="Image">
                             </a>
                         </figure>
                         <div class="news-info">
                             <h4 class="title">
-                                <a href="blog-post.html">10 Tips for Holiday Travel</a>
+                                <a href={{ route("blogLast",$item->id)  }}>{{ $item->title }}</a>
                             </h4>
-                            <p>An examination of how the current political and economical climate is affecting the
-                                mental healthcare
-                                industry...</p>
+                            <p>{{ Str::limit($item->description, 100) }}</p>
                             <div class="post-meta">
                                 <span class="author">
                                     <a href="#"><img src={{ asset('images/users/admin.jpg') }} width="16"
                                             alt="Image">
-                                        JANE</a>
+                                        {{ $item->auteur }}</a>
                                 </span>
                                 <span class="date">
                                     <i class="fa fa-clock-o"></i>
-                                    August 13, 2017</span>
+                                    {{ $item->creation }}</span>
                                 <span class="comments">
                                     <a href="#">
                                         <i class="fa fa-commenting-o"></i>
@@ -962,7 +878,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- ITEM -->
+
+                @endforeach
+                {{-- <!-- ITEM -->
                 <div class="col-md-4">
                     <div class="news-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
@@ -1029,7 +947,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
