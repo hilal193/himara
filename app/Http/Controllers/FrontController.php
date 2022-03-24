@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Blog;
+use App\Models\Carousel;
 use App\Models\categorieArticle;
 use App\Models\CategorieImage;
 use App\Models\categorieRoom;
@@ -126,9 +127,10 @@ class FrontController extends Controller
         $blogAll = Article::all();
         $infoAll = Info::first();
         $video = Video::first();
+        $carousel = Carousel::all();
+        $comments = Comment::inRandomOrder()->take(9)->get();
 
-
-        return view("home", compact("serviceAll","roomAll","imageAll","blogAll","infoAll","video"));
+        return view("home", compact("serviceAll", "roomAll", "imageAll", "blogAll", "infoAll", "video", "carousel", 'comments'));
     }
 
     // LOGIQUE pour la barre de recherche
@@ -234,5 +236,9 @@ class FrontController extends Controller
         return view("pages.bookingform");
     }
 
-   
+    public function videosAffiche()
+    {
+        $video = Video::first();
+        return view("admin.video.index", compact("video"));
+    }
 }

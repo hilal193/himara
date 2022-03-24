@@ -82,6 +82,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ Request::is('/dashboard/videos') ? 'active' : ''; }}">
+                    <a href={{ route("video.index") }} class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Video</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

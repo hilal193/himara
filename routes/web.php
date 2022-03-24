@@ -214,6 +214,8 @@ Route::get('/dashboard/carousel', [CarouselController::class,"affichage"])->midd
 // edit
 route::get("/admin/home/carousel/{carousel}/editindexcarousel",[CarouselController::class,"edit"])->name("carousel.edit");
 
+Route::get('/dashboard/videos', [FrontController::class,"videosAffiche"])->middleware(["auth"])->name('video.index');
+
 
 
 
