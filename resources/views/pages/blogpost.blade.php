@@ -149,7 +149,7 @@
                                 <p class="section-subtitle">Leave your comment</p>
                             </div>
                             <ul id="comments-list" class="comments-list">
-                                @dump($comment)
+                                {{-- @dump($comment) --}}
                                 @foreach ($comment as $item)
                                 @if ($item->validate)
 

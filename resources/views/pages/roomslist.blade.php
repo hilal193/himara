@@ -461,9 +461,10 @@
                             </div>
                         </div> --}}
 
+                        {{ $roomListAll->links('pagination::bootstrap-4') }}
 
                         <!-- PAGINATION -->
-                        <nav class="pagination">
+                        {{-- <nav class="pagination">
                             <ul>
                                 <li class="prev-pagination">
                                     <a href="#">
@@ -497,7 +498,8 @@
                                     </a>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav> --}}
+
                     </div>
                     <div class="col-lg-3 col-12">
                         <div class="sidebar">

@@ -15,7 +15,10 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CategorieImageController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomController;
+use App\Mail\ReservationMail;
+use App\Models\Reservation;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,35 +35,35 @@ use App\Http\Controllers\RoomController;
 //     return view('home');
 // })->name("home");
 
-Route::get('/', [FrontController::class,"home"])->name('home');
+Route::get('/', [FrontController::class, "home"])->name('home');
 
 
 // Route::get('/admin/dashboard', function () {
 //     return view('admin.dashboard');
 // })->middleware(['auth'])->name('dashboard');
-Route::get('/admin/dashboard', [FrontController::class,"admin"])->middleware(["auth"])->name('dashboard');
+Route::get('/admin/dashboard', [FrontController::class, "admin"])->middleware(["auth"])->name('dashboard');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Mon front
-Route::get('/pages/Room', [FrontController::class,"room"])->name('room');
-Route::get('/pages/reaservation/avancer/bookingform', [FrontController::class,"reservationAvancer"])->name('bookingForm');
-Route::get('/pages/RoomsList', [FrontController::class,"roomslist"])->name('roomslist');
-Route::get('/pages/Blog', [FrontController::class,"blog"])->name('blog');
-Route::get('/pages/Gallery', [FrontController::class,"gallery"])->name('gallery');
-Route::get('/pages/Events', [FrontController::class,"events"])->name('events');
-Route::get('/pages/EventDetails', [FrontController::class,"eventdetails"])->name('eventdetails');
-Route::get('/pages/Staff', [FrontController::class,"staff"])->name('staff');
-Route::get('/pages/Loading', [FrontController::class,"loading"])->name('loading');
-Route::get('/pages/Contact', [FrontController::class,"contact"])->name('contact');
+Route::get('/pages/Room', [FrontController::class, "room"])->name('room');
+Route::get('/pages/reaservation/avancer/bookingform', [FrontController::class, "reservationAvancer"])->name('bookingForm');
+Route::get('/pages/RoomsList', [FrontController::class, "roomslist"])->name('roomslist');
+Route::get('/pages/Blog', [FrontController::class, "blog"])->name('blog');
+Route::get('/pages/Gallery', [FrontController::class, "gallery"])->name('gallery');
+Route::get('/pages/Events', [FrontController::class, "events"])->name('events');
+Route::get('/pages/EventDetails', [FrontController::class, "eventdetails"])->name('eventdetails');
+Route::get('/pages/Staff', [FrontController::class, "staff"])->name('staff');
+Route::get('/pages/Loading', [FrontController::class, "loading"])->name('loading');
+Route::get('/pages/Contact', [FrontController::class, "contact"])->name('contact');
 // Route::get('/pages/BlogPost', [FrontController::class,"blogPost"])->name('blogPost');
-Route::get('/pages/{id}/BlogPost', [FrontController::class,"blogPost"])->name('blogLast');
+Route::get('/pages/{id}/BlogPost', [FrontController::class, "blogPost"])->name('blogLast');
 // Route::get('/pages/BlogPost2', [FrontController::class,"blogPost2"])->name('blogPost2');
 // Route::get('/pages/Comment', [FrontController::class,"comment"])->name('comment');
 // Route::get('/pages/Service/home', [FrontController::class,"service"])->name('service');
-Route::get('/pages/{id}/RoomPost', [FrontController::class,"roomPost"])->name('roomLast');
-
+Route::get('/pages/{id}/RoomPost', [FrontController::class, "roomPost"])->name('roomLast');
+Route::post("/reservation", [ReservationController::class, 'store'])->name('reservation.store');
 
 
 
@@ -68,19 +71,19 @@ Route::get('/pages/{id}/RoomPost', [FrontController::class,"roomPost"])->name('r
 
 
 // fonction recherche
-Route::post('/search', [FrontController::class, "search"])->name('search');
+Route::get('/search', [FrontController::class, "search"])->name('search');
 // categorie id
-Route::get('/pages/{id}/CategorieId', [FrontController::class,"searchCategorie"])->name('blogCategorie');
+Route::get('/pages/{id}/CategorieId', [FrontController::class, "searchCategorie"])->name('blogCategorie');
 // //last par id
 // Route::get('/pages/{id}/LastId', [FrontController::class,"tagCategorie"])->name('blogLast');
 
 //tag id
-Route::get('/pages/{id}/TAGId', [FrontController::class,"tagCategorie"])->name('tagCategorie');
+Route::get('/pages/{id}/TAGId', [FrontController::class, "tagCategorie"])->name('tagCategorie');
 
 // tag rooms id
-Route::get('/pages/{id}/tagRoomsID', [FrontController::class,"tagRooms"])->name('tagRooms');
+Route::get('/pages/{id}/tagRoomsID', [FrontController::class, "tagRooms"])->name('tagRooms');
 //category room
-Route::get('/pages/Room/{id}/CategorieId', [FrontController::class,"searchRoomCategorie"])->name('roomCategorie');
+Route::get('/pages/Room/{id}/CategorieId', [FrontController::class, "searchRoomCategorie"])->name('roomCategorie');
 // fonction recherche pour chambre
 Route::post('/room/search', [FrontController::class, "RoomSearch"])->name('RoomSearch');
 
@@ -103,9 +106,9 @@ Route::post('/room/search', [FrontController::class, "RoomSearch"])->name('RoomS
 // })->middleware(['auth'])->name('gallery.index');
 
 // image
-Route::get('/dashboard/gallery', [GalleryController::class,"affichage"])->middleware(["auth"])->name('gallery.index');
+Route::get('/dashboard/gallery', [GalleryController::class, "affichage"])->middleware(["auth"])->name('gallery.index');
 // categoryImage
-Route::get('/dashboard/categoryImage/gallery', [CategorieImageController::class,"affichageCategoryImage"])->middleware(["auth"])->name('categoryImage.index');
+Route::get('/dashboard/categoryImage/gallery', [CategorieImageController::class, "affichageCategoryImage"])->middleware(["auth"])->name('categoryImage.index');
 
 
 // Route::get('/dashboard/contact', function () {
@@ -113,7 +116,7 @@ Route::get('/dashboard/categoryImage/gallery', [CategorieImageController::class,
 // })->middleware(['auth'])->name('contact.index');
 
 // store pour le formulaire commentaire
-Route::post("/{id}/commentaires", [CommentController::class,"store"]);
+Route::post("/{id}/commentaires", [CommentController::class, "store"]);
 Route::delete("/comments/{id}/delete", [CommentController::class, "destroy"])->name("comment.destroy");
 // Route::get("/comments/{id}/edit", [CommentController::class, "edit"]);
 
@@ -121,7 +124,7 @@ Route::get("/comments/{id}/update", [CommentController::class, "update"])->name(
 
 // Route::get("/comments/admin/affichagess", [CommentController::class, "affichage"])->name("commentaires");
 
-Route::get('/dashboard/comment', [CommentController::class,"affichageComment"])->middleware(["auth"])->name('commentaire.index');
+Route::get('/dashboard/comment', [CommentController::class, "affichageComment"])->middleware(["auth"])->name('commentaire.index');
 
 
 
@@ -129,93 +132,96 @@ Route::get('/dashboard/comment', [CommentController::class,"affichageComment"])-
 
 // Gallery crud
 // create
-route::get("/admin/Gallery/images/createImages",[GalleryController::class,"create"])->name("images.create");
+route::get("/admin/Gallery/images/createImages", [GalleryController::class, "create"])->name("images.create");
 // store
-route::post("/admin/Gallery/images/storeImages",[GalleryController::class,"store"])->name("images.store");
+route::post("/admin/Gallery/images/storeImages", [GalleryController::class, "store"])->name("images.store");
 // del
-Route::delete('admin/Gallery/images/{image}/deleteimages', [GalleryController::class,"destroy"])->name("images.destroy");
+Route::delete('admin/Gallery/images/{image}/deleteimages', [GalleryController::class, "destroy"])->name("images.destroy");
 
 // CategorieImage crud
 // create
-route::get("/admin/image/categoryImage/createss",[CategorieImageController::class,"create"])->name("categoryImage.create");
+route::get("/admin/image/categoryImage/createss", [CategorieImageController::class, "create"])->name("categoryImage.create");
 // store
-route::post("/admin/images/categoryImage/storess",[CategorieImageController::class,"store"])->name("categoryImage.store");
+route::post("/admin/images/categoryImage/storess", [CategorieImageController::class, "store"])->name("categoryImage.store");
 // destroy
-Route::delete('/admin/image/categoryImage/{categories}/deletecategoryImage', [CategorieImageController::class,"destroy"])->name("categoryImage.destroy");
+Route::delete('/admin/image/categoryImage/{categories}/deletecategoryImage', [CategorieImageController::class, "destroy"])->name("categoryImage.destroy");
 // edit
-route::get("/admin/image/categoryImage/{categories}/editindex",[CategorieImageController::class,"edit"])->name("categories.edit");
+route::get("/admin/image/categoryImage/{categories}/editindex", [CategorieImageController::class, "edit"])->name("categories.edit");
 // update
-route::put("/admin/image/categoryImage/{categories}/updateindex",[CategorieImageController::class,"update"])->name("categories.update");
+route::put("/admin/image/categoryImage/{categories}/updateindex", [CategorieImageController::class, "update"])->name("categories.update");
 
 
 
 // Team
-Route::get('/dashboard/staff', [StaffController::class,"affichage"])->middleware(["auth"])->name('team.index');
+Route::get('/dashboard/staff', [StaffController::class, "affichage"])->middleware(["auth"])->name('team.index');
 
 // team crud
 // create
-route::get("/admin/staff/teams/createss",[StaffController::class,"create"])->name("teams.create");
+route::get("/admin/staff/teams/createss", [StaffController::class, "create"])->name("teams.create");
 // store
-route::post("/admin/staff/teams/storess",[StaffController::class,"store"])->name("teams.store");
+route::post("/admin/staff/teams/storess", [StaffController::class, "store"])->name("teams.store");
 // destroy
-Route::delete('/admin/staff/teams/{teams}/deleteTeams', [StaffController::class,"destroy"])->name("teams.destroy");
+Route::delete('/admin/staff/teams/{teams}/deleteTeams', [StaffController::class, "destroy"])->name("teams.destroy");
 // edit
-route::get("/admin/staf/teams/{teams}/editindex",[StaffController::class,"edit"])->name("teams.edit");
+route::get("/admin/staf/teams/{teams}/editindex", [StaffController::class, "edit"])->name("teams.edit");
 // update
-route::put("/admin/staf/teams/{teams}/updateindex",[StaffController::class,"update"])->name("teams.update");
+route::put("/admin/staf/teams/{teams}/updateindex", [StaffController::class, "update"])->name("teams.update");
 
 // Mail::to($contact->email,$contact->first_name)->send(new ContactMail($contact->first_name,$contact->msg));
 
-Route::post('/mail/test/contact', [ContactController::class,"store"])->name('testmail');
+Route::post('/mail/test/contact', [ContactController::class, "store"])->name('testmail');
 
 
 // contact crud
 // edit
-route::get("/admin/contacts/info/{info}/editindex",[ContactController::class,"edit"])->name("contacts.edit");
+route::get("/admin/contacts/info/{info}/editindex", [ContactController::class, "edit"])->name("contacts.edit");
 // update
-route::put("/admin/contacts/info/{info}/updateindex",[ContactController::class,"update"])->name("contacts.update");
+route::put("/admin/contacts/info/{info}/updateindex", [ContactController::class, "update"])->name("contacts.update");
 //affichage
-Route::get('/dashboard/contact', [ContactController::class,"affichage"])->middleware(["auth"])->name('contact.index');
+Route::get('/dashboard/contact', [ContactController::class, "affichage"])->middleware(["auth"])->name('contact.index');
 
 
 // blog crud
 // store
-route::post("/admin/blog/article/stores",[ArticleController::class,"store"])->name("blogs.store");
+route::post("/admin/blog/article/stores", [ArticleController::class, "store"])->name("blogs.store");
 // create
-route::get("/admin/blog/article/creates",[ArticleController::class,"create"])->name("blogs.create");
+route::get("/admin/blog/article/creates", [ArticleController::class, "create"])->name("blogs.create");
 // edit
-route::get("/admin/blog/article/{blogs}/editindex",[ArticleController::class,"edit"])->name("blogs.edit");
+route::get("/admin/blog/article/{blogs}/editindex", [ArticleController::class, "edit"])->name("blogs.edit");
 // update
-route::put("/admin/article/blog/{blogs}/updateindex",[ArticleController::class,"update"])->name("blogs.update");
+route::put("/admin/article/blog/{blogs}/updateindex", [ArticleController::class, "update"])->name("blogs.update");
 //affichage
-Route::get('/dashboard/blog', [ArticleController::class,"affichage"])->middleware(["auth"])->name('blog.index');
+Route::get('/dashboard/blog', [ArticleController::class, "affichage"])->middleware(["auth"])->name('blog.index');
 // destroy
-Route::delete('/admin/blog/article/{blogs}/deleteArticle', [ArticleController::class,"destroy"])->name("blogs.destroy");
+Route::delete('/admin/blog/article/{blogs}/deleteArticle', [ArticleController::class, "destroy"])->name("blogs.destroy");
 
 // ROOM crud
 // store
-route::post("/admin/chambre/room/stores",[RoomController::class,"store"])->name("rooms.store");
+route::post("/admin/chambre/room/stores", [RoomController::class, "store"])->name("rooms.store");
 // create
-route::get("/admin/room/chambre/creates",[RoomController::class,"create"])->name("rooms.create");
+route::get("/admin/room/chambre/creates", [RoomController::class, "create"])->name("rooms.create");
 // edit
-route::get("/admin/room/chambre/{rooms}/editindex",[RoomController::class,"edit"])->name("rooms.edit");
+route::get("/admin/room/chambre/{rooms}/editindex", [RoomController::class, "edit"])->name("rooms.edit");
 // update
-route::put("/admin/chambre/room/{rooms}/updateindex",[RoomController::class,"update"])->name("rooms.update");
+route::put("/admin/chambre/room/{rooms}/updateindex", [RoomController::class, "update"])->name("rooms.update");
 //affichage
-Route::get('/dashboard/roomss', [RoomController::class,"affichage"])->middleware(["auth"])->name('room.index');
+Route::get('/dashboard/roomss', [RoomController::class, "affichage"])->middleware(["auth"])->name('room.index');
 // destroy
-Route::delete('/admin/chambre/room/{rooms}/deleteRoom', [RoomController::class,"destroy"])->name("rooms.destroy");
+Route::delete('/admin/chambre/room/{rooms}/deleteRoom', [RoomController::class, "destroy"])->name("rooms.destroy");
 
 
-Route::get('/pages/BOOK/BookRoom', [FrontController::class,"bookRoom"])->name('bookRoom');
+Route::get('/pages/BOOK/BookRoom', [FrontController::class, "bookRoom"])->name('bookRoom');
 
 
-Route::get('/dashboard/carousel', [CarouselController::class,"affichage"])->middleware(["auth"])->name('carousel.index');
+Route::get('/dashboard/carousel', [CarouselController::class, "affichage"])->middleware(["auth"])->name('carousel.index');
 // edit
-route::get("/admin/home/carousel/{carousel}/editindexcarousel",[CarouselController::class,"edit"])->name("carousel.edit");
-
-Route::get('/dashboard/videos', [FrontController::class,"videosAffiche"])->middleware(["auth"])->name('video.index');
+route::get("/admin/home/carousel/{carousel}/editindexcarousel", [CarouselController::class, "edit"])->name("carousel.edit");
 
 
+Route::get('/dashboard/videos', [FrontController::class, "videosAffiche"])->middleware(["auth"])->name('video.index');
+// // edit
+// route::get("/admin/video/videos/{video}/editindexvideo",[RoomController::class,"edit"])->name("video.edit");
 
 
+Route::get('/dashboard/reservation', [ReservationController::class, "affichage"])->middleware(["auth"])->name('reservation.index');
+Route::get('/dashboard/reservation/{id}/validate', [ReservationController::class, "update"])->middleware(["auth"])->name('reservation.update');

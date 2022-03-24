@@ -310,7 +310,13 @@
                                 </div>
                             </article> --}}
                         </div>
-                        <!-- ========== PAGINATION ========== -->
+
+                        @if (count($blog) >= 2)
+                        {{ $blog->links('pagination::bootstrap-4') }}
+
+                        @endif
+
+                        {{-- <!-- ========== PAGINATION ========== -->
                         <nav class="pagination">
                             <ul>
                                 <li class="prev-pagination">
@@ -351,7 +357,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav> --}}
                     </div>
                     <!-- SIDEBAR -->
                     <div class="col-lg-3 col-12">
@@ -361,7 +367,7 @@
 
                             <aside class="widget noborder">
                                 <div class="search">
-                                    <form class="widget-search" action="{{ route('search') }}" method="POST">
+                                    <form class="widget-search" action="{{ route('search') }}">
                                     @csrf
                                         <input type="search" placeholder="Search" onfocus="this.placeholder ='' " onblur="this.placeholder='Search' " name="data">
 

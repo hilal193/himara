@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Storage;
 
 class RoomController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('editor');
+    }
     public function affichage()
     {
         $room = Room::all();

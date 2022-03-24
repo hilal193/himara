@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class StaffController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     public function affichage()
     {
         $team = Team::all();

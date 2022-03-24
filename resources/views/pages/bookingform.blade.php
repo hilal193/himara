@@ -1,8 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-
-@include('partials.navMobile')
+    @include('partials.navMobile')
     {{-- <!-- ========== MOBILE MENU ========== -->
     <nav id="mobile-menu"></nav> --}}
     <!-- ========== WRAPPER ========== -->
@@ -14,7 +13,7 @@
 
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op6" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
-             background-size: cover;">
+                 background-size: cover;">
             <div class="container">
                 <div class="inner">
                     <h1>Booking Form</h1>
@@ -41,35 +40,34 @@
                             deleniti fuga recusandae perferendis modi voluptate, ad ratione saepe voluptas nam provident
                             reiciendis velit nulla repellendus illo consequuntur amet similique hic.</p>
                         <!-- BOOKING FORM -->
-                        <form class="booking-form-advanced" id="booking-form">
+                        <form class="booking-form-advanced" action="{{ route('reservation.store') }}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Your Name</label>
-                                        <input name="booking-name" type="text" class="form-control"
-                                            placeholder="Your Name">
+                                        <input name="nom" type="text" class="form-control" placeholder="Your Name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email Address</label>
-                                        <input class="form-control" name="booking-email" type="email"
+                                        <input class="form-control" name="email" type="email"
                                             placeholder="Your Email Address">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input name="booking-phone" type="text" class="form-control"
+                                        <input name="telephone" type="text" class="form-control"
                                             placeholder="Your Phone Number">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <select name="booking-country" class="form-control"
-                                            title="Select Your Country" data-header="Select Your Country"
-                                            data-live-search="true" data-size="5">
+                                        <select name="country" class="form-control" title="Select Your Country"
+                                            data-header="Select Your Country" data-live-search="true" data-size="5">
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
                                             <option value="Algeria">Algeria</option>
@@ -330,7 +328,7 @@
                                                 <i class="fa fa-info-circle"></i>
                                             </a>
                                         </label>
-                                        <input type="text" class="datepicker form-control " name="booking-date"
+                                        <input type="text" class="datepicker form-control " name="booking_date"
                                             readonly="readonly">
                                     </div>
                                 </div>
@@ -357,8 +355,7 @@
                                                     </label>
                                                     <div class="guests-button">
                                                         <div class="minus"></div>
-                                                        <input type="text" name="booking-adults" class="booking-guests"
-                                                            value="0">
+                                                        <input type="text" name="adult" class="booking-guests" value="0">
                                                         <div class="plus"></div>
                                                     </div>
                                                 </div>
@@ -372,8 +369,7 @@
                                                     </label>
                                                     <div class="guests-button">
                                                         <div class="minus"></div>
-                                                        <input type="text" name="booking-children"
-                                                            class="booking-guests" value="0">
+                                                        <input type="text" name="enfant" class="booking-guests" value="0">
                                                         <div class="plus"></div>
                                                     </div>
                                                 </div>
@@ -384,31 +380,26 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Room Type</label>
-                                        <select name="booking-roomtype" class="form-control" title="Select Room Type"
+                                        <select name="category_room_id" class="form-control" title="Select Room Type"
                                             data-header="Select Room Type">
-                                            <option value="Single Room"
-                                                data-subtext="<span class='badge badge-info'>€89 / night</span>">Single
-                                                Room
-                                            </option>
-                                            <option value="Double Room"
-                                                data-subtext="<span class='badge badge-info'>€129 / night</span>">Double
-                                                Room</option>
-                                            <option value="Deluxe Room"
-                                                data-subtext="<span class='badge badge-info'>€89 / night</span>">Deluxe
-                                                Room</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}"
+                                                    data-subtext="<span class='badge badge-info'>€89 / night</span>">{{ $category->nom }}
+                                                </option>
+                                            @endforeach
+
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Your Comments</label>
-                                        <textarea class="form-control" name="booking-comments"
-                                            placeholder="Your Comments..."></textarea>
+                                        <textarea class="form-control" name="commentaire" placeholder="Your Comments..."></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <button type="submit" class="btn mt50 float-right">
-                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                        <i class="fa fa-calendar-check-o"></i>
                                         BOOK A ROOM NOW
                                     </button>
                                 </div>
@@ -423,10 +414,12 @@
                                     <h4>OFFERS</h4>
                                     <p class="section-subtitle">CHECK OUT OUR SPECIAL OFFERS</p>
                                 </div>
+                                @foreach($offers as $offer)
                                 <div class="offer-item sm mb50">
                                     <figure class="gradient-overlay-hover link-icon">
                                         <a href="offer.html">
-                                            <img src={{ asset("images/offers/offer1.jpg") }} class="img-fluid" alt="Image">
+                                            <img src={{ asset('storage/images/'.$offer->img) }} class="img-fluid"
+                                                alt="Image">
                                         </a>
                                     </figure>
                                     <div class="ribbon">
@@ -439,40 +432,7 @@
                                         <a href="offer.html">All-Inclusive Honeymoon Package</a>
                                     </h3>
                                 </div>
-                                <!-- ITEM -->
-                                <div class="offer-item sm mb50">
-                                    <figure class="gradient-overlay-hover link">
-                                        <a href="offer.html">
-                                            <img src={{ asset("images/offers/offer2.jpg") }} class="img-fluid" alt="Image">
-                                        </a>
-                                    </figure>
-                                    <div class="ribbon">
-                                        <span>HOT OFFER</span>
-                                    </div>
-                                    <div class="offer-price">
-                                        8 nights for €2,000
-                                    </div>
-                                    <h3 class="offer-title">
-                                        <a href="offer.html">All-Inclusive Family Package</a>
-                                    </h3>
-                                </div>
-                                <!-- ITEM -->
-                                <div class="offer-item sm mb50">
-                                    <figure class="gradient-overlay-hover link">
-                                        <a href="offer.html">
-                                            <img src={{ asset("images/offers/offer3.jpg") }} class="img-fluid" alt="Image">
-                                        </a>
-                                    </figure>
-                                    <div class="ribbon">
-                                        <span>HOT OFFER</span>
-                                    </div>
-                                    <div class="offer-price">
-                                        3 nights for €268
-                                    </div>
-                                    <h3 class="offer-title">
-                                        <a href="offer.html">Fly, Stay and Save Over 30%</a>
-                                    </h3>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -636,5 +596,4 @@
     <div class="back-to-top">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
     </div> --}}
-
-    @endsection
+@endsection

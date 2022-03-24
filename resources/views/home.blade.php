@@ -173,7 +173,8 @@
                 <div class="inner box-shadow-007">
                     <!-- ========== BOOKING NOTIFICATION ========== -->
                     <div id="booking-notification" class="notification"></div>
-                    <form id="booking-form">
+                    <form action="{{ route("reservation.store") }}" method="POST">
+                        @csrf
                         <!-- NAME -->
                         <div class="row">
                             <div class="col-md-2">
@@ -185,7 +186,7 @@
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </label>
-                                    <input class="form-control" name="booking-name" type="text"
+                                    <input class="form-control" name="nom" type="text"
                                         data-trigger="hover" placeholder="Write Your Name">
                                 </div>
                             </div>
@@ -198,7 +199,7 @@
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </label>
-                                    <input class="form-control" name="booking-email" type="email"
+                                    <input class="form-control" name="email" type="email"
                                         placeholder="Write your Email">
                                 </div>
                             </div>
@@ -211,11 +212,15 @@
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </label>
-                                    <select class="form-control" name="booking-roomtype" title="Select Room Type"
+
+                                    <select class="form-control" name="category_room_id" title="Select Room Type"
                                         data-header="Room Type">
-                                        <option value="Single">Single Room</option>
-                                        <option value="Double">Double Room</option>
-                                        <option value="Deluxe">Deluxe Room</option>
+                                        @foreach ($categories as $item)
+
+                                        <option value="{{ $item->id }}">{{ $item->nom }}</option>
+                                        @endforeach
+                                        {{-- <option value="Double">Double Room</option>
+                                        <option value="Deluxe">Deluxe Room</option> --}}
                                     </select>
                                 </div>
                             </div>
@@ -229,7 +234,7 @@
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </label>
-                                    <input type="text" class="datepicker form-control" name="booking-date"
+                                    <input type="text" class="datepicker form-control" name="booking_date"
                                         placeholder="Arrival & Departure" readonly="readonly">
                                 </div>
                             </div>
@@ -257,7 +262,7 @@
                                                 </label>
                                                 <div class="guests-button">
                                                     <div class="minus"></div>
-                                                    <input type="text" name="booking-adults" class="booking-guests"
+                                                    <input type="text" name="adult" class="booking-guests"
                                                         value="0">
                                                     <div class="plus"></div>
                                                 </div>
@@ -272,7 +277,7 @@
                                                 </label>
                                                 <div class="guests-button">
                                                     <div class="minus"></div>
-                                                    <input type="text" name="booking-children"
+                                                    <input type="text" name="enfant"
                                                         class="booking-guests" value="0">
                                                     <div class="plus"></div>
                                                 </div>

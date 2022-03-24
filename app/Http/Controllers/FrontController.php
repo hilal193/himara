@@ -13,6 +13,7 @@ use App\Models\FeatureRoom;
 use App\Models\Gallery;
 use App\Models\Image;
 use App\Models\Info;
+use App\Models\Review;
 use App\Models\Room;
 use App\Models\Service;
 use App\Models\Tag;
@@ -36,18 +37,23 @@ class FrontController extends Controller
 
     public function blog()
     {
-        $blog = Article::all();
+        // $blog = Article::all();
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
         $blogLast = Article::latest()->take(3)->get();
+
+        $blog = Article::orderBy("created_at","desc")->paginate(2);
+
         return view("pages.blog", compact("blog", "tag", "categoryArticle", "blogLast"));
     }
     public function searchCategorie($id)
     {
-        $blog = Article::where("categorie_article_id", $id)->get();
+        $blog = Article::where("categorie_article_id", $id)->paginate(2);
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
         $blogLast = Article::latest()->take(3)->get();
+
+        // $paginationBlog = Article::orderBy("created_at","desc")->paginate(2);
 
 
         // dd($projetTout);
@@ -58,10 +64,14 @@ class FrontController extends Controller
     {
 
         $tagiD = Tag::find($id);
-        $blog = $tagiD->articles;
+        $blog = $tagiD->articles()->paginate(2);
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
         $blogLast = Article::latest()->take(3)->get();
+
+        // $blog = Article::orderBy("created_at","desc")->paginate(2);
+
+
 
 
         // dd($projetTout);
@@ -120,6 +130,7 @@ class FrontController extends Controller
 
     public function home()
     {
+        $categories = categorieRoom::all();
         $serviceAll = Service::all();
         $roomAll = Room::all();
         // $categoryRoom = categorieRoom::all();
@@ -130,7 +141,7 @@ class FrontController extends Controller
         $carousel = Carousel::all();
         $comments = Comment::inRandomOrder()->take(9)->get();
 
-        return view("home", compact("serviceAll", "roomAll", "imageAll", "blogAll", "infoAll", "video", "carousel", 'comments'));
+        return view("home", compact("serviceAll", "roomAll", "imageAll", "blogAll", "infoAll", "video", "carousel", 'comments',"categories"));
     }
 
     // LOGIQUE pour la barre de recherche
@@ -139,12 +150,16 @@ class FrontController extends Controller
 
         $data = $request->data;
         $blog = Article::where('title', 'like', "%$data%")
-            ->get();
+            ->paginate(2);
 
         // $blog = Article::all();
         $tag = Tag::all();
         $categoryArticle = categorieArticle::all();
         $blogLast = Article::latest()->take(3)->get();
+
+        // $blog = Article::orderBy("created_at","desc")->paginate(2);
+
+
 
         return view("pages.blog", compact("blog", "tag", "categoryArticle", "blogLast"));
     }
@@ -164,8 +179,10 @@ class FrontController extends Controller
     {
         $room = Room::find($id);
         $features = FeatureRoom::where('room_id', $id)->where('statut_id', '!=', 3)->get();
+        $categories= categorieRoom::all();
+        $reviews = Review::where('room_id', $id)->get();
 
-        return view("pages.room", compact("room", 'features'));
+        return view("pages.room", compact("room", 'features','categories', 'reviews'));
     }
 
     // public function service()
@@ -176,19 +193,23 @@ class FrontController extends Controller
 
     public function roomslist()
     {
-        $roomListAll = Room::all();
+        // $roomListAll = Room::all();
         $tagRoom = tagRoom::all();
         $categoryRoom = categorieRoom::all();
+        $roomListAll = Room::orderBy("created_at","desc")->paginate(2);
+
 
 
         return view("pages.roomslist", compact("roomListAll", "tagRoom", "categoryRoom"));
     }
     public function tagRooms($id)
     {
-        $roomListAll = Room::all();
+        // $roomListAll = Room::all();
+        $roomListAll = Room::orderBy("created_at","desc")->paginate(2);
+
 
         $tagRoomsiD = tagRoom::find($id);
-        $roomListAll = $tagRoomsiD->rooms;
+        $roomListAll = $tagRoomsiD->rooms()->paginate(2);
         // dd(count($room));
         $tagRoom = tagRoom::all();
         // $categoryRoom = categorieRoom::all();
@@ -203,7 +224,7 @@ class FrontController extends Controller
     public function searchRoomCategorie($id)
     {
 
-        $roomListAll = Room::where("category_room_id", $id)->get();
+        $roomListAll = Room::where("category_room_id", $id)->paginate(2);
         $categoryRoom = categorieRoom::all();
         // dd($categoryRoomArticle);
 
@@ -218,7 +239,7 @@ class FrontController extends Controller
 
         $data = $request->data;
         $roomListAll = Room::where('titre', 'like', "%$data%")
-            ->get();
+            ->paginate(2);
         $categoryRoom = categorieRoom::all();
         $tagRoom = tagRoom::all();
 
@@ -228,12 +249,15 @@ class FrontController extends Controller
 
     public function reservationAvancer()
     {
-        return view("pages.bookingform");
+        $categories = categorieRoom::all();
+        return view("pages.bookingform", compact('categories'));
     }
 
     public function bookRoom()
     {
-        return view("pages.bookingform");
+        $categories = categorieRoom::all();
+        $offers = Room::inRandomOrder()->take(3)->get();
+        return view("pages.bookingform", compact('categories', 'offers'));
     }
 
     public function videosAffiche()
@@ -242,3 +266,4 @@ class FrontController extends Controller
         return view("admin.video.index", compact("video"));
     }
 }
+{{  }}

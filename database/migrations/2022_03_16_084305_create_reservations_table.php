@@ -22,10 +22,10 @@ class CreateReservationsTable extends Migration
             $table->integer('adult');
             $table->integer('enfant');
             $table->boolean('valide');
-            $table->string("commentaire");
-            $table->string("telephone");
-            $table->string("country");
-            $table->foreignId('category_room_id')->constrained();
+            $table->string("commentaire")->nullable();
+            $table->string("telephone")->nullable();
+            $table->string("country")->nullable();
+            $table->foreignId('category_room_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('editor');
+    }
     public function affichage()
     {
         // $blog = Article::first();
@@ -25,7 +30,7 @@ class ArticleController extends Controller
         $tag = Tag::all();
 
         // return view('admin.categoryImage.create',compact("filters"));
-        return view('admin.blog.create',compact("categorieArticle","tag"));
+        return view('admin.blog.create', compact("categorieArticle", "tag"));
     }
 
     public function store(Request $request)
@@ -38,22 +43,22 @@ class ArticleController extends Controller
             'creation' => 'required',
         ]);
 
-        $article=new Article();
-        $article->title=$request->title;
+        $article = new Article();
+        $article->title = $request->title;
         // $categorie->img=$request->img;
-        $article->description=$request->description;
-        $article->auteur=$request->auteur;
-        $article->creation=$request->creation;
+        $article->description = $request->description;
+        $article->auteur = $request->auteur;
+        $article->creation = $request->creation;
 
 
         if ($request->img) {
-            $request->file('img')->storePublicly('images/','public');
+            $request->file('img')->storePublicly('images/', 'public');
             $article->img = $request->file('img')->hashName();
-        }else{
+        } else {
             $fichierURL = file_get_contents($request->srcURL);
             $lien = $request->srcURL;
             $token = substr($lien, strrpos($lien, '/') + 1);
-            Storage::disk('public')->put('images/'.$token , $fichierURL);
+            Storage::disk('public')->put('images/' . $token, $fichierURL);
             $article->img = $token;
         }
 
@@ -73,7 +78,7 @@ class ArticleController extends Controller
         // $teams = Team::all();
         $categorieArticle = categorieArticle::all();
         $tag = Tag::all();
-        return view("admin.blog.edit",compact("blogs","categorieArticle","tag"));
+        return view("admin.blog.edit", compact("blogs", "categorieArticle", "tag"));
     }
 
     public function update(Request $request, Article $blogs)
@@ -90,13 +95,13 @@ class ArticleController extends Controller
         // $teams->img = $request->img;
 
         if ($request->img) {
-            $request->file('img')->storePublicly('images/','public');
+            $request->file('img')->storePublicly('images/', 'public');
             $blogs->img = $request->file('img')->hashName();
-        }else{
+        } else {
             $fichierURL = file_get_contents($request->srcURL);
             $lien = $request->srcURL;
             $token = substr($lien, strrpos($lien, '/') + 1);
-            Storage::disk('public')->put('images/'.$token , $fichierURL);
+            Storage::disk('public')->put('images/' . $token, $fichierURL);
             $blogs->img = $token;
         }
 
@@ -105,7 +110,7 @@ class ArticleController extends Controller
         $blogs->auteur = $request->auteur;
         $blogs->creation = $request->creation;
         $blogs->save();
-        return redirect()->route('team.index')->with('success', 'article ' . $request->title .' modifiée !');
+        return redirect()->route('team.index')->with('success', 'article ' . $request->title . ' modifiée !');
     }
 
     public function destroy($id)

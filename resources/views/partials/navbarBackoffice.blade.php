@@ -68,24 +68,31 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item {{ Request::is('/dashboard/comment') ? 'active' : ''; }}">
+                <li class="sidebar-item {{ Request::is('dashboard/comment') ? 'active' : ''; }}">
                     <a href={{ route("commentaire.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Comment</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item {{ Request::is('/dashboard/carousel') ? 'active' : ''; }}">
+                <li class="sidebar-item {{ Request::is('dashboard/carousel') ? 'active' : ''; }}">
                     <a href={{ route("carousel.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Carousel</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item {{ Request::is('/dashboard/videos') ? 'active' : ''; }}">
+                <li class="sidebar-item {{ Request::is('dashboard/videos') ? 'active' : ''; }}">
                     <a href={{ route("video.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Video</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item {{ Request::is('dashboard/reservation') ? 'active' : ''; }}">
+                    <a href={{ route("reservation.index") }} class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Reservation</span>
                     </a>
                 </li>
 

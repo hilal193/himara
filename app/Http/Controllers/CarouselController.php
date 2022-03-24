@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -100,6 +104,7 @@ class CarouselController extends Controller
     public function affichage()
     {
         $carouselAll = Carousel::all();
-        return view("admin.carousel.index",compact("carouselAll"));
+        return view("admin.carousel.index", compact("carouselAll"));
     }
 }
+{{  }}

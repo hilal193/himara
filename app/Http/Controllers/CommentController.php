@@ -8,30 +8,39 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('webmaster')->only('update');
+    }
     // store
-    public  function  store(Request  $request,$id){
+    public  function  store(Request  $request, $id)
+    {
+
         $table = new  Comment();
         if (Auth::check()) {
+            $request->validate([
+                'commentaire' => ['required'],
+            ]);
             $table->name = Auth::user()->name;
             $table->email = Auth::user()->email;
-
-
-        }else{
+        } else {
+            $request->validate([
+                'name' => ['required'],
+                'website' => ['required'],
+                'email' => ['required'],
+            ]);
             $table->name = $request->name;
             $table->email = $request->email;
             $table->website = $request->website;
-
         }
         $table->validate = false;
         $table->article_id = $id;
         $table->commentaire = $request->commentaire;
-        $table->photoProfil = "blog-post1.jpg";
+        $table->photoProfil = "images/blog-post1.jpg";
 
-
-
-		$table->save();
-		return  redirect()->back();
-	}
+        $table->save();
+        return  redirect()->back();
+    }
     // edit
     // public  function  edit($id) {
     //     $edit = Comment::find($id);
@@ -58,16 +67,16 @@ class CommentController extends Controller
     // }
 
     // delete
-    public function destroy($id){
-		$destroy = Comment::find($id);
-		$destroy->delete();
-		return  redirect()->back();
-
-	}
+    public function destroy($id)
+    {
+        $destroy = Comment::find($id);
+        $destroy->delete();
+        return  redirect()->back();
+    }
     public function update($id)
     {
         $comment = Comment::find($id);
-        $comment->validate=true;
+        $comment->validate = true;
         $comment->save();
         return redirect()->back();
     }
@@ -77,6 +86,4 @@ class CommentController extends Controller
         $comment = Comment::all();
         return view("admin.commentaire.index", compact("comment"));
     }
-
-
 }
