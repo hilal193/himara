@@ -113,9 +113,15 @@ Route::get('/dashboard/categoryImage/gallery', [CategorieImageController::class,
 
 // store pour le formulaire commentaire
 Route::post("/{id}/commentaires", [CommentController::class,"store"]);
-Route::delete("/comments/{id}/delete", [CommentController::class, "destroy"]);
-Route::get("/comments/{id}/edit", [CommentController::class, "edit"]);
-Route::put("/comments/{id}/update", [CommentController::class, "update"]);
+Route::delete("/comments/{id}/delete", [CommentController::class, "destroy"])->name("comment.destroy");
+// Route::get("/comments/{id}/edit", [CommentController::class, "edit"]);
+
+Route::get("/comments/{id}/update", [CommentController::class, "update"])->name("comment.update");
+
+// Route::get("/comments/admin/affichagess", [CommentController::class, "affichage"])->name("commentaires");
+
+Route::get('/dashboard/comment', [CommentController::class,"affichageComment"])->middleware(["auth"])->name('commentaire.index');
+
 
 
 // affichage par page admin

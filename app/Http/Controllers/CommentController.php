@@ -22,6 +22,7 @@ class CommentController extends Controller
             $table->website = $request->website;
 
         }
+        $table->validate = false;
         $table->article_id = $id;
         $table->commentaire = $request->commentaire;
         $table->photoProfil = "blog-post1.jpg";
@@ -63,4 +64,19 @@ class CommentController extends Controller
 		return  redirect()->back();
 
 	}
+    public function update($id)
+    {
+        $comment = Comment::find($id);
+        $comment->validate=true;
+        $comment->save();
+        return redirect()->back();
+    }
+
+    public function affichageComment()
+    {
+        $comment = Comment::all();
+        return view("admin.commentaire.index", compact("comment"));
+    }
+
+
 }

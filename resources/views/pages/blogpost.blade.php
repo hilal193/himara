@@ -151,6 +151,9 @@
                             <ul id="comments-list" class="comments-list">
                                 @dump($comment)
                                 @foreach ($comment as $item)
+                                @if ($item->validate)
+
+
                                 <li>
                                     <div class="comment-main-level">
                                         <div class="comment-avatar"><img src="{{ asset('/images/blog/'. $item->photoProfil) }}" alt=""></div>
@@ -239,7 +242,7 @@
                                         </li>
                                     </ul> --}}
                                 </li>
-
+                                @endif
                                 @endforeach
                                 {{-- <li>
                                     <div class="comment-main-level">

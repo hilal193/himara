@@ -14,7 +14,9 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
+
             $table->id();
+            $table->boolean("validate");
             $table->string("name");
             $table->string("email")->unique();
             $table->string("website")->nullable();

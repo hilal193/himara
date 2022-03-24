@@ -23,6 +23,7 @@ class CommentSeeder extends Seeder
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat.",
                 "photoProfil"=>"blog-post1.jpg",
+                "validate"=>true,
                 "article_id"=>1,
                 "created_at"=>now(),
             ],
@@ -34,6 +35,8 @@ class CommentSeeder extends Seeder
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat.",
                 "photoProfil"=>"blog-post1.jpg",
+                "validate"=>true,
+
                 "article_id"=>1,
                 "created_at"=>now(),
             ],
@@ -45,6 +48,8 @@ class CommentSeeder extends Seeder
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat.",
                 "photoProfil"=>"blog-post1.jpg",
+                "validate"=>true,
+
                 "article_id"=>1,
                 "created_at"=>now(),
             ],
@@ -56,6 +61,8 @@ class CommentSeeder extends Seeder
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat.",
                 "photoProfil"=>"blog-post2.jpg",
+                "validate"=>true,
+
                 "article_id"=>2,
                 "created_at"=>now(),
             ],
@@ -67,6 +74,8 @@ class CommentSeeder extends Seeder
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat.",
                 "photoProfil"=>"blog-post3.jpg",
+                "validate"=>true,
+
                 "article_id"=>3,
                 "created_at"=>now(),
             ],
@@ -78,6 +87,8 @@ class CommentSeeder extends Seeder
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat.",
                 "photoProfil"=>"blog-post4.jpg",
+                "validate"=>false,
+
                 "article_id"=>4,
                 "created_at"=>now(),
             ],

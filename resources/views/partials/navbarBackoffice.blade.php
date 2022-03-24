@@ -68,6 +68,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ Request::is('/dashboard/comment') ? 'active' : ''; }}">
+                    <a href={{ route("commentaire.index") }} class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Comment</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
