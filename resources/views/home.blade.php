@@ -405,7 +405,7 @@
                         </figure>
                         <div class="room-info">
                             <h2 class="room-title">
-                                <a href="room.html">Single Room</a>
+                                <a href="room.html">{{ $room->category_room->nom }}</a>
                             </h2>
                             <p>Enjoy our single room</p>
                         </div>
@@ -951,14 +951,14 @@
             </div>
         </div>
     </section>
-    <!-- ========== VIDEO ========== -->
+    {{-- <!-- ========== VIDEO ========== -->{{ asset('images/video.jpg') }} --}}
     <section class="video np parallax gradient-overlay op6"
-        data-src={{ asset('images/video.jpg') }}data-parallax="scroll" data-speed="0.3"
+        data-src={{ asset('images/video.jpg') }} data-parallax="scroll" data-speed="0.3"
         data-mirror-selector=".wrapper" data-z-index="0">
         <div class="inner gradient-overlay">
             <div class="container">
                 <div class="video-popup">
-                    <a class="popup-vimeo" href={{ asset('https://www.youtube.com/watch?v=BDDfopejpwk') }}>
+                    <a class="popup-vimeo" href={{ $video->url }}>
                         <i class="fa fa-play"></i>
                     </a>
                 </div>
@@ -978,24 +978,26 @@
                     <ul class="contact-details">
                         <li>
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            Lorem ipsum dolor, 25, Himara
+                            {{ $infoAll->adresse }}
                         </li>
                         <li>
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            Phone: +1 888 123 4567
+                            {{ $infoAll->mail }}
                         </li>
                         <li>
                             <i class="fa fa-fax"></i>
-                            Fax: +1 888 123 4567
+                            {{ $infoAll->telephone }}
                         </li>
                         <li>
                             <i class="fa fa-globe"></i>
-                            Web: www.hotelhimara.com
+                            {{ $infoAll->fax }}
+
                         </li>
                         <li>
                             <i class="fa fa-envelope"></i>
                             Email:
-                            <a href="mailto:info@site.com">contact@hotelhimara.com</a>
+                            <a href="mailto:info@site.com">                            {{ $infoAll->site }}
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             RoomTagSeeder::class,
             RoomSeeder::class,
             InfoSeeder::class,
+            VideoSeeder::class,
         ]);
     }
 }

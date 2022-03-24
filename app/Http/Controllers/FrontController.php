@@ -17,6 +17,7 @@ use App\Models\Service;
 use App\Models\Tag;
 use App\Models\tagRoom;
 use App\Models\Team;
+use App\Models\Video;
 use Database\Seeders\CategoryImageSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -123,9 +124,11 @@ class FrontController extends Controller
         // $categoryRoom = categorieRoom::all();
         $imageAll = Image::all();
         $blogAll = Article::all();
+        $infoAll = Info::first();
+        $video = Video::first();
 
 
-        return view("home", compact("serviceAll","roomAll","imageAll","blogAll"));
+        return view("home", compact("serviceAll","roomAll","imageAll","blogAll","infoAll","video"));
     }
 
     // LOGIQUE pour la barre de recherche
