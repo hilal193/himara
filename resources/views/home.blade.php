@@ -285,7 +285,8 @@
                             <div class="col-md-2">
                                 <button type="submit" class="btn btn-book">BOOK A ROOM</button>
                                 <div class="advanced-form-link">
-                                    <a href="booking-form.html">
+                                    <a href={{ route("bookRoom") }}>
+                                        {{-- <a href="booking-form.html"> --}}
                                         Advanced Booking Form
                                     </a>
                                 </div>
@@ -377,7 +378,7 @@
             <div class="section-title">
                 <h4>OUR <span class="text-himara">ROOMS</span></h4>
                 <p class="section-subtitle">Our favorite rooms</p>
-                <a href="rooms-list.html" class="view-all">View all rooms</a>
+                <a href={{ route("roomslist") }} class="view-all">View all rooms</a>
             </div>
             <div class="row">
                 @foreach ($roomAll->shuffle()->take(3) as $room)
@@ -1006,9 +1007,10 @@
                         <h4>CONTACT US</h4>
                         <p class="section-subtitle">Say hello</p>
                     </div>
-                    <form id="contact-form" name="contact-form">
+                    <form class="contact-form" action="{{ route('testmail') }}" method="POST">
+                        @csrf
                         <div class="form-group">
-                            <input class="form-control" name="name" placeholder="Your Name" type="text">
+                            <input class="form-control" name="fullname" placeholder="Your Name and last name" type="text">
                         </div>
                         <div class="form-group">
                             <input class="form-control" name="email" type="email"

@@ -200,3 +200,4 @@ Route::get('/dashboard/roomss', [RoomController::class,"affichage"])->middleware
 Route::delete('/admin/chambre/room/{rooms}/deleteRoom', [RoomController::class,"destroy"])->name("rooms.destroy");
 
 
+Route::get('/pages/BOOK/BookRoom', [FrontController::class,"bookRoom"])->name('bookRoom');

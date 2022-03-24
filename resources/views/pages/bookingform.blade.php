@@ -10,7 +10,7 @@
         @include('partials.topbar')
 
         @include('partials.navbar')
-       
+
 
         <!-- ========== PAGE TITLE ========== -->
         <div class="page-title gradient-overlay op6" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
@@ -426,7 +426,7 @@
                                 <div class="offer-item sm mb50">
                                     <figure class="gradient-overlay-hover link-icon">
                                         <a href="offer.html">
-                                            <img src="images/offers/offer1.jpg" class="img-fluid" alt="Image">
+                                            <img src={{ asset("images/offers/offer1.jpg") }} class="img-fluid" alt="Image">
                                         </a>
                                     </figure>
                                     <div class="ribbon">
@@ -443,7 +443,7 @@
                                 <div class="offer-item sm mb50">
                                     <figure class="gradient-overlay-hover link">
                                         <a href="offer.html">
-                                            <img src="images/offers/offer2.jpg" class="img-fluid" alt="Image">
+                                            <img src={{ asset("images/offers/offer2.jpg") }} class="img-fluid" alt="Image">
                                         </a>
                                     </figure>
                                     <div class="ribbon">
@@ -460,7 +460,7 @@
                                 <div class="offer-item sm mb50">
                                     <figure class="gradient-overlay-hover link">
                                         <a href="offer.html">
-                                            <img src="images/offers/offer3.jpg" class="img-fluid" alt="Image">
+                                            <img src={{ asset("images/offers/offer3.jpg") }} class="img-fluid" alt="Image">
                                         </a>
                                     </figure>
                                     <div class="ribbon">

@@ -228,4 +228,9 @@ class FrontController extends Controller
     {
         return view("pages.bookingform");
     }
+
+    public function bookRoom()
+    {
+        return view("pages.bookingform");
+    }
 }

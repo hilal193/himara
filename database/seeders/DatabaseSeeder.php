@@ -37,6 +37,8 @@ class DatabaseSeeder extends Seeder
             RoomSeeder::class,
             InfoSeeder::class,
             VideoSeeder::class,
+            CarouselSeeder::class,
+            HimaraPictureSeeder::class,
         ]);
     }
 }
