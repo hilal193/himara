@@ -96,4 +96,10 @@ class CarouselController extends Controller
     {
         //
     }
+
+    public function affichage()
+    {
+        $carouselAll = Carousel::all();
+        return view("admin.carousel.index",compact("carouselAll"));
+    }
 }

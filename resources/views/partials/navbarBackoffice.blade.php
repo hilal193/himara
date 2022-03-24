@@ -75,6 +75,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ Request::is('/dashboard/carousel') ? 'active' : ''; }}">
+                    <a href={{ route("carousel.index") }} class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Carousel</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

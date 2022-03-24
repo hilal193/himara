@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CarouselController;
 use App\Models\Contact;
 use App\Models\Gallery;
 use App\Mail\ContactSender;
@@ -207,3 +208,12 @@ Route::delete('/admin/chambre/room/{rooms}/deleteRoom', [RoomController::class,"
 
 
 Route::get('/pages/BOOK/BookRoom', [FrontController::class,"bookRoom"])->name('bookRoom');
+
+
+Route::get('/dashboard/carousel', [CarouselController::class,"affichage"])->middleware(["auth"])->name('carousel.index');
+// edit
+route::get("/admin/home/carousel/{carousel}/editindexcarousel",[CarouselController::class,"edit"])->name("carousel.edit");
+
+
+
+
