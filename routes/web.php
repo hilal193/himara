@@ -17,6 +17,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CategorieImageController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\VideoController;
 use App\Mail\ReservationMail;
 use App\Models\Reservation;
 
@@ -220,8 +221,17 @@ route::get("/admin/home/carousel/{carousel}/editindexcarousel", [CarouselControl
 
 Route::get('/dashboard/videos', [FrontController::class, "videosAffiche"])->middleware(["auth"])->name('video.index');
 // // edit
-// route::get("/admin/video/videos/{video}/editindexvideo",[RoomController::class,"edit"])->name("video.edit");
+route::get("/admin/video/videos/{video}/editindexvideo",[VideoController::class,"edit"])->name("video.edit");
+Route::put('/dashboard/video/update', [VideoController::class, "update"])->middleware(["auth"])->name('video.update');
+
 
 
 Route::get('/dashboard/reservation', [ReservationController::class, "affichage"])->middleware(["auth"])->name('reservation.index');
 Route::get('/dashboard/reservation/{id}/validate', [ReservationController::class, "update"])->middleware(["auth"])->name('reservation.update');
+
+
+//affichage
+Route::get('/dashboard/mailbox', [ContactController::class, "index"])->middleware(["auth"])->name('mailbox.index');
+Route::get('/dashboard/mailbox/archives', [ContactController::class, "archives"])->middleware(["auth"])->name('mailbox.archive');
+Route::get('/dashboard/mailbox/{id}/delete', [ContactController::class, "destroy"])->middleware(["auth"])->name('mailbox.destroy');
+Route::get('/dashboard/mailbox/{id}/restore', [ContactController::class, "restore"])->middleware(["auth"])->name('mailbox.restore');

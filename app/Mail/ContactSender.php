@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactSender extends Mailable
+class ContactSender extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -18,7 +18,7 @@ class ContactSender extends Mailable
      *
      * @return void
      */
-    public function __construct($fullname,$message)
+    public function __construct($fullname, $message)
     {
         //
         $this->fullname = $fullname;

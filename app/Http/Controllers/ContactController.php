@@ -15,6 +15,9 @@ class ContactController extends Controller
         $this->middleware('admin')->only(['edit', 'update']);
     }
 
+
+
+
     // c pour le mail
 
     public function store(Request $request)
@@ -35,7 +38,7 @@ class ContactController extends Controller
 
         // $contact->read = 1;
         $contact->save();
-        Mail::to($contact->email,$contact->fullname)->send(new ContactSender($contact->fullname,$contact->message));
+        Mail::to($contact->email, $contact->fullname)->send(new ContactSender($contact->fullname, $contact->message));
         return redirect()->back();
     }
 
@@ -43,7 +46,7 @@ class ContactController extends Controller
     public function edit(Info $info)
     {
 
-        return view("admin.contact.edit",compact("info"));
+        return view("admin.contact.edit", compact("info"));
     }
 
     public function update(Request $request, Info $infos)
@@ -62,12 +65,38 @@ class ContactController extends Controller
         $infos->fax = $request->fax;
         $infos->message = $request->message;
         $infos->save();
-        return redirect()->route('contacts.index')->with('success', 'contacts ' . $request->adresse .' modifiée !');
+        return redirect()->route('contacts.index')->with('success', 'contacts ' . $request->adresse . ' modifiée !');
     }
 
     public function affichage()
     {
         $info = Info::first();
         return view("admin.contact.index", compact("info"));
+    }
+
+    public function index()
+    {
+
+        $contacts = Contact::all();
+        return view('admin.mailbox.index', compact('contacts'));
+    }
+    public function archives()
+    {
+        $contacts = Contact::onlyTrashed()->get();
+        return view('admin.mailbox.index', compact('contacts'));
+    }
+
+    public function destroy($id)
+    {
+        $contact = Contact::find($id);
+        $contact->delete();
+        return back();
+    }
+
+    public function restore($id)
+    {
+        $contact = Contact::withTrashed()->where('id', $id)->first();
+        $contact->restore();
+        return back();
     }
 }

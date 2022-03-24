@@ -12,9 +12,9 @@
                     <h4 class="card-title">Gallery</h4>
                 </div>
 
-          {{      }}  <div class="card-content">
+            <div class="card-content">
                     <div class="card-body">
-                        <form class="form" action="{{ route('categories.update',$categories->id) }}" method="POST" enctype="multipart/form-data">
+                        <form class="form" action="{{ route('video.update',$video->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method("PUT")
                             <div class="row">
@@ -22,7 +22,7 @@
                                     <div class="form-group">
                                         <label for="first-name-column">lien de la video</label>
                                         <input type="text" id="first-name-column" class="form-control"
-                                            placeholder="Nom de la video" name="url" value="{{ old('url',$categories->url) }}">
+                                            placeholder="Nom de la video" name="url" value="{{ old('url',$video->url) }}">
                                     </div>
                                 </div>
 

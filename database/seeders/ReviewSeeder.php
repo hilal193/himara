@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Room;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ReviewSeeder extends Seeder
 {
@@ -13,6 +15,17 @@ class ReviewSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $rooms = Room::all();
+        foreach($rooms as $room){
+
+            DB::table('reviews')->insert([
+                'nom'=>'Marlene',
+                'location'=>'Afghanistan',
+                'image'=>'',
+                'note'=>rand(1,5),
+                'room_id'=>$room->id,
+                'description'=>"J'ai trop aimé, je vous conseille de ouf.",
+            ]);
+        }
     }
 }

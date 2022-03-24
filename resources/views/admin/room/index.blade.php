@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if (count($room) <= 32)
 <div class="d-flex m-2">
     <h1>Partie Admin Room</h1>
         <a class="btn btn-primary m-auto" href="{{ route("rooms.create") }}">create</a>
 </div>
+
+@endif
 
 @foreach ($room as $item)
 
