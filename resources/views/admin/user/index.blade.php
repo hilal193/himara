@@ -19,23 +19,29 @@
                         <tr>
                             <th>ID</th>
                             <th>NAME</th>
+                            <th>EMAIL</th>
+                            <th>ROLE</th>
+                            <th>Profil Photo</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categoryImageAll as $item)
+                        @foreach ($userAll as $item)
                         <tr>
                             <td class="text-bold-500">{{ $item->id }}</td>
-                            <td class="text-bold-500">{{ $item->nom }}</td>
+                            <td class="text-bold-500">{{ $item->name }}</td>
+                            <td class="text-bold-500">{{ $item->email }}</td>
+                            <td class="text-bold-500">{{ $item->role->name }}</td>
+                            <td class="text-bold-500"><img style="height: 200px; width: 200px; border-radius: 50%;" src="{{ asset("storage/".$item->profil) }}" alt=""></td>
 
                             <td class="text-bold-500 d-flex">
-                                <a href="{{route('categories.edit', $item->id)}}" class="btn btn-warning m-1">Edit</a>
+                                <a href="{{route('user.edit', $item->id)}}" class="btn btn-warning m-1">Edit</a>
 
-                                <form action="{{ route("categoryImage.destroy", $item->id) }}" method="POST">
+                                {{-- <form action="{{ route("user.destroy", $item->id) }}" method="POST">
                                     @csrf
                                 @method('DELETE')
                                     <button type="submit" class="btn btn-danger m-1">Delete</button>
-                                </form>
+                                </form> --}}
 
                             </td>
 

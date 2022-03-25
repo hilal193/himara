@@ -135,14 +135,14 @@
                 </li>
                 @endadmin
 
-                {{-- @admin
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/user') ? 'active' : ''; }}">
                     <a href={{ route("user.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>User</span>
                     </a>
                 </li>
-                @endadmin --}}
+                @endadmin
 
             </ul>
         </div>

@@ -1,25 +1,26 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\CarouselController;
 use App\Models\Contact;
 use App\Models\Gallery;
 use App\Mail\ContactSender;
+use App\Models\Reservation;
+use App\Mail\ReservationMail;
 use App\Models\CategorieImage;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\CategorieImageController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\RoomController;
-use App\Http\Controllers\VideoController;
-use App\Mail\ReservationMail;
-use App\Models\Reservation;
+use App\Http\Controllers\CategorieImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -241,4 +242,9 @@ Route::get('/dashboard/mailbox/{id}/restore', [ContactController::class, "restor
 
 
 // image
-// Route::get('/dashboard/user', [Controller::class, "affichage"])->middleware(["auth"])->name('user.index');
+Route::get('/dashboard/user', [UserController::class, "affichage"])->middleware(["auth"])->name('user.index');
+
+// edit
+route::get("/admin/user/{user}/edit", [UserController::class, "edit"])->name("user.edit");
+// update
+route::put("/admin/user/{user}/update", [UserController::class, "update"])->name("user.update");
