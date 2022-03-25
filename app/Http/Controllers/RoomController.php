@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Models\categorieRoom;
+use App\Models\Feature;
+use App\Models\Statut;
 use App\Models\tagRoom;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,9 +27,11 @@ class RoomController extends Controller
         if (count(Room::all()) >= 32) {
             return back();
         }
+        $services = Feature::all();
+        $statut = Statut::all();
         $categorieRoom = categorieRoom::all();
         $tag = tagRoom::all();
-        return view('admin.room.create', compact("categorieRoom", "tag"));
+        return view('admin.room.create', compact("categorieRoom", "tag", 'services', 'statut'));
     }
 
     public function store(Request $request)
@@ -73,7 +77,14 @@ class RoomController extends Controller
 
         $room->tag_Rooms()->attach($request->tag_Rooms);
 
+        $features = Feature::all();
+        foreach ($features as $key => $service) {
 
+            $room->features()->attach(
+                $service->id,
+                ['statut_id' => $request->services[$key]]
+            );
+        }
         return redirect()->route('room.index')->with('success', 'Une nouvelle categorie ajoutée !');
     }
 
@@ -81,7 +92,9 @@ class RoomController extends Controller
     {
         $categorieRoom = categorieRoom::all();
         $tag = tagRoom::all();
-        return view("admin.room.edit", compact("rooms", "categorieRoom", "tag"));
+        $services = Feature::all();
+        $statut = Statut::all();
+        return view("admin.room.edit", compact("rooms", "categorieRoom", "tag", 'services', 'statut'));
     }
 
     public function update(Request $request, Room $rooms)
@@ -115,6 +128,16 @@ class RoomController extends Controller
         $rooms->litMax = $request->litMax;
         $rooms->personMax = $request->personMax;
         $rooms->save();
+
+        $features = Feature::all();
+        $rooms->features()->detach();
+        foreach ($features as $key => $service) {
+
+            $rooms->features()->attach(
+                $service->id,
+                ['statut_id' => $request->services[$key]]
+            );
+        }
         return redirect()->route('room.index')->with('success', 'room ' . $request->titre . ' modifiée !');
     }
 
