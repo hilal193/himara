@@ -23,7 +23,23 @@ class UserSeeder extends Seeder
                 'profil' => 'images/users/admin.jpg',
                 "password" => Hash::make("hilal"),
                 "created_at" => now()
-            ]
+            ],
+            [
+                "name" => "hilal",
+                "email" => "hilal1@test.com",
+                "role_id" => 2,
+                'profil' => 'images/users/admin.jpg',
+                "password" => Hash::make("hilal"),
+                "created_at" => now()
+            ],
+            [
+                "name" => "hilal",
+                "email" => "hilal2@test.com",
+                "role_id" => 3,
+                'profil' => 'images/users/admin.jpg',
+                "password" => Hash::make("hilal"),
+                "created_at" => now()
+            ],
         ]);
     }
 }

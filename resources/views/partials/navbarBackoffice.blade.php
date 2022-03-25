@@ -3,7 +3,9 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="index.html"><img src={{ asset("assets/images/logo/logo.png") }} alt="Logo" srcset=""></a>
+                    <a href="index.html"><img style="height: 200px; width: 200px; border-radius: 50%;" src={{ asset(Auth::user()->profil) }} alt="Logo" srcset=""></a>
+
+                    <h3>Bonjour : {{ Auth::user()->name}} {{ Auth::user()->prenom}} </h3>
                 </div>
 
                 <div class="toggler">
@@ -25,83 +27,104 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-
+                @editor
                 <li class="sidebar-item {{ Request::is('dashboard/room') ? 'active' : ''; }} ">
                     <a href={{ route("room.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>room</span>
                     </a>
                 </li>
+                @endeditor
 
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/staff') ? 'active' : ''; }}">
                     <a href={{ route("team.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Team</span>
                     </a>
                 </li>
+                @endadmin
 
+                @webmaster
                 <li class="sidebar-item {{ Request::is('dashboard/blog') ? 'active' : ''; }}">
                     <a href={{ route("blog.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Blog</span>
                     </a>
                 </li>
+                @endwebmaster
 
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/gallery') ? 'active' : ''; }}">
                     <a href={{ route("gallery.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Gallery</span>
                     </a>
                 </li>
+                @endadmin
 
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/categoryImage/gallery') ? 'active' : ''; }}">
                     <a href={{ route("categoryImage.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Category Image</span>
                     </a>
                 </li>
+                @endadmin
 
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/contact') ? 'active' : ''; }}">
                     <a href={{ route("contact.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Contact</span>
                     </a>
                 </li>
+                @endadmin
 
+                @webmaster
                 <li class="sidebar-item {{ Request::is('dashboard/comment') ? 'active' : ''; }}">
                     <a href={{ route("commentaire.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Comment</span>
                     </a>
                 </li>
+                @endwebmaster
 
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/carousel') ? 'active' : ''; }}">
                     <a href={{ route("carousel.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Carousel</span>
                     </a>
                 </li>
+                @endadmin
 
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/videos') ? 'active' : ''; }}">
                     <a href={{ route("video.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Video</span>
                     </a>
                 </li>
+                @endadmin
 
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/reservation') ? 'active' : ''; }}">
                     <a href={{ route("reservation.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Reservation</span>
                     </a>
                 </li>
+                @endadmin
 
+                @admin
                 <li class="sidebar-item {{ Request::is('dashboard/mailbox') ? 'active' : ''; }}">
                     <a href={{ route("mailbox.index") }} class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Mailbox</span>
                     </a>
                 </li>
+                @endadmin
 
             </ul>
         </div>
