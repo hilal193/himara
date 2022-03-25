@@ -8,7 +8,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="card">
                 <div class="card-content">
-                    <img class="card-img-top img-fluid" src="{{ asset('/storage/images/'. $item->url) }}" alt="Card image cap" style="height: 20rem">
+                    <img class="card-img-top img-fluid" src="{{ asset('/storage/'. $item->url) }}" alt="Card image cap" style="height: 20rem">
                     <div class="card-body">
                         <p class="card-text">
                            {{ $item->url}}

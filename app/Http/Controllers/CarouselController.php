@@ -83,7 +83,7 @@ class CarouselController extends Controller
             if (Storage::disk('public')->exists($carousel->url)) {
                 Storage::disk('public')->delete($carousel->url);
             }
-            $image = Storage::disk('public')->put('', $request->image);
+            $image = Storage::disk('public')->put('images', $request->image);
             $carousel->url = $image;
         }
         $carousel->save();

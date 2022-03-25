@@ -73,7 +73,7 @@
                 <!-- SLIDE NR. 1 -->
                 <li data-transition="crossfade">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset($carousel[0]->url) }}" alt="Image" title="Image"
+                    <img src="{{ asset("storage/".$carousel[0]->url) }}" alt="Image" title="Image"
                         data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
                         data-bgparallax="10" class="rev-slidebg" data-no-retina="">
                     <!-- LAYER NR. 1 -->
@@ -128,7 +128,7 @@
                 <!-- SLIDE NR. 2 -->
                 <li data-transition="crossfade">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset($carousel[1]->url) }}" alt="Image" title="Image"
+                    <img src="{{ asset("storage/".$carousel[1]->url) }}" alt="Image" title="Image"
                         data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
                         data-bgparallax="10" class="rev-slidebg" data-no-retina="">
                     <!-- LAYER NR. 1 -->
@@ -148,7 +148,7 @@
                 <!-- SLIDE NR. 3 -->
                 <li data-transition="crossfade">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset($carousel[2]->url) }}" alt="Image" title="Image"
+                    <img src="{{ asset("storage/".$carousel[2]->url) }}" alt="Image" title="Image"
                         data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
                         data-bgparallax="10" class="rev-slidebg" data-no-retina="">
                     <!-- LAYER NR. 1 -->

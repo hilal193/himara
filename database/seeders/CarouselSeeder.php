@@ -16,13 +16,13 @@ class CarouselSeeder extends Seeder
     {
         DB::table('carousels')->insert([
             [
-                'url'=>'images/slider/slider1.jpg',
+                'url'=>'images/images/slider/slider1.jpg',
             ],
             [
-                'url'=>'images/slider/slider13.jpg',
+                'url'=>'images/images/slider/slider13.jpg',
             ],
             [
-                'url'=>'images/slider/slider3.jpg',
+                'url'=>'images/images/slider/slider3.jpg',
             ],
         ]);
     }

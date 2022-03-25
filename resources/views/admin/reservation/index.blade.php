@@ -21,6 +21,7 @@
                                 <th>EMAIL</th>
                                 <th>COUNTRY</th>
                                 <th>TELEPHONE</th>
+                                <th>WEBSITE</th>
                                 <th>COMMENTAIRE</th>
                                 <th>ACTION</th>
                             </tr>
@@ -29,7 +30,7 @@
                             @foreach ($reservation as $item)
                                 <tr>
                                     <td class="text-bold-500">{{ $item->id }}</td>
-                                    <td class="text-bold-500">{{ $item->name }}</td>
+                                    <td class="text-bold-500">{{ $item->nom }}</td>
                                     <td class="text-bold-500">{{ $item->email }}</td>
                                     <td class="text-bold-500">
                                         @if ($item->country == '')
@@ -40,6 +41,14 @@
                                     </td>
                                     <td class="text-bold-500">
                                         @if ($item->telephone == '')
+                                            /
+                                        @else
+                                        {{ $item->telephone }}
+
+                                        @endif
+                                    </td>
+                                    <td class="text-bold-500">
+                                        @if ($item->website == '')
                                             /
                                         @else
                                             {{ $item->website }}

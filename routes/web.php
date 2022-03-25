@@ -217,6 +217,8 @@ Route::get('/pages/BOOK/BookRoom', [FrontController::class, "bookRoom"])->name('
 Route::get('/dashboard/carousel', [CarouselController::class, "affichage"])->middleware(["auth"])->name('carousel.index');
 // edit
 route::get("/admin/home/carousel/{carousel}/editindexcarousel", [CarouselController::class, "edit"])->name("carousel.edit");
+// update
+route::put("/admin/carousel/home/{carousel}/updatecarousel", [CarouselController::class, "update"])->name("carousel.update");
 
 
 Route::get('/dashboard/videos', [FrontController::class, "videosAffiche"])->middleware(["auth"])->name('video.index');
