@@ -19,9 +19,10 @@ class ReviewSeeder extends Seeder
         foreach($rooms as $room){
 
             DB::table('reviews')->insert([
+
                 'nom'=>'Marlene',
                 'location'=>'Afghanistan',
-                'image'=>'',
+                'image'=>'images/blog-post3.jpg',
                 'note'=>rand(1,5),
                 'room_id'=>$room->id,
                 'description'=>"J'ai trop aimé, je vous conseille de ouf.",

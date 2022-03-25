@@ -206,7 +206,7 @@
                                                 <i class="fa fa-star voted" aria-hidden="true"></i>
                                                 <i class="fa fa-star" aria-hidden="true"></i>
                                             </div>
-                                            <small>Based on 3 ratings</small>
+                                            <small>Based on {{ count($reviews) }} ratings</small>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
@@ -321,15 +321,15 @@
                             @foreach ($reviews as $item)
                                 <div class="review-box">
                                     <figure class="review-author">
-                                        <img src={{ asset($item->image) }} alt="Image">
+                                        <img src={{ asset('storage/'.$item->image) }} alt="Image">
                                     </figure>
                                     <div class="review-contentt">
                                         <div class="rating">
-                                            @for ($i = 0; $i <= $item->note; $i++)
+                                            @for ($i = 0; $i < $item->note-1; $i++)
                                                 <i class="fa fa-star voted" aria-hidden="true"></i>
                                             @endfor
                                             <i class="fa fa-star voted" aria-hidden="true"></i>
-                                            @for ($i = 5 - $item; $i <= 5; $i++)
+                                            @for ($i = 0; $i < (5 - $item->note); $i++)
                                                 <i class="fa fa-star" aria-hidden="true"></i>
                                             @endfor
                                         </div>

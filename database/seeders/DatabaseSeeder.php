@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             VideoSeeder::class,
             CarouselSeeder::class,
             HimaraPictureSeeder::class,
+            ReviewSeeder::class,
         ]);
     }
 }
