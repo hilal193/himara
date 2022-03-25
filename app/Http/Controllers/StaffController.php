@@ -69,13 +69,16 @@ class StaffController extends Controller
     public function destroy(Team $image, $id)
     {
         $image = Team::find($id);
-        // $this->authorize("isAdmin");
-        // Storage
-        $destination = "images/" . $image->img;
-        // dd($destination);
-        Storage::disk("public")->delete($destination);
-        // dd($destination);
-        $image->delete();
+        if ($image->fonction_id != 1) {
+
+            // $this->authorize("isAdmin");
+            // Storage
+            $destination = "images/" . $image->img;
+            // dd($destination);
+            Storage::disk("public")->delete($destination);
+            // dd($destination);
+            $image->delete();
+        }
         return redirect()->back()->with('warning', 'Image bien supprimé');
     }
 
