@@ -237,3 +237,8 @@ Route::get('/dashboard/mailbox', [ContactController::class, "index"])->middlewar
 Route::get('/dashboard/mailbox/archives', [ContactController::class, "archives"])->middleware(["auth"])->name('mailbox.archive');
 Route::get('/dashboard/mailbox/{id}/delete', [ContactController::class, "destroy"])->middleware(["auth"])->name('mailbox.destroy');
 Route::get('/dashboard/mailbox/{id}/restore', [ContactController::class, "restore"])->middleware(["auth"])->name('mailbox.restore');
+
+
+
+// image
+// Route::get('/dashboard/user', [Controller::class, "affichage"])->middleware(["auth"])->name('user.index');

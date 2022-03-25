@@ -76,14 +76,14 @@ class CarouselController extends Controller
     public function update(Request $request, Carousel $carousel)
     {
         $request->validate([
-            'image' => ['required', 'image']
+            'url' => ['required', 'image']
         ]);
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('url')) {
             if (Storage::disk('public')->exists($carousel->url)) {
                 Storage::disk('public')->delete($carousel->url);
             }
-            $image = Storage::disk('public')->put('images', $request->image);
+            $image = Storage::disk('public')->put('images', $request->url);
             $carousel->url = $image;
         }
         $carousel->save();

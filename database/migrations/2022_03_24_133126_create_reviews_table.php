@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->string('location');
             $table->text('description');
             $table->integer('note');
-            $table->foreignId('room_id')->constrained();
+            $table->foreignId('room_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

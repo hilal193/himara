@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 "name" => "hilal",
                 "email" => "hilal@test.com",
                 "role_id" => 1,
-                'profil' => 'images/users/admin.jpg',
+                'profil' => 'images/users/employé_6.jpg',
                 "password" => Hash::make("hilal"),
                 "created_at" => now()
             ],

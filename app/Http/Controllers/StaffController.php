@@ -57,6 +57,12 @@ class StaffController extends Controller
         $store->fonction_id = $request->fonction_id;
 
         $store->save();
+
+        if ($request->fonction_id == 1) {
+            $housekeeper = Team::where('fonction_id', 1)->where('id', '!=', $store->id)->first();
+            $housekeeper->fonction_id = Fonction::inRandomOrder()->where('id', '!=', 1)->first()->id;
+            $housekeeper->save();
+        }
         return  redirect()->back()->with('success', $request->fullname . ' bien ajouté !');
     }
 
@@ -76,7 +82,9 @@ class StaffController extends Controller
     public function edit(Team $teams)
     {
         // $teams = Team::all();
-        return view("admin.staff.edit", compact("teams"));
+        $fonctionAll = Fonction::all();
+
+        return view("admin.staff.edit", compact("teams", "fonctionAll"));
     }
 
     public function update(Request $request, Team $teams)
@@ -103,7 +111,18 @@ class StaffController extends Controller
 
         $teams->fullname = $request->fullname;
         $teams->description = $request->description;
+        if ($teams->fonction_id != 1) {
+
+            $tempFonction = $teams->fonction_id;
+            $teams->fonction_id = $request->fonction_id;
+        }
+
         $teams->save();
+        if ($request->fonction_id == 1) {
+            $housekeeper = Team::where('fonction_id', 1)->where('id', '!=', $teams->id)->first();
+            $housekeeper->fonction_id = $tempFonction;
+            $housekeeper->save();
+        }
         return redirect()->route('team.index')->with('success', 'categorie ' . $request->nom . ' modifiée !');
     }
 }

@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href={{ asset("assets/images/favicon.svg") }} type="image/x-icon">
 </head>
 
-<body>
+<body style="background-color: #edcb9a;">
 
 
     <div id="app">

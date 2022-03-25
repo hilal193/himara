@@ -3,7 +3,7 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="index.html"><img style="height: 200px; width: 200px; border-radius: 50%;" src={{ asset(Auth::user()->profil) }} alt="Logo" srcset=""></a>
+                    <a href={{ route("home") }}><img style="height: 200px; width: 200px; border-radius: 50%;" src="{{ asset(Auth::user()->profil) }}" alt="Logo" srcset=""></a>
 
                     <h3>Bonjour : {{ Auth::user()->name}} {{ Auth::user()->prenom}} </h3>
                 </div>
@@ -11,7 +11,16 @@
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                 </div>
+
+
             </div>
+            <p><form action="{{ route("logout") }}" method="POST">
+                @csrf
+                <button class="btn btn-primary">Deconnexion</button>
+
+                </form>
+            {{-- </div> --}}
+            </p>
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
@@ -125,6 +134,15 @@
                     </a>
                 </li>
                 @endadmin
+
+                {{-- @admin
+                <li class="sidebar-item {{ Request::is('dashboard/user') ? 'active' : ''; }}">
+                    <a href={{ route("user.index") }} class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>User</span>
+                    </a>
+                </li>
+                @endadmin --}}
 
             </ul>
         </div>
