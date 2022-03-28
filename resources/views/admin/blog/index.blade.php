@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
+
 <div class="d-flex m-2">
 
     <h1>Partie Admin Blog</h1>

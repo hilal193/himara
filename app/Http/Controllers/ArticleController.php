@@ -69,7 +69,7 @@ class ArticleController extends Controller
         $article->tags()->attach($request->tag);
 
 
-        return redirect()->route('blog.index')->with('success', 'Une nouvelle categorie ajoutée !');
+        return redirect()->route('blog.index')->with('success', 'Un article a été ajoutée !');
     }
 
 
@@ -110,7 +110,7 @@ class ArticleController extends Controller
         $blogs->auteur = $request->auteur;
         $blogs->creation = $request->creation;
         $blogs->save();
-        return redirect()->route('team.index')->with('success', 'article ' . $request->title . ' modifiée !');
+        return redirect()->route('blog.index')->with('success', 'article ' . $request->title . ' modifiée !');
     }
 
     public function destroy($id)

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
+
 <h1>test</h1>
 
 <section id="multiple-column-form">

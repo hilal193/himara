@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
+
     {{-- @if (count($team) < 8)
         <div class="m-5 d-flex">
 

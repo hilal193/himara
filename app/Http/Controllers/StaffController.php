@@ -63,7 +63,7 @@ class StaffController extends Controller
             $housekeeper->fonction_id = Fonction::inRandomOrder()->where('id', '!=', 1)->first()->id;
             $housekeeper->save();
         }
-        return  redirect()->back()->with('success', $request->fullname . ' bien ajouté !');
+        return  redirect()->route("team.index")->with('success', $request->fullname . ' bien ajouté !');
     }
 
     public function destroy(Team $image, $id)
@@ -79,7 +79,7 @@ class StaffController extends Controller
             // dd($destination);
             $image->delete();
         }
-        return redirect()->back()->with('warning', 'Image bien supprimé');
+        return redirect()->back()->with('warning', 'membre(team) bien supprimé');
     }
 
     public function edit(Team $teams)
@@ -126,6 +126,6 @@ class StaffController extends Controller
             $housekeeper->fonction_id = $tempFonction;
             $housekeeper->save();
         }
-        return redirect()->route('team.index')->with('success', 'categorie ' . $request->nom . ' modifiée !');
+        return redirect()->route('team.index')->with('success', 'staff ' . $request->fullname . ' modifiée !');
     }
 }

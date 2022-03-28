@@ -53,7 +53,7 @@ class GalleryController extends Controller
         $store->categorie_image_id = $request->categorie_image_id;
 
 		$store->save();
-		return  redirect()->back()->with('success', $request->nom . ' bien ajouté !');
+		return  redirect()->route("gallery.index")->with('success', $request->nom . ' bien ajouté !');
 	}
 
     public function destroy(Image $image)
