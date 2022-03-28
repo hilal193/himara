@@ -107,7 +107,7 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
 
         $user->save();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'user' . $request->name .' bien modifiée !');
     }
 
     /**

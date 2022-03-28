@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
+
 <h1>Partie Admin Contact</h1>
 
 <div class="col-12">

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
+
 
 <section id="multiple-column-form">
     <div class="row match-height">
@@ -50,11 +52,11 @@
                                     </div>
 
                                 </div>
-                               
+
 
                                 <div class="col-md-12 col-12">
                                     <div class="form-group">
-                                        <label for="first-name-column">message</label>
+                                        <label for="first-name-column">website</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="website" name="site" value="{{ old('site',$info->site) }}">
                                     </div>

@@ -45,27 +45,31 @@ class ContactController extends Controller
     // pour la partie droite
     public function edit(Info $info)
     {
-
+        // dd("test");
         return view("admin.contact.edit", compact("info"));
     }
 
-    public function update(Request $request, Info $infos)
+    public function update(Request $request, Info $info)
     {
+
         $request->validate([
             'adresse' => 'required',
             'mail' => 'required',
             'telephone' => 'required',
             'fax' => 'required',
-            'message' => 'required',
+            'site' => 'required',
         ]);
 
-        $infos->adresse = $request->adresse;
-        $infos->mail = $request->mail;
-        $infos->telephone = $request->telephone;
-        $infos->fax = $request->fax;
-        $infos->message = $request->message;
-        $infos->save();
-        return redirect()->route('contacts.index')->with('success', 'contacts ' . $request->adresse . ' modifiée !');
+
+        $info->adresse = $request->adresse;
+        $info->mail = $request->mail;
+        $info->telephone = $request->telephone;
+        $info->fax = $request->fax;
+        $info->site = $request->site;
+
+        $info->save();
+        // dd("test");
+        return redirect()->route('contact.index')->with('success', 'contacts ' . $request->adresse . ' modifiée !');
     }
 
     public function affichage()
@@ -95,7 +99,7 @@ class ContactController extends Controller
 
     public function restore($id)
     {
-        $contact = Contact::withTrashed()->where('id', $id)->first();
+        $contact = Contact::withTrashed()->where('id',$id)->first();
         $contact->restore();
         return back();
     }

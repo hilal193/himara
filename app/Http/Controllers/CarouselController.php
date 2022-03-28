@@ -87,7 +87,7 @@ class CarouselController extends Controller
             $carousel->url = $image;
         }
         $carousel->save();
-        return redirect()->route('carousel.index');
+        return redirect()->route('carousel.index')->with('success', 'carousel ' . $request->url .'(url) bien modifiée !');
     }
 
     /**

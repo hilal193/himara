@@ -181,8 +181,9 @@ class FrontController extends Controller
         $features = FeatureRoom::where('room_id', $id)->where('statut_id', '!=', 3)->get();
         $categories= categorieRoom::all();
         $reviews = Review::where('room_id', $id)->get();
+        $roomListAll = Room::all();
 
-        return view("pages.room", compact("room", 'features','categories', 'reviews'));
+        return view("pages.room", compact("room", 'features','categories', 'reviews',"roomListAll"));
     }
 
     // public function service()

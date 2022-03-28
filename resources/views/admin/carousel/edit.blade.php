@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
 <section id="multiple-column-form">
     <div class="row match-height">
         <div class="col-12">

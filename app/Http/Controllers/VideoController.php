@@ -22,6 +22,7 @@ class VideoController extends Controller
         $video = Video::first();
         $video->url = $request->url;
         $video->save();
-        return back();
+        // return back()->with('success', 'video ' . $request->url .'(url) bien modifiée !');
+        return back()->with('success', 'video' . $request->url .'(url) bien modifiée !');
     }
 }

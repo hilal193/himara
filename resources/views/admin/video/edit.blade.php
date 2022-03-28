@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
 
-<h1>test</h1>
+
+{{-- <h1>test</h1> --}}
 
 <section id="multiple-column-form">
     <div class="row match-height">

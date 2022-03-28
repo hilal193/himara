@@ -353,13 +353,17 @@
                                 <p class="section-subtitle">Leave your review</p>
                             </div>
                             <div class="row">
+                                 @foreach ($roomListAll->shuffle()->take(3) as $item)
                                 <!-- ITEM -->
                                 <div class="col-lg-4">
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
                                             <a href="room.html">
-                                                <img src={{ asset('images/rooms/single/single1.jpg') }}
-                                                    class="img-fluid" alt="Image">
+                                                {{-- <img src={{ asset('images/rooms/single/single1.jpg') }}
+                                                    class="img-fluid" alt="Image"> --}}
+                                                <img src="{{ asset('/storage/images/' . $item->img) }}" }}
+                                                class="img-fluid" alt="Image">
+
                                             </a>
                                             <div class="room-services">
                                                 <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover"
@@ -372,17 +376,19 @@
                                                     data-trigger="hover" data-content="Plasma TV with cable channels"
                                                     data-original-title="TV"></i>
                                             </div>
-                                            <div class="room-price">€89 / night</div>
+                                            <div class="room-price">{{ $item->prix }}</div>
                                         </figure>
                                         <div class="room-info">
                                             <h2 class="room-title">
-                                                <a href="room.html">Tanger</a>
+                                                <a href="room.html">{{ $item->category_room->nom }}</a>
                                             </h2>
                                             <p>Enjoy our single room</p>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- ITEM -->
+
+                                @endforeach
+                                {{-- <!-- ITEM -->
                                 <div class="col-lg-4">
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
@@ -442,7 +448,7 @@
                                             <p>Enjoy our delux room</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
