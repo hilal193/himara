@@ -76,6 +76,9 @@
                                             <input type="text" id="first-name-column" class="form-control"
                                                 placeholder="description" name="description"
                                                 value="{{ old('description', $teams->description) }}">
+                                                @error('description')
+                                                @include('layouts.error')
+                                                @enderror
                                         </div>
                                     </div>
 
@@ -86,6 +89,9 @@
                                             <input type="text" id="first-name-column" class="form-control"
                                                 placeholder="Nom de l'image" name="fullname"
                                                 value="{{ old('fullname', $teams->fullname) }}">
+                                                @error('fullname')
+                                            @include('layouts.error')
+                                            @enderror
                                         </div>
                                     </div>
 

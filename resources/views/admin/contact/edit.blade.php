@@ -23,6 +23,9 @@
                                         <label for="first-name-column">adresse</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="description" name="adresse" value="{{ old('adresse',$info->adresse) }}">
+                                        @error('adresse')
+                                        @include('layouts.error')
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -31,6 +34,9 @@
                                         <label for="first-name-column">email</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="mail" value="{{ old('mail',$info->mail) }}">
+                                        @error('mail')
+                                        @include('layouts.error')
+                                        @enderror
                                     </div>
 
                                 </div>
@@ -40,6 +46,9 @@
                                         <label for="first-name-column">telephone</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="telephone" value="{{ old('telephone',$info->telephone) }}">
+                                        @error('telephone')
+                                        @include('layouts.error')
+                                        @enderror
                                     </div>
 
                                 </div>
@@ -49,6 +58,10 @@
                                         <label for="first-name-column">fax</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="fax" value="{{ old('fax',$info->fax) }}">
+                                        @error('fax')
+                                        @include('layouts.error')
+                                        @enderror
+
                                     </div>
 
                                 </div>
@@ -59,6 +72,9 @@
                                         <label for="first-name-column">website</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="website" name="site" value="{{ old('site',$info->site) }}">
+                                        @error('site')
+                                        @include('layouts.error')
+                                        @enderror
                                     </div>
 
                                 </div>

@@ -21,6 +21,9 @@
                                         <label for="first-name-column">Nom</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="nom" value="{{ old('nom') }}">
+                                            @error('nom')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -29,6 +32,9 @@
                                         <label for="first-name-column">Filter</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="filter" value="{{ old('filter') }}">
+                                            @error('filter')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 

@@ -70,6 +70,9 @@
                                         <input type="email" id="first-name-column" class="form-control"
                                             placeholder="description" name="email"
                                             value="{{ old('description', $user->email) }}">
+                                            @error('description')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -80,6 +83,9 @@
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom" name="name"
                                             value="{{ old('fullname', $user->name) }}">
+                                            @error('fullname')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 

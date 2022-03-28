@@ -23,6 +23,9 @@
                                         <label for="first-name-column">Nom</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="nom" value="{{ old('nom',$categories->nom) }}">
+                                            @error('nom')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -32,6 +35,9 @@
                                         <label for="first-name-column">filter</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="filter" value="{{ old('filter',$categories->filter) }}">
+                                            @error('filter')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                     {{-- <div class="input-group mb-3">
                                         <select class="form-select" id="inputGroupSelect01" name="categorie_image_id">

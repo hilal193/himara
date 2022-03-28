@@ -21,6 +21,9 @@
                                             <label for="first-name-column">titre</label>
                                             <input type="text" id="first-name-column" class="form-control"
                                                 placeholder="titre" name="titre" value="{{ old('titre') }}">
+                                            @error('titre')
+                                            @include('layouts.error')
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -30,6 +33,9 @@
                                             <input type="text" id="first-name-column" class="form-control"
                                                 placeholder="Nom de l'image" name="description"
                                                 value="{{ old('description') }}">
+                                            @error('description')
+                                            @include('layouts.error')
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -38,6 +44,9 @@
                                             <label for="first-name-column">Prix de la chambre</label>
                                             <input type="text" id="first-name-column" class="form-control"
                                                 placeholder="Prix de la chambre" name="prix" value="{{ old('prix') }}">
+                                            @error('prix')
+                                            @include('layouts.error')
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -46,6 +55,9 @@
                                             <label for="first-name-column">Nombre de lit(s)</label>
                                             <input type="number" id="first-name-column" class="form-control"
                                                 placeholder="lit (max)" name="litMax" value="{{ old('litMax') }}">
+                                                @error('litMax')
+                                                @include('layouts.error')
+                                                @enderror
                                         </div>
                                     </div>
 
@@ -55,6 +67,9 @@
                                             <input type="number" id="first-name-column" class="form-control"
                                                 placeholder="nombre de personne" name="personMax"
                                                 value="{{ old('personMax') }}">
+                                            @error('personMax')
+                                            @include('layouts.error')
+                                            @enderror
                                         </div>
                                     </div>
 

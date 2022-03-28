@@ -25,6 +25,9 @@
                                         <label for="first-name-column">lien de la video</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de la video" name="url" value="{{ old('url',$video->url) }}">
+                                        @error('url')
+                                        @include('layouts.error')
+                                        @enderror
                                     </div>
                                 </div>
 
