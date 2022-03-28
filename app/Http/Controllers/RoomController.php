@@ -85,7 +85,7 @@ class RoomController extends Controller
                 ['statut_id' => $request->services[$key]]
             );
         }
-        return redirect()->route('room.index')->with('success', 'Une nouvelle categorie ajoutée !');
+        return redirect()->route('room.index')->with('success', 'Une nouvelle chambre a été ajoutée !');
     }
 
     public function edit(Room $rooms)
@@ -149,6 +149,6 @@ class RoomController extends Controller
         $destination = "images/" . $image->img;
         Storage::disk("public")->delete($destination);
         $image->delete();
-        return redirect()->back()->with('warning', 'article bien supprimé');
+        return redirect()->back()->with('warning', 'chambre bien supprimé');
     }
 }
