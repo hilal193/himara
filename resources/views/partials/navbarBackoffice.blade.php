@@ -29,6 +29,14 @@
                 <li class="sidebar-title">prenom : {{ Auth::user()->prenom}}</li> --}}
                 <li class="sidebar-title">Menu</li>
 
+                <li class="sidebar-item {{ Request::is('/') ? 'active' : ''; }} ">
+                    <a href={{ route("home") }} class='sidebar-link'>
+                    {{-- <a href="#" class='sidebar-link'> --}}
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item {{ Request::is('admin/dashboard') ? 'active' : ''; }} ">
                     <a href={{ route("dashboard") }} class='sidebar-link'>
                     {{-- <a href="#" class='sidebar-link'> --}}
