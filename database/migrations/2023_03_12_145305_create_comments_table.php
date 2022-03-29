@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->boolean("validate");
             $table->string("name");
-            $table->string("email")->unique();
+            $table->string("email");
             $table->string("website")->nullable();
             $table->longText("commentaire");
             $table->string("photoProfil")->nullable();

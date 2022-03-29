@@ -39,7 +39,7 @@ class CommentController extends Controller
         $table->photoProfil = "images/blog-post1.jpg";
 
         $table->save();
-        return  redirect()->back();
+        return  redirect()->back()->with('success', 'comment ' . ' votre commentaire doit être valider par le webmaser');
     }
     // edit
     // public  function  edit($id) {

@@ -115,8 +115,12 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
+        if(!Article::where('id', $id)->exists()){
+            return redirect()->back();
+        }
         // dd($image);
         $image = Article::find($id);
+
         // Storage
         $destination = "images/" . $image->img;
         Storage::disk("public")->delete($destination);

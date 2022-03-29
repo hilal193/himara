@@ -62,6 +62,9 @@ class FrontController extends Controller
 
     public function tagCategorie($id)
     {
+        if(!Tag::where('id', $id)->exists()){
+            return redirect()->route('roomslist');
+        }
 
         $tagiD = Tag::find($id);
         $blog = $tagiD->articles()->paginate(2);
@@ -168,6 +171,9 @@ class FrontController extends Controller
 
     public function blogPost($id)
     {
+        if(!Article::where('id', $id)->exists()){
+            return redirect()->route('blog');
+        }
         $blog = Article::find($id);
         // dd($projetTout);
         $comment = Comment::all();
@@ -177,6 +183,9 @@ class FrontController extends Controller
 
     public function roomPost($id)
     {
+        if(!Room::where('id', $id)->exists()){
+            return redirect()->route('roomslist');
+        }
         $room = Room::find($id);
         $features = FeatureRoom::where('room_id', $id)->where('statut_id', '!=', 3)->get();
         $categories= categorieRoom::all();
@@ -208,7 +217,9 @@ class FrontController extends Controller
         // $roomListAll = Room::all();
         $roomListAll = Room::orderBy("created_at","desc")->paginate(2);
 
-
+        if(!tagRoom::where('id', $id)->exists()){
+            return redirect()->route('roomslist');
+        }
         $tagRoomsiD = tagRoom::find($id);
         $roomListAll = $tagRoomsiD->rooms()->paginate(2);
         // dd(count($room));
@@ -224,7 +235,9 @@ class FrontController extends Controller
 
     public function searchRoomCategorie($id)
     {
-
+        if(!categorieRoom::where('id', $id)->exists()){
+            return redirect()->route('roomslist');
+        }
         $roomListAll = Room::where("category_room_id", $id)->paginate(2);
         $categoryRoom = categorieRoom::all();
         // dd($categoryRoomArticle);

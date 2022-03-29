@@ -77,7 +77,7 @@
                                 <div class="col-lg-2">
                                     <div class="room-price">
                                         <span class="price">{{ $item->prix }}</span>
-                                        <a href="room.html" class="btn btn-sm">view <br> details</a>
+                                        <a href={{ route("roomLast",$item->id)  }} class="btn btn-sm">view <br> details</a>
                                     </div>
                                 </div>
                             </div>

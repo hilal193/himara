@@ -13,7 +13,7 @@
             style="visibility: visible; z-index: 0; position: fixed; top: 0px; left: 0px; overflow: hidden; transform: translate3d(0px, 116.5px, 0px); height: 535px; width: 966px;">
         </div>
 
-        {{-- @foreach ($blog as $item) --}} 
+        {{-- @foreach ($blog as $item) --}}
 
         {{-- <div class="blog-post-cover gradient-overlay op5" data-src="{{ asset('/images/blog/'. $blog->img) }}"
             data-parallax="scroll" data-speed="0.3" data-mirror-selector=".wrapper" data-z-index="0"
@@ -148,6 +148,8 @@
                         </article>
                         <div id="comments">
                             <div class="section-title">
+                        @include('layouts.flash')
+
                                 <h4>COMMENTS</h4>
                                 <p class="section-subtitle">Leave your comment</p>
                             </div>

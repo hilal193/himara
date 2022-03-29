@@ -39,7 +39,7 @@ class ContactController extends Controller
         // $contact->read = 1;
         $contact->save();
         Mail::to($contact->email, $contact->fullname)->send(new ContactSender($contact->fullname, $contact->message));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'le mail a bien été envoyé !');
     }
 
     // pour la partie droite

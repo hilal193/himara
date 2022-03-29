@@ -27,6 +27,8 @@
         <!-- ========== MAIN ========== -->
         <main class="contact-page">
             <div class="container">
+                @include('layouts.flash')
+
                 <div class="row">
                     <div class="col-md-8">
                         <div class="section-title">

@@ -24,6 +24,9 @@
                                         <label for="first-name-column">titre</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="titre" name="title" value="{{ old('title',$blogs->title) }}">
+                                            @error('title')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -32,6 +35,9 @@
                                         <label for="first-name-column">Description</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="description" value="{{ old('description',$blogs->description) }}">
+                                            @error('description')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -40,6 +46,9 @@
                                         <label for="first-name-column">Auteur</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'auteur" name="auteur" value="{{ old('auteur',$blogs->auteur) }}">
+                                            @error('auteur')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -48,6 +57,9 @@
                                         <label for="first-name-column">Creation</label>
                                         <input type="date" id="first-name-column" class="form-control"
                                             placeholder="creation" name="creation" value="{{ old('creation',$blogs->creation) }}">
+                                            @error('creation')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 

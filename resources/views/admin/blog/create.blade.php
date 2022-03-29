@@ -22,6 +22,9 @@
                                         <label for="first-name-column">titre</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="titre" name="title" value="{{ old('titre') }}">
+                                            @error('title')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -30,6 +33,9 @@
                                         <label for="first-name-column">Description</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'image" name="description" value="{{ old('description') }}">
+                                            @error('description')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -38,6 +44,9 @@
                                         <label for="first-name-column">Auteur</label>
                                         <input type="text" id="first-name-column" class="form-control"
                                             placeholder="Nom de l'auteur" name="auteur" value="{{ old('auteur') }}">
+                                            @error('auteur')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -46,6 +55,9 @@
                                         <label for="first-name-column">Creation</label>
                                         <input type="date" id="first-name-column" class="form-control"
                                             placeholder="creation" name="creation" value="{{ old('creation') }}">
+                                            @error('creation')
+                                            @include('layouts.error')
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -100,6 +112,9 @@
                                 </div>
 
                                 <div class="col-md-12 col-12">
+                                    @error('categorie_article_id')
+                                    @include('layouts.error')
+                                    @enderror
                                     <h6>Select your category please</h6>
                                     <div class="input-group mb-3">
                                         <select class="form-select" id="inputGroupSelect01" name="categorie_article_id">

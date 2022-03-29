@@ -411,7 +411,7 @@
                         </figure>
                         <div class="room-info">
                             <h2 class="room-title">
-                                <a href="room.html">{{ $room->category_room->nom }}</a>
+                                <a href={{ route("roomslist") }}>{{ $room->category_room->nom }}</a>
                             </h2>
                             <p>Enjoy our single room</p>
                         </div>
@@ -799,6 +799,8 @@
     <!-- ========== CONTACT V2 ========== -->
     <section class="contact-v2 gray">
         <div class="container">
+        @include('layouts.flash')
+
             <div class="row">
                 <div class="col-md-5">
                     <div class="section-title">
